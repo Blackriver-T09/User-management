@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, views, url_for, redirect, session,abort,jsonify
-from utils import username_check,password_check,email_check, hash_encipher, decryptor_check,alert,token_generate
+from utils import username_check,password_check,email_check, hash_encipher, decryptor_check,alert,path_generate
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # 设置一个安全的密钥用于签名会话
@@ -10,7 +10,7 @@ user_list = {
     "mool": hash_encipher('bilibili')  
     }
 
-token_list = {
+path_list = {
     "heihe": 'qwer',
     "baishan": 'asdf',
     "mool": 'zxcv'
@@ -25,12 +25,11 @@ email_list={
 
 
 
-# 本地API
-@app.route('/api/check_username', methods=['GET'])
-def check_username():
+# 本地API——查询path（下载结果）
+@app.route('/api/search_path', methods=['GET'])
+def search_path():
     username = request.args.get('username')
     password = request.args.get('password')
-    token = request.args.get('token')
 
     # 检查请求来源是否是本地
     if request.remote_addr != '127.0.0.1':
@@ -39,15 +38,34 @@ def check_username():
     # 现有的验证逻辑...
     if username in user_list:
         if decryptor_check(password,user_list.get(username)):
-            if token_list.get(username) == token:
-                return jsonify({'result': True, "error_message": None})
-            else:
-                return jsonify({'result': False, "error_message": 'Token is not correct'})
+            path=path_list[username]
+            return jsonify({'result': False, "error_message": 'Token is not correct','path':path})
         else:
-            return jsonify({'result': False, "error_message": 'Password is not correct'})
+            return jsonify({'result': False, "error_message": 'Password is not correct','path':None})
     else:
-        return jsonify({'result': False, "error_message": 'User not exist'})
+        return jsonify({'result': False, "error_message": 'User not exist','path':None})
 
+
+# 本地API——创建path（创建项目）
+@app.route('/api/create_path', methods=['GET'])
+def create_path():
+    username = request.args.get('username')
+    password = request.args.get('password')
+
+    # 检查请求来源是否是本地
+    if request.remote_addr != '127.0.0.1':
+        abort(403)  # 403错误：权限不足
+
+    # 现有的验证逻辑...
+    if username in user_list:
+        if decryptor_check(password,user_list.get(username)):
+            path_list[username]=path_generate()
+            path=path_list[username]
+            return jsonify({'result': False, "error_message": 'Token is not correct','path':path})
+        else:
+            return jsonify({'result': False, "error_message": 'Password is not correct','path':None})
+    else:
+        return jsonify({'result': False, "error_message": 'User not exist','path':None})
 
 
 
@@ -102,7 +120,7 @@ class Register(views.MethodView):
                     if password==confirm_password:  
                         session['username'] = username
                         user_list[username] = hash_encipher(password)
-                        token_list[username] = token_generate()
+                        # token_list[username] = token_generate()
                         email_list[username] = email
                         return redirect(url_for('user')) 
                     else:
@@ -120,7 +138,7 @@ class Register(views.MethodView):
 
 # 注册路由
 app.add_url_rule('/login', view_func=Login.as_view('login'))
-# app.add_url_rule('/', view_func=Login.as_view('login'))
+app.add_url_rule('/', view_func=Login.as_view('main_website'))
 app.add_url_rule('/user', view_func=User.as_view('user'))
 app.add_url_rule('/register',view_func=Register.as_view('register'))
 

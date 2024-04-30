@@ -1,6 +1,6 @@
 # 30位token生成器
 import random
-def token_generate():
+def path_generate():
     token=''
     charaters='1234567890qwertyuiopasdfghjklzxcvbnm!!!$###@@@???***'
     for i in range(30):

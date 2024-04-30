@@ -5,4 +5,4 @@ from .username_check import username_check
 from .encipher import hash_encipher
 from .alert import alert
 from .decryptor import decryptor_check
-from .token_generate import token_generate
+from .path_generate import path_generate
