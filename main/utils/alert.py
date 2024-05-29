@@ -32,8 +32,20 @@ def alert(receivers,message):
 
 
 if __name__=="__main__":
-    print(1)
-    alert()
+
+    conversation_history = [{'role': 'system', 'content': 'You are a helpful assistant.'},
+                             {'role': 'user', 'content': 'hello'}, 
+                             {'role': 'assistant', 'content': 'Hello! How can I assist you today?'}, 
+                             {'role': 'user', 'content': 'i love you'}, 
+                             {'role': 'assistant', 'content': "That's kind of you! I'm here to help you with any questions or tasks you have. How can I assist you today?"}]
+    message=''
+    for i in conversation_history:
+        role=i['role']
+        content=i['content']
+        inf=role+':'+content
+        message+=f'\n{inf}'
+    alert('jiayang.23@intl.zju.edu.cn',message)
+    print(message)
 
 
 

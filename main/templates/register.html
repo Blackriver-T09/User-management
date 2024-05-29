@@ -69,7 +69,7 @@
         .error-message {
             color: red;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 20thpx;
         }
     </style>
 </head>
@@ -93,6 +93,10 @@
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" name="confirm-password" required>
             </div>
+            <div class="form-input">
+                <label for="institution">Institution</label>
+                <input type="text" id="institution" name="institution" required>
+            </div>
             <input type="submit" value="Register">
             {% if error %}
             <p class="error-message">{{ error }}</p>
@@ -101,4 +105,3 @@
     </div>
 </body>
 </html>
-

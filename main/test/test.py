@@ -4,7 +4,7 @@ import os
 # 将目录加入到sys.path即可生效，可以帮助python定位到文件（注：这种方法仅在运行时生效，不会对环境造成污染）
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from utils import email_check,password_check,username_check,  hash_encipher, decryptor_check,alert,token_generate
+from utils import email_check,password_check,username_check,  hash_encipher, decryptor_check,alert,path_generate
 
 
 
@@ -38,12 +38,12 @@ from utils import email_check,password_check,username_check,  hash_encipher, dec
 
 
 
-# 密码加密测试  和  解密校验器测试
-password='b9!Sta88kVvCCR7'
-password_hashed=hash_encipher(password)
-# password_hashed='$2b$12$Fx31Lrq1cAr.6bqJdvTre.BYl0XsaQhjWGQhCBz/8ned56FOUpH1C'
-print(password_hashed)
-print('密码是否相等：',decryptor_check(password,password_hashed))
+# # 密码加密测试  和  解密校验器测试
+# password='b9!Sta88kVvCCR7'
+# password_hashed=hash_encipher(password)
+# # password_hashed='$2b$12$Fx31Lrq1cAr.6bqJdvTre.BYl0XsaQhjWGQhCBz/8ned56FOUpH1C'
+# print(password_hashed)
+# print('密码是否相等：',decryptor_check(password,password_hashed))
 
 
 
@@ -56,3 +56,6 @@ print('密码是否相等：',decryptor_check(password,password_hashed))
 # # token 生成测试
 # token=token_generate()
 # print(token)
+
+
+

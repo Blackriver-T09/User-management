@@ -29,6 +29,9 @@
         p {
             font-size: 18px;
             color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
         }
         .key {
             color: #888;
@@ -36,6 +39,19 @@
             word-wrap: break-word;
             border-top: 1px solid #eee;
             padding-top: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th, td {
+            border: 1px solid #0a0a0a;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #080808;
         }
         @keyframes fadeIn {
             from {
@@ -55,8 +71,24 @@
 <body>
     <div class="container">
         <h1>{{ username }}</h1>
-        <p>邮箱：{{email}}</p>
-        <div class="key">秘钥: {{ key }}</div>
+        <p>Email: {{email}}</p>
+        <p>Organization: {{organization}}</p>
+        <div class="key">token(Please dont share!): {{ key }}</div>
+        <h2>Project</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Projects</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in projects %}
+                <tr>
+                    <td>{{ project }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 
     <script>

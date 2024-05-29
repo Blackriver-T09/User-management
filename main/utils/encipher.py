@@ -15,3 +15,5 @@ def hash_encipher(password):
     
     return hashed_password.decode('utf-8')
 
+if __name__=='__main__':
+    print(len(hash_encipher('12344')))

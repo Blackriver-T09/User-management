@@ -6,3 +6,4 @@ from .encipher import hash_encipher
 from .alert import alert
 from .decryptor import decryptor_check
 from .path_generate import path_generate
+from .token_generate import token_generate
