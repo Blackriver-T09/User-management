@@ -1,6 +1,6 @@
 import requests
 
-def create_task(token, project_name, task_name, level_required):
+def create_task(token, project_name, task_name, level_required=1):
     # API 端点
     url = 'http://127.0.0.1:5000/api/Task-creation'
     
@@ -16,7 +16,7 @@ def create_task(token, project_name, task_name, level_required):
     response = requests.get(url, params=params)
     
     # 检查请求是否成功
-    if response.status_status_code == 200:
+    if response.status_code == 200:
         # 解析 JSON 响应体
         result = response.json()
         return result
@@ -26,10 +26,10 @@ def create_task(token, project_name, task_name, level_required):
         return None
 
 if __name__=="__main__":
-    token = "ncc96!dks*s6sgud8n3!?r70e@6#qp"
-    project_name = "New Project1"
-    task_name = "New Task1"
-    level_required = "2"
+    token = "9jz?!b*4dzgu#m19@kdj$s3i18*lyv"
+    project_name = "New ProjectA"
+    task_name = "New TaskA"
+    level_required = "1"
     result = create_task(token, project_name, task_name, level_required)
     if result:
         print("API Call Result:", result)

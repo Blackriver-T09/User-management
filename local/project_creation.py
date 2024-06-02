@@ -26,8 +26,8 @@ def create_project(token, project_name):
 
 if __name__=="__main__":
     # 示例用法
-    token = "oc40m*v55pb2*x@@7h!bin41!hwuh"
-    project_name = "New Project1"
+    token = "9jz?!b*4dzgu#m19@kdj$s3i18*lyv"
+    project_name = "New ProjectA"
     result = create_project(token, project_name)
     if result:
         print("API Call Result:", result)

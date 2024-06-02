@@ -4,7 +4,7 @@ db = SQLAlchemy()
 class Config:
     MYSQL_HOST = 'localhost'
     MYSQL_USER = 'root'
-    MYSQL_PASSWORD = 'Cjy65100405!'
+    MYSQL_PASSWORD = 'b9!Sta88kVvCCR7'
     MYSQL_DB = 'user_management'
 
     # 设置 SQLAlchemy 使用的数据库 URI 和跟踪修改的选项。

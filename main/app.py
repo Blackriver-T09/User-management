@@ -65,6 +65,13 @@ def get_username_by_token(token):
         return user.Username
     else:
         return None  # 如果找不到用户，返回None或者其他你认为合适的值
+    
+
+def get_user_by_token(token):
+    # 根据给定的token查询与之关联的用户对象
+    user = User.query.join(Token).filter(Token.Token == token).first()
+    return user  # 返回 User 对象或 None
+
 
 
 def get_level_by_token(token_value):
@@ -219,19 +226,15 @@ class Login(views.MethodView):
 # 本地API——Project-creation 
 @app.route('/api/Project-creation', methods=['GET'])
 def project_creation():
+    token = request.args.get('token')
+    Project_name = request.args.get('project_name')
 
-    token=request.args.get('token')
-    Project_name=request.args.get('project_name')
-
-
-    # 检查请求来源是否是本地
     if request.remote_addr != '127.0.0.1':
-        abort(403)  # 403错误：权限不足
+        abort(403)  # 权限不足
+
     if check_token_exists(token):
-        
-        user = get_username_by_token(token)  # 获取与该token相关联的用户
+        user = get_user_by_token(token)  # 获取与该token相关联的用户对象
         if user:
-            # 创建一个新的项目，并将其与用户关联
             project = UserProject(ProjectName=Project_name, user_id=user.UserId)
             db.session.add(project)
             db.session.commit()
@@ -244,6 +247,7 @@ def project_creation():
 
 
 
+
 # 本地API—— Task-creation 
 @app.route('/api/Task-creation', methods=['GET'])
 def task_creation():
@@ -251,7 +255,7 @@ def task_creation():
     token=request.args.get('token')
     Project_name=request.args.get('project_name')
     task_name=request.args.get('task_name')
-    level_required=request.args.get('level')
+    level_required=request.args.get('level',1)
 
 
     # 检查请求来源是否是本地
@@ -266,7 +270,7 @@ def task_creation():
         if Project_name in projects:
             level= get_level_by_token(token)
             
-            if level>=level_required:
+            if int(level)>=int(level_required):
                 # 1. 创建新的任务
                 new_task = ProjectTask(TaskName=task_name, TaskPath=path_generate())
 
@@ -352,9 +356,9 @@ def handle_404_error(err):
 
 
 if __name__ == '__main__':
-    with app.app_context():  #创建临时的Flask应用上下文
-        db.drop_all()  # 删除数据库下的所有 上述定义 的表，防止重复创建
-        db.create_all()  # 将上述定义的所有表对象映射为数据库下的表单（创建表）
+    # with app.app_context():  #创建临时的Flask应用上下文
+    #     db.drop_all()  # 删除数据库下的所有 上述定义 的表，防止重复创建
+    #     db.create_all()  # 将上述定义的所有表对象映射为数据库下的表单（创建表）
     app.run(debug=True)
 
 # session存储了当前用户名
