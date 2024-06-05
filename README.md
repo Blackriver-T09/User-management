@@ -33,12 +33,23 @@ This project is designed to manage user information using a MySQL database and a
 4. **Start the Server:**
     - Navigate to:
       ```
-      User-management/main/app.py
+      User-management/main/
       ```
-    - Run this file to start the server.
+    - Create a virtual environment and install all the requirements if you haven't created before. Skip this step if you have done it.
+      ```
+      python -m venv venv
+      source venv/bin/activate
+      ```
+      ```
+      pip install -r requirements.txt
+      ```
+    - Start the server. Change port and gunicorn config if needed.
+      ```
+      ./setup.sh
+      ```
 
 5. **Access the Web Interface:**
-    - Visit the following URL in your web browser:
+    - Visit the following URL in your web browser(assume running on 5000):
       ```
       http://127.0.0.1:5000
       ```
@@ -49,4 +60,8 @@ This project is designed to manage user information using a MySQL database and a
       User-management/local/
       ```
     - Here you will find three Python files. You can copy these files to any location on your system and run them as needed for local API usage.
+    - export UM_PORT to the os before running the three pytho files (assume running on port 5000):
+      ```
+      export UM_PORT=5000 
+      ```
 

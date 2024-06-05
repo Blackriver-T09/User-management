@@ -1,8 +1,11 @@
 import requests
+import os
 
+PORT = os.environ.get("UM_PORT")
 def create_project(token, project_name):
     # API 端点
-    url = 'http://127.0.0.1:5000/api/Project-creation'
+    url = 'http://127.0.0.1:' + str(PORT) + '/api/Project-creation'
+    print(url)
     
     # 查询参数
     params = {

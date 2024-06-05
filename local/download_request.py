@@ -1,8 +1,9 @@
 import requests
-
+import os
+PORT = os.environ.get("UM_PORT")
 def request_download(token, project_name, task_name):
     # API 端点
-    url = 'http://127.0.0.1:5000/api/Download-request'
+    url = 'http://127.0.0.1:' + str(PORT) + '/api/Download-request'
     
     # 查询参数
     params = {
