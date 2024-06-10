@@ -8,15 +8,19 @@ from database.models_project_task import ProjectTask
 from database.config import Config
 from database.config import db
 
+from flask_cors import CORS,cross_origin
 
 # 增强容错机制
 from sqlalchemy.exc import SQLAlchemyError
 
 
 app = Flask(__name__)
+
+
 app.secret_key = 'my_secret_key'  # 设置一个安全的密钥用于签名会话
 
 app.config.from_object(Config)
+CORS(app)
 
 db.app=app
 db.init_app(app)
@@ -163,15 +167,22 @@ def get_tasks_by_project(project_name):
 
 
 class Register(views.MethodView):
-    def get(self):
-        return render_template('register.html')
+    # def get(self):
+    #     return render_template('register.html')
     
+     # 允许所有域进行跨源请求
     def post(self):
-        username = request.form.get('fullname')
-        email = request.form.get('email')
-        institution = request.form.get('institution')
-        password = request.form.get('password')
-        confirm_password = request.form.get('confirm-password')
+        # username = request.form.get('fullname')
+        # email = request.form.get('email')
+        # institution = request.form.get('institution')
+        # password = request.form.get('password')
+        # confirm_password = request.form.get('confirm-password')
+        data= request.get_json()
+        username = data.get('fullname')
+        email = data.get('email')
+        institution = data.get('institution')
+        password = data.get('password')
+        confirm_password = data.get('confirm-password')
 
         username_result, username_error = username_check(username)
         email_result, email_error = email_check(email)
@@ -179,20 +190,26 @@ class Register(views.MethodView):
 
         # 验证错误模块
         if not username_result:
-            return render_template('register.html', error=username_error)
+            # return render_template('register.html', error=username_error)
+            return jsonify({'result':False,'error':username_error,'token':None})
         if not email_result:
-            return render_template('register.html', error=email_error)
+            # return render_template('register.html', error=email_error)
+            return jsonify({'result':False,'error':email_error,'token':None})
         if not password_result:
-            return render_template('register.html', error=password_error)
+            # return render_template('register.html', error=password_error)
+            return jsonify({'result':False,'error':password_error,'token':None})
         if password != confirm_password:
-            return render_template('register.html', error="confirm password not match your password!")
+            # return render_template('register.html', error="confirm password not match your password!")
+            return jsonify({'result':False,'error_message':"confirm password not match your password!",'token':None})
+
 
         # 所有验证通过，进行注册
         try:
             if check_user_exists(username):
-                return render_template('register.html', error="用户名已存在")
+                # return render_template('register.html', error="用户名已存在")
+                return jsonify({'result':False,'error_message':"User already exist",'token':None})
             
-            # 创建用户信息
+            # 创建用户信息  
             encrypted_password = hash_encipher(password)
             user = User(Username=username, Password=encrypted_password, Email=email, Organization=institution)
             db.session.add(user)
@@ -205,19 +222,23 @@ class Register(views.MethodView):
             db.session.commit()
 
             session['username'] = username
-            return redirect(url_for('user'))
+            # return redirect(url_for('user'))  
+            return jsonify({'result':True,'error_message':None,'token':None})
         
         except Exception as e:
             db.session.rollback()
             print(f"Error during registration: {e}")
-            return render_template('register.html', error="An error occurred during registration. Please try again.")
+            # return render_template('register.html', error="An error occurred during registration. Please try again.")
+            return jsonify({'result':False,'error_message':"An error occurred during registration. Please try again.",'token':None})
 
 
 
 
 class Profile(views.MethodView):
+    
+
     def get(self):
-        username = session.get('username')  # 从会话获取用户名
+        username = session.get('username')  # 从会话获取用户名  
         if not username:
             flash('You are not logged in.', 'warning')
             return redirect(url_for('login'))  # 如果没有用户名，则重定向到登录页面
@@ -241,19 +262,22 @@ class Profile(views.MethodView):
 
         except SQLAlchemyError as e:
             flash(f'An error occurred: {e}', 'error')
-            return redirect(url_for('login'))  # 在发生数据库错误时重定向到登录页面
+            # return redirect(url_for('login'))  # 在发生数据库错误时重定向到登录页面
+            return jsonify({'result':False,'error_message':"An internal error occurred. Please try again."})
+
 
 
 
 
 
 class Login(views.MethodView):
-    def get(self):
-        return render_template("login.html")
+    # def get(self):
+    #     return render_template("login.html")
 
     def post(self):
-        username = request.form.get("username")
-        password = request.form.get("password")
+        data= request.get_json()
+        username =data.get("username")
+        password =data.get("password")
 
         try:
             user_exist = check_user_exists(username)  # 检查用户是否存在
@@ -261,20 +285,25 @@ class Login(views.MethodView):
                 password_hashed = get_password_by_username(username)
                 if decryptor_check(password, password_hashed):  # 验证密码
                     session['username'] = username
-                    return redirect(url_for('user'))  # 登录成功，重定向到用户页面
+                    # return redirect(url_for('user'))  # 登录成功，重定向到用户页面
+                    return jsonify({'result':True,'error_message':None,'token':None})
                 else:
-                    error = "密码错误"
-                    return render_template("login.html", error=error)
+                    error = "wrong password"
+                    # return render_template("login.html", error=error)
+                    return jsonify({'result':False,'error_message':error,'token':None})
             else:
-                error = "用户不存在"
-                return render_template("login.html", error=error)
+                error = "User not exist"
+                # return render_template("login.html", error=error)
+                return jsonify({'result':False,'error_message':error,'token':None})
 
         except SQLAlchemyError as e:
             flash(f"A database error occurred: {e}", 'error')
-            return render_template("login.html", error="An internal error occurred. Please try again.")
+            # return render_template("login.html", error="An internal error occurred. Please try again.")
+            return jsonify({'result':False,'error_message':"An internal error occurred. Please try again.",'token':None})
         except Exception as e:
             flash(f"An unexpected error occurred: {e}", 'error')
-            return render_template("login.html", error="An unexpected error occurred. Please try again.")
+            # return render_template("login.html", error="An unexpected error occurred. Please try again.")
+            return jsonify({'result':False,'error_message':"An unexpected error occurred. Please try again.",'token':None})
 
 
 
@@ -296,19 +325,19 @@ def project_creation():
                 project = UserProject(ProjectName=project_name, user_id=user.UserId)
                 db.session.add(project)
                 db.session.commit()
-                return jsonify({'result': True, 'error_message': None})
+                return jsonify({'result': True, 'error_message': None,'token':None})
             else:
-                return jsonify({'result': False, "error_message": 'User not found'})
+                return jsonify({'result': False, "error_message": 'User not found','token':None})
         else:
-            return jsonify({'result': False, "error_message": 'Token does not exist'})
+            return jsonify({'result': False, "error_message": 'Token does not exist','token':None})
 
     except SQLAlchemyError as e:
         db.session.rollback()
         print(f"Database error during project creation: {e}")
-        return jsonify({'result': False, "error_message": "Database error. Unable to create project."})
+        return jsonify({'result': False, "error_message": "Database error. Unable to create project.",'token':None})
     except Exception as e:
         print(f"Unexpected error during project creation: {e}")
-        return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again."})
+        return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again.",'token':None})
 
 
 
