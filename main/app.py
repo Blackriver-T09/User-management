@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, views, url_for, redirect, session,abort,jsonify,flash
+from flask import Flask, render_template, request, views, url_for, redirect, session,abort,jsonify
 from utils import username_check,password_check,email_check, hash_encipher, decryptor_check,alert,path_generate,token_generate,tokenTmp_generate
 
 
@@ -9,6 +9,9 @@ from database.models_project_task import ProjectTask
 from database.temp_tokens import TokenTmp
 from database.config import Config
 from database.config import db
+
+from apscheduler.schedulers.background import BackgroundScheduler  #这个库用于设置定时任务，使tokenTmp 在创建后10分钟自动删除
+from datetime import datetime, timedelta, timezone
 
 
 from flask_cors import CORS,cross_origin
@@ -28,6 +31,35 @@ CORS(app)
 
 db.app=app
 db.init_app(app)
+
+
+
+
+
+# 定时删除过期tokenTmp
+def delete_expired_tokenTmps():
+    try:
+        # 获取10分钟前的UTC时间
+        time_threshold = datetime.now(timezone.utc) - timedelta(minutes=10)
+        # 查找所有创建时间小于该阈值的tokenTmp
+        expired_tokens = TokenTmp.query.filter(TokenTmp.createdAt <= time_threshold).all()
+        for token in expired_tokens:
+            db.session.delete(token)
+        db.session.commit()
+        print(f"Deleted {len(expired_tokens)} expired tokenTmp entries.")
+    except Exception as e:
+        print(f"Failed to delete expired tokenTmps: {e}")
+        db.session.rollback()
+
+def start_scheduler():
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(delete_expired_tokenTmps, 'interval', minutes=10)
+    scheduler.start()
+
+
+
+
+
 
 
 
@@ -169,10 +201,10 @@ class Login(views.MethodView):
                 return jsonify({'result': False, 'error': error, 'tokenTmp': None})
 
         except SQLAlchemyError as e:
-            flash(f"A database error occurred: {e}", 'error')
+            # flash(f"A database error occurred: {e}", 'error')
             return jsonify({'result': False, 'error': "An internal error occurred. Please try again.", 'tokenTmp': None})
         except Exception as e:
-            flash(f"An unexpected error occurred: {e}", 'error')
+            # flash(f"An unexpected error occurred: {e}", 'error')
             return jsonify({'result': False, 'error': "An unexpected error occurred. Please try again.", 'tokenTmp': None})
 
 
@@ -342,6 +374,13 @@ if __name__ == '__main__':
     # with app.app_context():  #创建临时的Flask应用上下文
     #     db.drop_all()  # 删除数据库下的所有 上述定义 的表，防止重复创建
     #     db.create_all()  # 将上述定义的所有表对象映射为数据库下的表单（创建表）
+
+    start_scheduler()    #定时任务启动，每十分钟删除一次过期tokenTmp
     app.run(debug=True)
 
 # session存储了当前用户名
+
+
+
+
+    
