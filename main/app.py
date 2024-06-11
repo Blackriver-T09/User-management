@@ -1,21 +1,25 @@
 from flask import Flask, render_template, request, views, url_for, redirect, session,abort,jsonify,flash
-from utils import username_check,password_check,email_check, hash_encipher, decryptor_check,alert,path_generate,token_generate
+from utils import username_check,password_check,email_check, hash_encipher, decryptor_check,alert,path_generate,token_generate,tokenTmp_generate
+
 
 from database.models_user import User
 from database.models_token import Token
 from database.models_user_project import UserProject
 from database.models_project_task import ProjectTask
+from database.temp_tokens import TokenTmp
 from database.config import Config
 from database.config import db
+
 
 from flask_cors import CORS,cross_origin
 
 # 增强容错机制
 from sqlalchemy.exc import SQLAlchemyError
 
+from services.database_operations import check_user_exists, check_token_exists, check_project_exists, check_task_exists, get_token_by_username, get_username_by_token, get_user_by_token, get_level_by_token, get_password_by_username, get_user_info_by_username, get_projects_by_username, get_tasks_by_project, get_username_by_tokenTmp
+
 
 app = Flask(__name__)
-
 
 app.secret_key = 'my_secret_key'  # 设置一个安全的密钥用于签名会话
 
@@ -27,148 +31,9 @@ db.init_app(app)
 
 
 
-def check_user_exists(username):
-    try:
-        user = User.query.filter_by(Username=username).first()
-        return bool(user)  # 用户存在返回True，不存在返回False
-    except SQLAlchemyError as e:
-        # 处理可能的数据库查询错误
-        print(f"Database error occurred: {e}")
-        return None  # 数据库错误时返回None
-
-def check_token_exists(token_value):
-    try:
-        token = Token.query.filter_by(Token=token_value).first()
-        return bool(token)  # 令牌存在返回True，不存在返回False
-    except SQLAlchemyError as e:
-        # 处理可能的数据库查询错误
-        print(f"Database error occurred: {e}")
-        return None  # 数据库错误时返回None
-
-def check_project_exists(project_name):
-    try:
-        project = UserProject.query.filter_by(ProjectName=project_name).first()
-        return bool(project)  # 如果存在该项目，返回True，否则返回False
-    except SQLAlchemyError as e:
-        # 记录数据库查询错误
-        print(f"Database error occurred when checking project existence: {e}")
-        return None  # 数据库错误时返回None，表示无法确定项目是否存在
-
-
-def check_task_exists(task_name):
-    try:
-        task = ProjectTask.query.filter_by(TaskName=task_name).first()
-        return bool(task)  # 如果存在该任务，返回True，否则返回False
-    except SQLAlchemyError as e:
-        # 记录数据库查询错误
-        print(f"Database error occurred when checking task existence: {e}")
-        return None  # 数据库错误时返回None，表示无法确定任务是否存在
-
-
-def get_token_by_username(username):
-    try:
-        user = User.query.filter_by(Username=username).first()
-        if user:
-            token = Token.query.filter_by(user_id=user.UserId).first()
-            if token:
-                return token.Token
-    except SQLAlchemyError as e:
-        print(f"Database error occurred when retrieving token by username: {e}")
-    return None  # 如果发生错误或找不到令牌，返回None
-
-
-
-def get_username_by_token(token):
-    try:
-        user = User.query.join(Token, User.UserId == Token.user_id).filter(Token.Token == token).first()
-        if user:
-            return user.Username
-    except SQLAlchemyError as e:
-        print(f"Database error occurred when retrieving username by token: {e}")
-    return None  # 如果发生错误或找不到用户，返回None
-
-    
-
-
-def get_user_by_token(token):
-    try:
-        # 使用 join 来连接 User 和 Token 表，并查找匹配的用户
-        user = User.query.join(Token, User.UserId == Token.user_id).filter(Token.Token == token).first()
-        return user  # 返回 User 对象或 None
-    except SQLAlchemyError as e:
-        print(f"Database error occurred when retrieving user by token: {e}")
-        return None  # 发生数据库错误时返回 None
-
-
-
-def get_level_by_token(token_value):
-    try:
-        token = Token.query.filter_by(Token=token_value).first()
-        if token:
-            return token.Level  # 返回令牌的级别
-        return None  # 未找到令牌时返回 None
-    except SQLAlchemyError as e:
-        print(f"Database error occurred when retrieving level by token: {e}")
-        return None  # 发生数据库错误时返回 None
-
-
-
-def get_password_by_username(username):
-    try:
-        user = User.query.filter_by(Username=username).first()
-        if user:
-            return user.Password  # 返回用户密码
-    except SQLAlchemyError as e:
-        print(f"Database error occurred when retrieving password by username: {e}")
-    return None  # 如果发生错误或用户名不存在，返回 None
-
-    
-
-def get_user_info_by_username(username):
-    try:
-        user = User.query.filter_by(Username=username).first()
-        if user:
-            token = Token.query.filter_by(user_id=user.UserId).first()
-            return {
-                "Email": user.Email,
-                "Token": token.Token if token else 'No token',
-                "Organization": user.Organization
-            }
-    except SQLAlchemyError as e:
-        print(f"Database error occurred when retrieving user info by username: {e}")
-    return None  # 如果发生错误或找不到用户，返回 None
-
-
-
-def get_projects_by_username(username):
-    try:
-        user = User.query.filter_by(Username=username).first()
-        if user:
-            projects = UserProject.query.filter_by(user_id=user.UserId).all()
-            return [project.ProjectName for project in projects]  # 返回项目名列表
-    except SQLAlchemyError as e:
-        print(f"Database error occurred when retrieving projects by username: {e}")
-    return None  # 如果发生错误或找不到项目，返回 None
-
-
-def get_tasks_by_project(project_name):
-    try:
-        project = UserProject.query.filter_by(ProjectName=project_name).first()
-        if project:
-            tasks = ProjectTask.query.filter_by(user_project_id=project.UserProjectId).all()
-            return [task.TaskName for task in tasks]  # 返回任务名列表
-    except SQLAlchemyError as e:
-        print(f"Database error occurred when retrieving tasks by project: {e}")
-    return None  # 如果发生错误或找
-
-
-
-
-
 
 class Register(views.MethodView):
-    # def get(self):
-    #     return render_template('register.html')
+
     
      # 允许所有域进行跨源请求
     def post(self):
@@ -177,6 +42,7 @@ class Register(views.MethodView):
         # institution = request.form.get('institution')
         # password = request.form.get('password')
         # confirm_password = request.form.get('confirm-password')
+
         data= request.get_json()
         username = data.get('fullname')
         email = data.get('email')
@@ -190,24 +56,19 @@ class Register(views.MethodView):
 
         # 验证错误模块
         if not username_result:
-            # return render_template('register.html', error=username_error)
             return jsonify({'result':False,'error':username_error,'token':None})
         if not email_result:
-            # return render_template('register.html', error=email_error)
             return jsonify({'result':False,'error':email_error,'token':None})
         if not password_result:
-            # return render_template('register.html', error=password_error)
             return jsonify({'result':False,'error':password_error,'token':None})
         if password != confirm_password:
-            # return render_template('register.html', error="confirm password not match your password!")
-            return jsonify({'result':False,'error_message':"confirm password not match your password!",'token':None})
+            return jsonify({'result':False,'error':"confirm password not match your password!",'token':None})
 
 
         # 所有验证通过，进行注册
         try:
             if check_user_exists(username):
-                # return render_template('register.html', error="用户名已存在")
-                return jsonify({'result':False,'error_message':"User already exist",'token':None})
+                return jsonify({'result':False,'error':"User already exist",'token':None})
             
             # 创建用户信息  
             encrypted_password = hash_encipher(password)
@@ -221,33 +82,43 @@ class Register(views.MethodView):
             db.session.add(token)
             db.session.commit()
 
-            session['username'] = username
-            # return redirect(url_for('user'))  
-            return jsonify({'result':True,'error_message':None,'token':None})
+            # 创建临时令牌
+            tokenTmp = tokenTmp_generate()  
+
+            # 创建一个 TokenTmp 实例并保存到数据库
+            new_token_tmp = TokenTmp(tempToken=tokenTmp, userId=user.UserId)
+            db.session.add(new_token_tmp)
+            db.session.commit()  
+
+            return jsonify({'result':True,'error':None,'token':tokenTmp})
         
         except Exception as e:
             db.session.rollback()
             print(f"Error during registration: {e}")
-            # return render_template('register.html', error="An error occurred during registration. Please try again.")
-            return jsonify({'result':False,'error_message':"An error occurred during registration. Please try again.",'token':None})
+            return jsonify({'result':False,'error':"An error occurred during registration. Please try again.",'token':None})
 
 
 
 
 class Profile(views.MethodView):
-    
 
-    def get(self):
-        username = session.get('username')  # 从会话获取用户名  
-        if not username:
-            flash('You are not logged in.', 'warning')
-            return redirect(url_for('login'))  # 如果没有用户名，则重定向到登录页面
+    def post(self):
+
+        data=request.get_json()
+        tokenTmp=data.get('tokenTmp')
+
+
+        # username = session.get('username')  # 从会话获取用户名  
+        username=get_username_by_tokenTmp(tokenTmp)
+
+
+        if username=="token out of date":
+            return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':"token out of date"})
 
         try:
             basic_info = get_user_info_by_username(username)
             if not basic_info:
-                flash('Failed to retrieve user information.', 'error')
-                return redirect(url_for('login'))  # 如果未找到用户信息，则可能需要重新登录
+                return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':'Failed to retrieve user information.'})
 
             email = basic_info.get('Email', "Not Found")
             token = basic_info.get('Token', "No token")
@@ -256,14 +127,13 @@ class Profile(views.MethodView):
 
             if projectlist is None:  # 处理项目列表可能为空的情况
                 projectlist = []
-                flash('Failed to load projects.', 'error')
+                return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':'Failed to load projects.'})
 
-            return render_template('profile.html', username=username, key=token, email=email, organization=organization, projects=projectlist)
+
+            return jsonify({'result':True,'username':username,'token':token,'email':email,'organization':organization,'projectlist':projectlist,'error':None})
 
         except SQLAlchemyError as e:
-            flash(f'An error occurred: {e}', 'error')
-            # return redirect(url_for('login'))  # 在发生数据库错误时重定向到登录页面
-            return jsonify({'result':False,'error_message':"An internal error occurred. Please try again."})
+            return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':"An internal error occurred. Please try again."})
 
 
 
@@ -271,40 +141,39 @@ class Profile(views.MethodView):
 
 
 class Login(views.MethodView):
-    # def get(self):
-    #     return render_template("login.html")
 
     def post(self):
-        data= request.get_json()
-        username =data.get("username")
-        password =data.get("password")
+        data = request.get_json()
+        username = data.get("username")
+        password = data.get("password")
 
         try:
             user_exist = check_user_exists(username)  # 检查用户是否存在
             if user_exist:
+                user = User.query.filter_by(Username=username).first()
                 password_hashed = get_password_by_username(username)
                 if decryptor_check(password, password_hashed):  # 验证密码
-                    session['username'] = username
-                    # return redirect(url_for('user'))  # 登录成功，重定向到用户页面
-                    return jsonify({'result':True,'error_message':None,'token':None})
+                    tokenTmp = tokenTmp_generate()  # 假设 token_generate() 是一个函数来生成一个临时令牌
+
+                    # 创建一个 TokenTmp 实例并保存到数据库
+                    new_token_tmp = TokenTmp(tempToken=tokenTmp, userId=user.UserId)
+                    db.session.add(new_token_tmp)
+                    db.session.commit()  # 提交数据库会话以保存我们的更改
+
+                    return jsonify({'result': True, 'error': None, 'tokenTmp': tokenTmp})
                 else:
                     error = "wrong password"
-                    # return render_template("login.html", error=error)
-                    return jsonify({'result':False,'error_message':error,'token':None})
+                    return jsonify({'result': False, 'error': error, 'tokenTmp': None})
             else:
                 error = "User not exist"
-                # return render_template("login.html", error=error)
-                return jsonify({'result':False,'error_message':error,'token':None})
+                return jsonify({'result': False, 'error': error, 'tokenTmp': None})
 
         except SQLAlchemyError as e:
             flash(f"A database error occurred: {e}", 'error')
-            # return render_template("login.html", error="An internal error occurred. Please try again.")
-            return jsonify({'result':False,'error_message':"An internal error occurred. Please try again.",'token':None})
+            return jsonify({'result': False, 'error': "An internal error occurred. Please try again.", 'tokenTmp': None})
         except Exception as e:
             flash(f"An unexpected error occurred: {e}", 'error')
-            # return render_template("login.html", error="An unexpected error occurred. Please try again.")
-            return jsonify({'result':False,'error_message':"An unexpected error occurred. Please try again.",'token':None})
-
+            return jsonify({'result': False, 'error': "An unexpected error occurred. Please try again.", 'tokenTmp': None})
 
 
 

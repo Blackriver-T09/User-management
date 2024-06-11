@@ -4,7 +4,7 @@ import os
 # 将目录加入到sys.path即可生效，可以帮助python定位到文件（注：这种方法仅在运行时生效，不会对环境造成污染）
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from utils import email_check,password_check,username_check,  hash_encipher, decryptor_check,alert,path_generate
+# from utils import email_check,password_check,username_check,  hash_encipher, decryptor_check,alert,path_generate
 
 
 

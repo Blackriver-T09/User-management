@@ -3,6 +3,8 @@ from database.models_user import User
 from database.models_token import Token
 from database.models_user_project import UserProject
 from database.models_project_task import ProjectTask
+from database.temp_tokens import TokenTmp
+
 
 def init_tables():
     with app.app_context(): 
