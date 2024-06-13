@@ -34,10 +34,10 @@ def is_email_valid(email):
 def email_check(email):
     if is_email_valid(email):
         if is_dangerous(email):
-            return (False, '邮件地址中含有危险字符')
+            return (False, 'The email address contains dangerous characters')
         else:
             return (True,'no_error')
     else:
-        return (False,'请输入正确的邮件格式')
+        return (False,'Please enter the correct email format')
 
 

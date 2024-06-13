@@ -28,7 +28,7 @@ def alert(receivers,message):
     smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
     smtper.login(sender,key )
     smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
-    print('邮件发送完成!')
+    print('email has been sent!')
 
 
 if __name__=="__main__":

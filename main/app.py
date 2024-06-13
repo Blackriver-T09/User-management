@@ -46,7 +46,7 @@ def delete_expired_tokenTmps():
         for token in expired_tokens:
             db.session.delete(token)
         db.session.commit()
-        print(f"Deleted {len(expired_tokens)} expired tokenTmp entries.")
+        print   (f"Deleted {len(expired_tokens)} expired tokenTmp entries.")
     except Exception as e:
         print(f"Failed to delete expired tokenTmps: {e}")
         db.session.rollback()
@@ -88,19 +88,19 @@ class Register(views.MethodView):
 
         # 验证错误模块
         if not username_result:
-            return jsonify({'result':False,'error':username_error,'token':None})
+            return jsonify({'result':False,'error':username_error,'tokenTmp':None})
         if not email_result:
-            return jsonify({'result':False,'error':email_error,'token':None})
+            return jsonify({'result':False,'error':email_error,'tokenTmp':None})
         if not password_result:
-            return jsonify({'result':False,'error':password_error,'token':None})
+            return jsonify({'result':False,'error':password_error,'tokenTmp':None})
         if password != confirm_password:
-            return jsonify({'result':False,'error':"confirm password not match your password!",'token':None})
+            return jsonify({'result':False,'error':"confirm password not match your password!",'tokenTmp':None})
 
 
         # 所有验证通过，进行注册
         try:
             if check_user_exists(username):
-                return jsonify({'result':False,'error':"User already exist",'token':None})
+                return jsonify({'result':False,'error':"User already exist",'tokenTmp':None})
             
             # 创建用户信息  
             encrypted_password = hash_encipher(password)
@@ -122,12 +122,12 @@ class Register(views.MethodView):
             db.session.add(new_token_tmp)
             db.session.commit()  
 
-            return jsonify({'result':True,'error':None,'token':tokenTmp})
+            return jsonify({'result':True,'error':None,'tokenTmp':tokenTmp})
         
         except Exception as e:
             db.session.rollback()
             print(f"Error during registration: {e}")
-            return jsonify({'result':False,'error':"An error occurred during registration. Please try again.",'token':None})
+            return jsonify({'result':False,'error':"An error occurred during registration. Please try again.",'tokenTmp':None})
 
 
 
@@ -226,19 +226,19 @@ def project_creation():
                 project = UserProject(ProjectName=project_name, user_id=user.UserId)
                 db.session.add(project)
                 db.session.commit()
-                return jsonify({'result': True, 'error_message': None,'token':None})
+                return jsonify({'result': True, 'error_message': None})
             else:
-                return jsonify({'result': False, "error_message": 'User not found','token':None})
+                return jsonify({'result': False, "error_message": 'User not found'})
         else:
-            return jsonify({'result': False, "error_message": 'Token does not exist','token':None})
+            return jsonify({'result': False, "error_message": 'Token does not exist'})
 
     except SQLAlchemyError as e:
         db.session.rollback()
         print(f"Database error during project creation: {e}")
-        return jsonify({'result': False, "error_message": "Database error. Unable to create project.",'token':None})
+        return jsonify({'result': False, "error_message": "Database error. Unable to create project."})
     except Exception as e:
         print(f"Unexpected error during project creation: {e}")
-        return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again.",'token':None})
+        return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again."})
 
 
 
@@ -288,10 +288,10 @@ def task_creation():
     except SQLAlchemyError as e:
         db.session.rollback()
         print(f"Database error during task creation: {e}")
-        return jsonify({'result': False, "error_message": "Database error. Unable to create task."})
+        return jsonify({'result': False, "error_message": "Database error. Unable to create task.", 'path': None})
     except Exception as e:
         print(f"Unexpected error during task creation: {e}")
-        return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again."})
+        return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again.", 'path': None})
 
 
 
@@ -334,10 +334,10 @@ def download_request():
     except SQLAlchemyError as e:
         db.session.rollback()
         print(f"Database error during download request: {e}")
-        return jsonify({'result': False, "error_message": "Database error. Please try again."})
+        return jsonify({'result': False, "error_message": "Database error. Please try again.", 'path': None})
     except Exception as e:
         print(f"Unexpected error during download request: {e}")
-        return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again."})
+        return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again.", 'path': None})
 
 
 
@@ -351,7 +351,7 @@ def download_request():
 # 注册路由
 app.add_url_rule('/login', view_func=Login.as_view('login'))
 app.add_url_rule('/', view_func=Login.as_view('main_website'))
-app.add_url_rule('/user', view_func=Profile.as_view('user'))
+app.add_url_rule('/profile', view_func=Profile.as_view('profile'))
 app.add_url_rule('/register',view_func=Register.as_view('register'))
 
 

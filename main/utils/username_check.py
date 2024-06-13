@@ -24,10 +24,10 @@ def username_check(username):
     
     # 检查电子邮件格式
     if len(username)<2:
-        return (False,'用户名不得少于2位')
+        return (False,'The username must be no less than 2 characters')
     else:
         if is_username_dangerous(username):
-            return (False   , '用户名存在危险字符')
+            return (False   , 'The username contains dangerous characters')
         else:
             return (True, 'no error')
         
