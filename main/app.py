@@ -76,11 +76,11 @@ class Register(views.MethodView):
         # confirm_password = request.form.get('confirm-password')
 
         data= request.get_json()
-        username = data.get('fullname')
+        username = data.get('username')
         email = data.get('email')
         institution = data.get('institution')
         password = data.get('password')
-        confirm_password = data.get('confirm-password')
+        confirm_password = data.get('confirm_password')
 
         username_result, username_error = username_check(username)
         email_result, email_error = email_check(email)
