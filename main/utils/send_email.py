@@ -12,23 +12,37 @@ def to_encode(nickname,email):
 #定义这个函数是因为message['From']和message['To']对格式有严格的要求。尤其是中文(非ASCLL编码)字符需要进一步编码
 #然而这个编码函数对ASCLL码字符同样适用，所以直接全面采用了
 
-def alert(receivers,message):
+def send_email(receivers,message,mode):
     sender = '2812104715@qq.com'              # 发件人邮箱
     # receivers = ['jiayang.23@intl.zju.edu.cn']         # 接收人邮箱，可以是多个，用逗号分隔
-    key='vvkoihawmhwpdeih'                    # QQ邮箱授权码，需要从“账号安全”设置里获取
+    key='sywosrqwftjgdgdj'                    # QQ邮箱授权码，需要从“账号安全”设置里获取
     
-    nickname1="anonymous"
-    nickname2='anonymous'
+    nickname1="RShub"
+    nickname2='Receiver'
 
-    message = MIMEText(message, 'plain', 'utf-8')     #plain表示正文将包含纯文本信息，没有格式或样式。
-    message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
-    message['To'] =  to_encode(nickname2,receivers)
-    message['Subject'] = Header('警报邮件', 'utf-8')     #设置了邮件的主题
-    
-    smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
-    smtper.login(sender,key )
-    smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
-    print('email has been sent!')
+    if mode == 0:
+        message = MIMEText(message, 'plain', 'utf-8')     #plain表示正文将包含纯文本信息，没有格式或样式。
+        message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
+        message['To'] =  to_encode(nickname2,receivers)
+        message['Subject'] = Header('Successful Registration', 'utf-8')     #设置了邮件的主题
+        
+        smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
+        smtper.login(sender,key )
+        smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
+        print('email has been sent!')
+
+    elif mode ==1:
+        message = MIMEText(message, 'plain', 'utf-8')     #plain表示正文将包含纯文本信息，没有格式或样式。
+        message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
+        message['To'] =  to_encode(nickname2,receivers)
+        message['Subject'] = Header('Change Password', 'utf-8')     #设置了邮件的主题
+        
+        smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
+        smtper.login(sender,key )
+        smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
+        print('email has been sent!')
+
+
 
 
 if __name__=="__main__":
@@ -43,9 +57,9 @@ if __name__=="__main__":
         role=i['role']
         content=i['content']
         inf=role+':'+content
-        message+=f'\n{inf}'
-    alert('jiayang.23@intl.zju.edu.cn',message)
-    print(message)
+        message+=f'\n{inf}' 
+    email('jiayang.23@intl.zju.edu.cn',message)
+    # print(message)
 
 
 

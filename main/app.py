@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, views, url_for, redirect, session,abort,jsonify
-from utils import username_check,password_check,email_check, hash_encipher, decryptor_check,alert,path_generate,token_generate,tokenTmp_generate
+from utils import username_check,password_check,email_check, hash_encipher, decryptor_check,send_email,path_generate,token_generate,tokenTmp_generate
 
 
 from database.models_user import User
@@ -38,28 +38,24 @@ db.init_app(app)
 
 # 定时删除过期tokenTmp
 def delete_expired_tokenTmps():
-    try:
-        # 获取10分钟前的UTC时间
-        time_threshold = datetime.now(timezone.utc) - timedelta(minutes=10)
-        # 查找所有创建时间小于该阈值的tokenTmp
-        expired_tokens = TokenTmp.query.filter(TokenTmp.createdAt <= time_threshold).all()
-        for token in expired_tokens:
-            db.session.delete(token)
-        db.session.commit()
-        print   (f"Deleted {len(expired_tokens)} expired tokenTmp entries.")
-    except Exception as e:
-        print(f"Failed to delete expired tokenTmps: {e}")
-        db.session.rollback()
+    with app.app_context(): 
+        try:
+            # 获取10分钟前的UTC时间
+            time_threshold = datetime.now(timezone.utc) - timedelta(minutes=10)
+            # 查找所有创建时间小于该阈值的tokenTmp
+            expired_tokens = TokenTmp.query.filter(TokenTmp.createdAt <= time_threshold).all()
+            for token in expired_tokens:
+                db.session.delete(token)
+            db.session.commit()
+            print(f"Deleted {len(expired_tokens)} expired tokenTmp entries.")
+        except Exception as e:
+            print(f"Failed to delete expired tokenTmps: {e}")
+            db.session.rollback()
 
 def start_scheduler():
     scheduler = BackgroundScheduler()
-    scheduler.add_job(delete_expired_tokenTmps, 'interval', minutes=10)
+    scheduler.add_job(delete_expired_tokenTmps, 'interval', minutes=10  )
     scheduler.start()
-
-
-
-
-
 
 
 
@@ -121,6 +117,8 @@ class Register(views.MethodView):
             new_token_tmp = TokenTmp(tempToken=tokenTmp, userId=user.UserId)
             db.session.add(new_token_tmp)
             db.session.commit()  
+
+            send_email(email,f'Congratulations,{username}! You have seccessfully register your account for RShub! ',0)
 
             return jsonify({'result':True,'error':None,'tokenTmp':tokenTmp})
         
