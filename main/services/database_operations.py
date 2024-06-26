@@ -133,15 +133,44 @@ def get_projects_by_username(username):
     return None  # 如果发生错误或找不到项目，返回 None
 
 
-def get_tasks_by_project(project_name):
+# def get_tasks_by_project(project_name):
+#     try:
+#         project = UserProject.query.filter_by(ProjectName=project_name).first()
+#         if project:
+#             tasks = ProjectTask.query.filter_by(user_project_id=project.UserProjectId).all()
+#             return [task.TaskName for task in tasks]  # 返回任务名列表
+#     except SQLAlchemyError as e:
+#         print(f"Database error occurred when retrieving tasks by project: {e}")
+#     return None  # 如果发生错误或找
+
+
+def get_tasks_by_project(user_id, project_name):
     try:
-        project = UserProject.query.filter_by(ProjectName=project_name).first()
+        # 首先获取特定用户下的特定项目
+        project = UserProject.query.filter_by(ProjectName=project_name, user_id=user_id).first()
         if project:
+            # 获取该项目下所有任务
             tasks = ProjectTask.query.filter_by(user_project_id=project.UserProjectId).all()
-            return [task.TaskName for task in tasks]  # 返回任务名列表
+            return tasks  # 直接返回任务对象列表，而不是仅任务名称列表
     except SQLAlchemyError as e:
         print(f"Database error occurred when retrieving tasks by project: {e}")
-    return None  # 如果发生错误或找
+    return None  # 如果发生错误或找不到项目，返回 None
+
+
+def get_user_id_by_token(token):
+    try:
+        # 使用 token 查询 Token 表，获取与之关联的 user_id
+        token_record = Token.query.filter_by(Token=token).first()
+        if token_record:
+            return token_record.user_id  # 返回与令牌关联的用户 ID
+        return None  # 如果找不到令牌，返回 None
+    except SQLAlchemyError as e:
+        print(f"Database error occurred when retrieving user ID by token: {e}")
+        return None  # 处理可能的数据库查询错误
+
+
+
+
 
 
 

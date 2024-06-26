@@ -4,7 +4,10 @@ import os
 PORT = os.environ.get("UM_PORT")
 def create_project(token, project_name):
     # API 端点
-    url = 'http://127.0.0.1:' + str(PORT) + '/api/Project-creation'
+    # url = 'http://127.0.0.1:' + str(PORT) + '/api/Project-creation'
+    url = 'http://127.0.0.1:5000/api/Project-creation'
+    
+
     print(url)
     
     # 查询参数
@@ -46,8 +49,8 @@ def create_project(token, project_name):
 
 if __name__=="__main__":
     # 示例用法
-    token = "dpl@9b0ilwyx75vb!snyl*klcrh@8#"
-    project_name = "New ProjectB"
+    token = "fs!21amxf@qplxg9e#rwo$697*?lpe"
+    project_name = "User2 Project1"
     result = create_project(token, project_name)
     if result:
         print("API Call Result:", result)

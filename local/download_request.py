@@ -3,7 +3,8 @@ import os
 PORT = os.environ.get("UM_PORT")
 def request_download(token, project_name, task_name):
     # API 端点
-    url = 'http://127.0.0.1:' + str(PORT) + '/api/Download-request'
+    # url = 'http://127.0.0.1:' + str(PORT) + '/api/Download-request'
+    url = 'http://127.0.0.1:5000/api/Download-request'
     
     # 查询参数
     params = {
@@ -44,9 +45,9 @@ def request_download(token, project_name, task_name):
 
 
 if __name__=="__main__":
-    token = "dpl@9b0ilwyx75vb!snyl*klcrh@8#"
-    project_name = "New ProjectA"
-    task_name = "New TaskA"
+    token = "2#c@kpo6?4wl!@bw!9l1bh@0@63rlf"
+    project_name =  "User1 Project2"
+    task_name = "task1"
 
     result = request_download(token, project_name, task_name)
     if result:

@@ -4,7 +4,8 @@ import os
 PORT = os.environ.get("UM_PORT")
 def create_task(token, project_name, task_name, level_required=1):
     # API 端点
-    url = 'http://127.0.0.1:' + str(PORT) + '/api/Task-creation'
+    # url = 'http://127.0.0.1:' + str(PORT) + '/api/Task-creation'
+    url = 'http://127.0.0.1:5000/api/Task-creation'
     
     # 查询参数
     params = {
@@ -45,9 +46,9 @@ def create_task(token, project_name, task_name, level_required=1):
         return None
 
 if __name__=="__main__":
-    token = "dpl@9b0ilwyx75vb!snyl*klcrh@8#"
-    project_name = "New ProjectA"
-    task_name = "New TaskB"
+    token = "fs!21amxf@qplxg9e#rwo$697*?lpe"
+    project_name = "User2 Project1"
+    task_name = "task1"
     level_required = "1"
     result = create_task(token, project_name, task_name, level_required)
     if result:
