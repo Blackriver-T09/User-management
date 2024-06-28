@@ -172,6 +172,7 @@ class Profile(views.MethodView):
 
 class Login(views.MethodView):
 
+
     def post(self):
         data = request.get_json()
         username = data.get("username")
@@ -209,10 +210,14 @@ class Login(views.MethodView):
 
 
 class Forget_password(views.MethodView ):
+
+    def get(self,token):
+        return render_template('forget_password.html', token=token)
     
-    def post(self):
-        data = request.get_json()
-        email = data.get("email")
+    def post(self,token):
+        token = request.args.get('token')  # 假设链接中带有token参数
+        new_password = request.form.get('new-password')
+        confirm_password = request.form.get('confirm-new-password')
 
         try:
             user_exist = check_user_exists(username)  # 检查用户是否存在
@@ -407,6 +412,7 @@ app.add_url_rule('/login', view_func=Login.as_view('login'))
 app.add_url_rule('/', view_func=Login.as_view('main_website'))
 app.add_url_rule('/profile', view_func=Profile.as_view('profile'))
 app.add_url_rule('/register',view_func=Register.as_view('register'))
+app.add_url_rule('/forget-password/<token>', view_func=Forget_password.as_view('reset_password'), methods=['GET', 'POST'])
 
 
 

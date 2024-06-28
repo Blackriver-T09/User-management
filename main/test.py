@@ -1,55 +1,46 @@
-import unittest
-from app import create_app, db
-from flask import json
+from flask import request, redirect, url_for, flash, render_template
+from werkzeug.security import generate_password_hash
+from database.models_user import User
+from database.config import db
+from sqlalchemy.exc import SQLAlchemyError
 
-class AuthTestCase(unittest.TestCase):
-    def setUp(self):
-        # 创建一个测试客户端
-        self.app = create_app({'TESTING': True})
-        self.client = self.app.test_client()
-        
-        # 创建数据库和表
-        with self.app.app_context():
-            db.create_all()
 
-    def tearDown(self):
-        # 清理数据库
-        with self.app.app_context():
-            db.session.remove()
-            db.drop_all()
 
-    def test_register_user(self):
-        # 测试用户注册
-        response = self.client.post('/register', json={
-            'fullname': 'testuser',
-            'email': 'test@example.com',
-            'institution': 'TestInstitute',
-            'password': 'testpassword123',
-            'confirm-password': 'testpassword123'
-        })
-        data = response.get_json()
-        self.assertEqual(response.status_code, 200)
-        self.assertTrue(data['result'])
+# https://yourdomain.com/reset-password?token=abc123xyz
 
-    def test_login_user(self):
-        # 先注册一个用户
-        self.client.post('/register', json={
-            'fullname': 'testuser',
-            'email': 'test@example.com',
-            'institution': 'TestInstitute',
-            'password': 'testpassword123',
-            'confirm-password': 'testpassword123'
-        })
-        
-        # 测试用户登录
-        response = self.client.post('/login', json={
-            'username': 'testuser',
-            'password': 'testpassword123'
-        })
-        data = response.get_json()
-        self.assertEqual(response.status_code, 200)
-        self.assertTrue(data['result'])
-        self.assertIsNotNone(data.get('tokenTmp'))
 
-if __name__ == '__main__':
-    unittest.main()
+@app.route('/submit-new-password', methods=['POST'])
+def submit_new_password():
+    token = request.args.get('token')  # 假设链接中带有token参数
+    new_password = request.form.get('new-password')
+    confirm_password = request.form.get('confirm-new-password')
+
+    if new_password != confirm_password:
+        flash('Passwords do not match. Please try again.')
+        return redirect(url_for('reset_password', token=token))  # 重定向回密码重置页面
+
+    try:
+        # 这里需要一个函数来根据token找到用户
+        user_id = verify_reset_token(token)  # 你需要实现这个函数
+        if not user_id:
+            flash('Invalid or expired token.')
+            return redirect(url_for('login'))
+
+        user = User.query.get(user_id)
+        if user:
+            user.Password = generate_password_hash(new_password)
+            db.session.commit()
+            flash('Your password has been updated successfully.')
+            return redirect(url_for('login'))
+        else:
+            flash('User not found.')
+            return redirect(url_for('login'))
+    except SQLAlchemyError as e:
+        db.session.rollback()
+        print(f"Database error during password reset: {e}")
+        flash('An error occurred. Please try again.')
+        return redirect(url_for('reset_password', token=token))
+
+def verify_reset_token(token):
+    # 这里添加你的逻辑来验证token并解析出user_id
+    return None
