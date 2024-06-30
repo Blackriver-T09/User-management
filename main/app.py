@@ -10,13 +10,20 @@ from database.temp_tokens import TokenTmp
 from database.config import Config
 from database.config import db
 
+
+
 from apscheduler.schedulers.background import BackgroundScheduler  #这个库用于设置定时任务，使tokenTmp 在创建后10分钟自动删除
 from datetime import datetime, timedelta, timezone
+import subprocess
+import os
+import logging
+import time
 
 
 from flask_cors import CORS,cross_origin
 
 # 增强容错机制
+from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
 
 from services.database_operations import check_user_exists, check_token_exists, check_project_exists, check_task_exists, get_token_by_username, get_username_by_token, get_user_by_token, get_level_by_token, get_password_by_username, get_user_info_by_username, get_projects_by_username, get_tasks_by_project, get_username_by_tokenTmp,get_user_id_by_token,verify_user_email
@@ -36,26 +43,85 @@ db.init_app(app)
 
 
 
-# 定时删除过期tokenTmp
+
+# 设置日志
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+# logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename='app.log', filemode='a')
+
+# 删除过期的tokenTmp
 def delete_expired_tokenTmps():
-    with app.app_context(): 
+    with app.app_context():
         try:
             # 获取10分钟前的UTC时间
             time_threshold = datetime.now(timezone.utc) - timedelta(minutes=10)
             # 查找所有创建时间小于该阈值的tokenTmp
             expired_tokens = TokenTmp.query.filter(TokenTmp.createdAt <= time_threshold).all()
+            count = len(expired_tokens)
             for token in expired_tokens:
                 db.session.delete(token)
             db.session.commit()
-            print(f"Deleted {len(expired_tokens)} expired tokenTmp entries.")
+            logging.info(f"Deleted {count} expired tokenTmp entries.")
         except Exception as e:
-            print(f"Failed to delete expired tokenTmps: {e}")
             db.session.rollback()
+            logging.error(f"Failed to delete expired tokenTmps: {e}")
+
+# 数据库备份任务
+def backup_database():
+    try:
+        # 读取数据库配置
+        db_user = app.config['MYSQL_USER']
+        db_password = app.config['MYSQL_PASSWORD']
+        db_name = app.config['MYSQL_DB']
+
+
+        # 确保备份目录存在
+        backup_dir = os.path.join(os.path.dirname(__file__), 'reserved')
+        os.makedirs(backup_dir, exist_ok=True)
+        backup_path = os.path.join(backup_dir, f"{db_name}_backup.sql")   #每次运行备份脚本时新的备份文件会覆盖前一次的备份文件
+        # 如果要保留历史备份文件，可以在文件名中包含当前日期和时间的时间戳
+        # timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        # backup_path = os.path.join(backup_dir, f"{db_name}_backup_{timestamp}.sql")
+
+        command = f"mysqldump -u {db_user} -p{db_password} {db_name} > {backup_path}"
+        result = subprocess.run(command, shell=True, check=True)
+        if result.returncode == 0:
+            logging.info("Database backup completed successfully.")
+        else:
+            logging.error("Database backup failed.")
+    except subprocess.CalledProcessError as e:
+        logging.error(f"Backup command failed with exit status {e.returncode}")
+    except Exception as e:
+        logging.error(f"Error executing backup: {e}")
+
+# 检查数据库备份文件的大小
+def check_db_size():
+    try:
+        backup_dir = os.path.join(os.path.dirname(__file__), 'reserved')
+        backup_path = os.path.join(backup_dir, f"{app.config['MYSQL_DB']}_backup.sql")
+        file_size = os.path.getsize(backup_path)
+        logging.info(f"Database file size: {file_size} bytes")
+    except FileNotFoundError:
+        logging.error("Backup file does not exist.")
+    except Exception as e:
+        logging.error(f"Failed to check database file size: {e}")
+
+
 
 def start_scheduler():
     scheduler = BackgroundScheduler()
-    scheduler.add_job(delete_expired_tokenTmps, 'interval', minutes=10  )
+    scheduler.add_job(delete_expired_tokenTmps, 'interval', minutes=10)  # 保留这个任务每10分钟运行一次，以清理过期的 tokenTmp
+
+    # 将数据库备份和文件大小检查任务设置为每24小时执行一次
+    # 设置了next_run_time来控制首次任务执行的具体时间。
+    # 备份数据库任务将在启动调度器10秒后开始执行，而检查数据库文件大小的任务则会在40秒后开始执行。
+    scheduler.add_job(backup_database, 'interval', hours=24, next_run_time=datetime.now() + timedelta(seconds=10))  # 10秒后开始第一次备份
+    scheduler.add_job(check_db_size, 'interval', hours=24, next_run_time=datetime.now() + timedelta(seconds=40))  # 40秒后开始第一次文件大小检查
+
     scheduler.start()
+
+
+
+
 
 
 
@@ -501,4 +567,3 @@ if __name__ == '__main__':
 
 
 
-    
