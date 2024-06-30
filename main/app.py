@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, views, url_for, redirect, session,abort,jsonify
+from flask import Flask, render_template, request, views, url_for, redirect, session,abort,jsonify,flash
 from utils import username_check,password_check,email_check, hash_encipher, decryptor_check,send_email,path_generate,token_generate,tokenTmp_generate
 
 
@@ -19,7 +19,7 @@ from flask_cors import CORS,cross_origin
 # 增强容错机制
 from sqlalchemy.exc import SQLAlchemyError
 
-from services.database_operations import check_user_exists, check_token_exists, check_project_exists, check_task_exists, get_token_by_username, get_username_by_token, get_user_by_token, get_level_by_token, get_password_by_username, get_user_info_by_username, get_projects_by_username, get_tasks_by_project, get_username_by_tokenTmp,get_user_id_by_token
+from services.database_operations import check_user_exists, check_token_exists, check_project_exists, check_task_exists, get_token_by_username, get_username_by_token, get_user_by_token, get_level_by_token, get_password_by_username, get_user_info_by_username, get_projects_by_username, get_tasks_by_project, get_username_by_tokenTmp,get_user_id_by_token,verify_user_email
 
 
 app = Flask(__name__)
@@ -144,6 +144,9 @@ class Profile(views.MethodView):
 
         if username=="token out of date":
             return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':"token out of date"})
+        elif username =="user not exist":
+            return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':"user not exist"})
+
 
         try:
             basic_info = get_user_info_by_username(username)
@@ -209,49 +212,107 @@ class Login(views.MethodView):
 
 
 
-class Forget_password(views.MethodView ):
 
-    def get(self,token):
-        return render_template('forget_password.html', token=token)
-    
-    def post(self,token):
-        token = request.args.get('token')  # 假设链接中带有token参数
+
+class Change_password(views.MethodView):
+    def get(self, tokenTmp):
+        return render_template('change_password.html', tokenTmp=tokenTmp)
+
+    def post(self, tokenTmp):
         new_password = request.form.get('new-password')
         confirm_password = request.form.get('confirm-new-password')
 
+        if new_password != confirm_password:
+            flash('Passwords do not match. Please try again.', 'error')
+            return redirect(url_for('change_password', tokenTmp=tokenTmp))
+        
+        # 验证密码强度
+        password_result, password_error = password_check(new_password)
+        if not password_result:
+            flash(password_error, 'error')
+            return redirect(url_for('change_password', tokenTmp=tokenTmp))
+
+
         try:
-            user_exist = check_user_exists(username)  # 检查用户是否存在
-            if user_exist:
-                user = User.query.filter_by(Username=username).first()
-                password_hashed = get_password_by_username(username)
-                if decryptor_check(password, password_hashed):  # 验证密码
-                    tokenTmp = tokenTmp_generate()  # 假设 token_generate() 是一个函数来生成一个临时令牌
+            username = get_username_by_tokenTmp(tokenTmp)
+            if username in ["token out of date", "user not exist"]:
+                flash(username, 'error')
+                return redirect(url_for('change_password', tokenTmp=tokenTmp))
 
-                    # 创建一个 TokenTmp 实例并保存到数据库
-                    new_token_tmp = TokenTmp(tempToken=tokenTmp, userId=user.UserId)
-                    db.session.add(new_token_tmp)
-                    db.session.commit()  # 提交数据库会话以保存我们的更改
+            user = User.query.filter_by(Username=username).first()
+            if not user:
+                flash('Cannot find this user.', 'error')
+                return redirect(url_for('change_password', tokenTmp=tokenTmp))
 
-                    return jsonify({'result': True, 'error': None, 'tokenTmp': tokenTmp})
-                else:
-                    error = "wrong password"
-                    return jsonify({'result': False, 'error': error, 'tokenTmp': None})
-            else:
-                error = "User not exist"
-                return jsonify({'result': False, 'error': error, 'tokenTmp': None})
+            # 更新用户密码
+            user.Password = hash_encipher(new_password)
+            db.session.commit()
+            return render_template('change_password_succesfully.html')
 
         except SQLAlchemyError as e:
-            # flash(f"A database error occurred: {e}", 'error')
-            return jsonify({'result': False, 'error': "An internal error occurred. Please try again.", 'tokenTmp': None})
+            db.session.rollback()
+            flash(f"A database error occurred: {e}", 'error')
+            return redirect(url_for('change_password', tokenTmp=tokenTmp))
         except Exception as e:
-            # flash(f"An unexpected error occurred: {e}", 'error')
-            return jsonify({'result': False, 'error': "An unexpected error occurred. Please try again.", 'tokenTmp': None})
+            flash(f"An unexpected error occurred: {e}", 'error')
+            return redirect(url_for('change_password', tokenTmp=tokenTmp))
+
 
 
 
 
     
 
+
+# Web API——发送邮件
+@app.route('/api/email',methods=['POST'])
+def email_request():
+    data=request.get_json()
+    email=data.get('email')
+    username = data.get("username")
+
+    try:
+        user_exist = check_user_exists(username)  # 检查用户是否存在
+        if user_exist:
+            user = User.query.filter_by(Username=username).first()
+
+            if verify_user_email(username, email):
+
+                # 创建一个 TokenTmp 实例并保存到数据库
+                tokenTmp = tokenTmp_generate()  # 假设 token_generate() 是一个函数来生成一个临时令牌
+                new_token_tmp = TokenTmp(tempToken=tokenTmp, userId=user.UserId)
+                db.session.add(new_token_tmp)
+                db.session.commit()  # 提交数据库会话以保存我们的更改
+                
+                # 构建重置密码的 URL
+                reset_url = url_for('change_password', tokenTmp=tokenTmp, _external=True)
+
+
+                 # 准备邮件内容
+                message = f'Hello {username},\n\nWe received your request to reset your password. Please click the link below to reset your password. This link will expire in 10 minutes:\n{reset_url}\n\nIf you did not request this change, please ignore this email.'
+
+
+                try:
+                    send_email(email,message,1) 
+                    return jsonify({'result': True, 'error': None})
+                except Exception as e:
+                    return jsonify({'result': False, 'error': f"error happened whenn sending email:{e}"})
+            
+            else:
+                error="email doesn't match this username"
+                return jsonify({'result': False, 'error': error})
+
+
+        else:
+            error = "User not exist"
+            return jsonify({'result': False, 'error': error})
+
+    except SQLAlchemyError as e:
+        flash(f"A database error occurred: {e}", 'error')
+        # return jsonify({'result': False, 'error': "An internal error occurred. Please try again."})
+    except Exception as e:
+        flash(f"An unexpected error occurred: {e}", 'error')
+        # return jsonify({'result': False, 'error': "An unexpected error occurred. Please try again."})
 
 
 
@@ -412,10 +473,7 @@ app.add_url_rule('/login', view_func=Login.as_view('login'))
 app.add_url_rule('/', view_func=Login.as_view('main_website'))
 app.add_url_rule('/profile', view_func=Profile.as_view('profile'))
 app.add_url_rule('/register',view_func=Register.as_view('register'))
-app.add_url_rule('/forget-password/<token>', view_func=Forget_password.as_view('reset_password'), methods=['GET', 'POST'])
-
-
-
+app.add_url_rule('/change-password/<tokenTmp>', view_func=Change_password.as_view('change_password'), methods=['GET', 'POST'])
 
 # 错误处理模块
 @app.errorhandler(404)

@@ -20,7 +20,7 @@ def send_email(receivers,message,mode):
     nickname1="RShub"
     nickname2='Receiver'
 
-    if mode == 0:
+    if mode == 0:   #注册模式
         message = MIMEText(message, 'plain', 'utf-8')     #plain表示正文将包含纯文本信息，没有格式或样式。
         message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
         message['To'] =  to_encode(nickname2,receivers)
@@ -31,7 +31,7 @@ def send_email(receivers,message,mode):
         smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
         print('email has been sent!')
 
-    elif mode ==1:
+    elif mode ==1:  #修改密码模式
         message = MIMEText(message, 'plain', 'utf-8')     #plain表示正文将包含纯文本信息，没有格式或样式。
         message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
         message['To'] =  to_encode(nickname2,receivers)
@@ -58,7 +58,7 @@ if __name__=="__main__":
         content=i['content']
         inf=role+':'+content
         message+=f'\n{inf}' 
-    email('jiayang.23@intl.zju.edu.cn',message)
+    send_email('jiayang.23@intl.zju.edu.cn',message)
     # print(message)
 
 

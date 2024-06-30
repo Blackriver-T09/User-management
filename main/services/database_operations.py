@@ -190,3 +190,30 @@ def get_username_by_tokenTmp(tokenTmp):
             return "token out of date"
     except SQLAlchemyError as e:
         print(f"Database error occurred when retrieving tasks by project: {e}")
+
+
+
+# def check_if_tokenTmp_exist(tokenTmp):
+#     try:
+#         # 查询 TokenTmp 表以获取与 temp_token 相关联的用户
+#         token_record = TokenTmp.query.filter_by(tempToken=tokenTmp).first()
+        
+#         if token_record:
+#             return None
+#         else:
+#             return "token out of date"
+#     except SQLAlchemyError as e:
+#         print(f"Database error occurred when retrieving tasks by project: {e}")
+
+
+def verify_user_email(username, email):
+    try:
+        # 查询数据库中是否存在匹配的用户名和邮箱
+        user = User.query.filter_by(Username=username, Email=email).first()
+        if user:
+            return True  # 用户名和邮箱匹配
+        else:
+            return False  # 用户名和邮箱不匹配
+    except SQLAlchemyError as e:
+        print(f"Database error occurred: {e}")
+        return None  # 发生数据库错误，无法验证
