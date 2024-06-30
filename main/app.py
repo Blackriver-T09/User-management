@@ -367,18 +367,16 @@ def email_request():
             else:
                 error="email doesn't match this username"
                 return jsonify({'result': False, 'error': error})
-
-
         else:
             error = "User not exist"
             return jsonify({'result': False, 'error': error})
 
     except SQLAlchemyError as e:
-        flash(f"A database error occurred: {e}", 'error')
-        # return jsonify({'result': False, 'error': "An internal error occurred. Please try again."})
+        # flash(f"A database error occurred: {e}", 'error')
+        return jsonify({'result': False, 'error': "An internal error occurred. Please try again."})
     except Exception as e:
-        flash(f"An unexpected error occurred: {e}", 'error')
-        # return jsonify({'result': False, 'error': "An unexpected error occurred. Please try again."})
+        # flash(f"An unexpected error occurred: {e}", 'error')
+        return jsonify({'result': False, 'error': "An unexpected error occurred. Please try again."})
 
 
 
