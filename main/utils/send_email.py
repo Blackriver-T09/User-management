@@ -27,9 +27,9 @@ def send_email(receivers,message,mode):
         message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
         message['To'] =  to_encode(nickname2,receivers)
         message['Subject'] = Header('Successful Registration', 'utf-8')     #设置了邮件的主题
-        smtper.starttls()
         #smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
         smtper = SMTP('smtp-mail.outlook.com')             ## 使用 QQ 邮箱的 SMTP 服务器
+        smtper.starttls()
         smtper.login(sender,key)
         smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
         smtper.quit()
