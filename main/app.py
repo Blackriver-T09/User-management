@@ -351,10 +351,11 @@ def email_request():
                 db.session.commit()  # 提交数据库会话以保存我们的更改
                 
                 # 构建重置密码的 URL
-                reset_url = url_for('change_password', tokenTmp=tokenTmp, _external=True)
+                # reset_url = url_for('change_password', tokenTmp=tokenTmp, _external=True)
+                reset_url = 'https://rshub.zju.edu.cn/change-password/' + tokenTmp
 
 
-                 # 准备邮件内容
+                # 准备邮件内容
                 message = f'Hello {username},\n\nWe received your request to reset your password. Please click the link below to reset your password. This link will expire in 10 minutes:\n{reset_url}\n\nIf you did not request this change, please ignore this email.'
 
 
