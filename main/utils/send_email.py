@@ -13,9 +13,11 @@ def to_encode(nickname,email):
 #然而这个编码函数对ASCLL码字符同样适用，所以直接全面采用了
 
 def send_email(receivers,message,mode):
-    sender = '2812104715@qq.com'              # 发件人邮箱
+    sender = 'rshub.zjui@outlook.com'              # 发件人邮箱
+    # sender = '2812104715@qq.com'              # 发件人邮箱
     # receivers = ['jiayang.23@intl.zju.edu.cn']         # 接收人邮箱，可以是多个，用逗号分隔
-    key='sywosrqwftjgdgdj'                    # QQ邮箱授权码，需要从“账号安全”设置里获取
+    # key='sywosrqwftjgdgdj'                    # QQ邮箱授权码，需要从“账号安全”设置里获取
+    key='rnjtvlpqnazgvfno'                    # QQ邮箱授权码，需要从“账号安全”设置里获取
     
     nickname1="RShub"
     nickname2='Receiver'
@@ -25,10 +27,12 @@ def send_email(receivers,message,mode):
         message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
         message['To'] =  to_encode(nickname2,receivers)
         message['Subject'] = Header('Successful Registration', 'utf-8')     #设置了邮件的主题
-        
-        smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
-        smtper.login(sender,key )
+        #smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
+        smtper = SMTP('smtp-mail.outlook.com')             ## 使用 QQ 邮箱的 SMTP 服务器
+        smtper.starttls()
+        smtper.login(sender,key)
         smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
+        smtper.quit()
         print('email has been sent!')
 
     elif mode ==1:  #修改密码模式
@@ -36,10 +40,13 @@ def send_email(receivers,message,mode):
         message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
         message['To'] =  to_encode(nickname2,receivers)
         message['Subject'] = Header('Change Password', 'utf-8')     #设置了邮件的主题
+        #smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
+        smtper = SMTP('smtp-mail.outlook.com')             ## 使用 QQ 邮箱的 SMTP 服务器
+        smtper.starttls()
+        smtper.login(sender,key)
         
-        smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
-        smtper.login(sender,key )
         smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
+        smtper.quit()
         print('email has been sent!')
 
 
