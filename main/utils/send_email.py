@@ -2,6 +2,7 @@ from smtplib import SMTP
 from email.header import Header
 from email.mime.text import MIMEText
 import base64
+from threading import Thread
 
 def to_encode(nickname,email):  
     nickname_bytes = nickname.encode('utf-8')          # 使用UTF-8编码将昵称转换为字节数组
@@ -12,60 +13,61 @@ def to_encode(nickname,email):
 #定义这个函数是因为message['From']和message['To']对格式有严格的要求。尤其是中文(非ASCLL编码)字符需要进一步编码
 #然而这个编码函数对ASCLL码字符同样适用，所以直接全面采用了
 
-def send_email(receivers,message,mode):
-    sender = 'rshub.zjui@outlook.com'              # 发件人邮箱
-    # sender = '2812104715@qq.com'              # 发件人邮箱
-    # receivers = ['jiayang.23@intl.zju.edu.cn']         # 接收人邮箱，可以是多个，用逗号分隔
-    # key='sywosrqwftjgdgdj'                    # QQ邮箱授权码，需要从“账号安全”设置里获取
-    key='rnjtvlpqnazgvfno'                    # QQ邮箱授权码，需要从“账号安全”设置里获取
+# def send_email(receivers,message,mode):
+#     sender = 'rshub.zjui@outlook.com'              # 发件人邮箱
+#     key='rnjtvlpqnazgvfno'                    # QQ邮箱授权码，需要从“账号安全”设置里获取
+#     nickname1="RShub"
+#     nickname2='Receiver'
+#     subject = 'Change Password' if mode == 1 else 'Successful Registration'
+
+#     message = MIMEText(message, 'plain', 'utf-8')     #plain表示正文将包含纯文本信息，没有格式或样式。
+#     message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
+#     message['To'] =  to_encode(nickname2,receivers)
+#     message['Subject'] = Header(subject, 'utf-8')     #设置了邮件的主题
+#     smtper = SMTP('smtp-mail.outlook.com')             ## 使用 QQ 邮箱的 SMTP 服务器
+#     smtper.starttls()
+#     smtper.login(sender,key)
+#     smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
+#     smtper.quit()
+#     print('email has been sent!')
+
+
+
+def send_email_async(sender, receivers,msg ,key):
+
+    try:
+        smtper = SMTP('smtp-mail.outlook.com')
+        smtper.starttls()
+        smtper.login(sender, key)
+        smtper.sendmail(sender, receivers, msg.as_string())
+        smtper.quit()
+        print('email has been sent!')
+
+    except Exception as e:
+        print(f'Failed to send mail: {e}')
+
+def send_email(receivers, message, mode ):
+    sender = 'rshub.zjui@outlook.com'
+    key = 'rnjtvlpqnazgvfno'
+    nickname1 = "RShub"
+    nickname2 = 'Receiver'
+    subject = 'Change Password' if mode == 1 else 'Successful Registration'
     
-    nickname1="RShub"
-    nickname2='Receiver'
-
-    if mode == 0:   #注册模式
-        message = MIMEText(message, 'plain', 'utf-8')     #plain表示正文将包含纯文本信息，没有格式或样式。
-        message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
-        message['To'] =  to_encode(nickname2,receivers)
-        message['Subject'] = Header('Successful Registration', 'utf-8')     #设置了邮件的主题
-        #smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
-        smtper = SMTP('smtp-mail.outlook.com')             ## 使用 QQ 邮箱的 SMTP 服务器
-        smtper.starttls()
-        smtper.login(sender,key)
-        smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
-        smtper.quit()
-        print('email has been sent!')
-
-    elif mode ==1:  #修改密码模式
-        message = MIMEText(message, 'plain', 'utf-8')     #plain表示正文将包含纯文本信息，没有格式或样式。
-        message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
-        message['To'] =  to_encode(nickname2,receivers)
-        message['Subject'] = Header('Change Password', 'utf-8')     #设置了邮件的主题
-        #smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
-        smtper = SMTP('smtp-mail.outlook.com')             ## 使用 QQ 邮箱的 SMTP 服务器
-        smtper.starttls()
-        smtper.login(sender,key)
-        
-        smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
-        smtper.quit()
-        print('email has been sent!')
+    msg = MIMEText(message, 'plain', 'utf-8')
+    msg['From'] = to_encode(nickname1, sender)
+    msg['To'] = to_encode(nickname2, receivers)
+    msg['Subject'] = Header(subject, 'utf-8')
+    
+    # 创建线程来异步发送邮件
+    thr = Thread(target=send_email_async, args=[sender, receivers,msg,key])
+    thr.start()
 
 
 
 
 if __name__=="__main__":
-
-    conversation_history = [{'role': 'system', 'content': 'You are a helpful assistant.'},
-                             {'role': 'user', 'content': 'hello'}, 
-                             {'role': 'assistant', 'content': 'Hello! How can I assist you today?'}, 
-                             {'role': 'user', 'content': 'i love you'}, 
-                             {'role': 'assistant', 'content': "That's kind of you! I'm here to help you with any questions or tasks you have. How can I assist you today?"}]
-    message=''
-    for i in conversation_history:
-        role=i['role']
-        content=i['content']
-        inf=role+':'+content
-        message+=f'\n{inf}' 
-    send_email('jiayang.23@intl.zju.edu.cn',message)
+    message='You have been successfully registered'
+    send_email('jiayang.23@intl.zju.edu.cn',message,1)
     # print(message)
 
 

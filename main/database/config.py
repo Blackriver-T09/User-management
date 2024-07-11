@@ -10,6 +10,6 @@ class Config:
     # 设置 SQLAlchemy 使用的数据库 URI 和跟踪修改的选项。
     SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}/{MYSQL_DB}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_ECHO = True
+    # SQLALCHEMY_ECHO = False
 
 

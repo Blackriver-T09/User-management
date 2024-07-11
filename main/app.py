@@ -30,7 +30,6 @@ from services.database_operations import check_user_exists, check_token_exists, 
 
 
 app = Flask(__name__)
-
 app.secret_key = 'my_secret_key'  # 设置一个安全的密钥用于签名会话
 
 app.config.from_object(Config)
@@ -44,9 +43,38 @@ db.init_app(app)
 
 
 
-# 设置日志
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-# logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filename='app.log', filemode='a')
+# 配置日志
+logging.basicConfig(filename='./log/app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filemode='a')
+file_handler = logging.FileHandler('./log/app.log')
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+
+stream_handler = logging.StreamHandler()
+stream_handler.setLevel(logging.WARNING)
+stream_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+
+# 配置日志处理器
+logger = logging.getLogger()
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
+
+# 调整SQLAlchemy的日志级别
+sqlalchemy_logger = logging.getLogger('sqlalchemy.engine')
+sqlalchemy_logger.setLevel(logging.WARNING)
+
+
+
+
+
+
+
+
+
+
+def now_time():
+    return datetime.now().strftime("%Y-%m-%d %H:%M")
+
+
 
 # 删除过期的tokenTmp
 def delete_expired_tokenTmps():
@@ -60,9 +88,13 @@ def delete_expired_tokenTmps():
             for token in expired_tokens:
                 db.session.delete(token)
             db.session.commit()
+
+            print(f'{now_time()}: Deleted {count} expired tokenTmp entries.')
             logging.info(f"Deleted {count} expired tokenTmp entries.")
         except Exception as e:
             db.session.rollback()
+
+            print(f"{now_time()}: Failed to delete expired tokenTmps: {e}")
             logging.error(f"Failed to delete expired tokenTmps: {e}")
 
 # 数据库备份任务
@@ -84,13 +116,21 @@ def backup_database():
 
         command = f"mysqldump -u {db_user} -p{db_password} {db_name} > {backup_path}"
         result = subprocess.run(command, shell=True, check=True)
+
         if result.returncode == 0:
+
+            print(f'{now_time()}: Database backup completed successfully.')
             logging.info("Database backup completed successfully.")
         else:
+            print(f'{now_time()}: Database backup failed.')
             logging.error("Database backup failed.")
+
     except subprocess.CalledProcessError as e:
+        print(f'{now_time()}: Backup command failed with exit status {e.returncode}')
         logging.error(f"Backup command failed with exit status {e.returncode}")
+
     except Exception as e:
+        print(f'{now_time()}: Error executing backup: {e}')
         logging.error(f"Error executing backup: {e}")
 
 # 检查数据库备份文件的大小
@@ -99,10 +139,16 @@ def check_db_size():
         backup_dir = os.path.join(os.path.dirname(__file__), 'reserved')
         backup_path = os.path.join(backup_dir, f"{app.config['MYSQL_DB']}_backup.sql")
         file_size = os.path.getsize(backup_path)
+
+        print(f'{now_time()}: Database file size: {file_size} bytes')
         logging.info(f"Database file size: {file_size} bytes")
     except FileNotFoundError:
+
+        print(f'{now_time()}: Backup file does not exist.')
         logging.error("Backup file does not exist.")
     except Exception as e:
+
+        print(f'{now_time()}: Failed to check database file size: {e}')
         logging.error(f"Failed to check database file size: {e}")
 
 
@@ -186,11 +232,16 @@ class Register(views.MethodView):
 
             send_email(email,f'Congratulations,{username}! You have seccessfully register your account for RShub! ',0)
 
+            print(f'{now_time()}: {username} has registered Successfully')
+
             return jsonify({'result':True,'error':None,'tokenTmp':tokenTmp})
         
         except Exception as e:
             db.session.rollback()
-            print(f"Error during registration: {e}")
+
+            print(f"{now_time()}: Error during registration: {e}")
+            logging.error(f"Error during registration: {e}")
+
             return jsonify({'result':False,'error':"An error occurred during registration. Please try again.",'tokenTmp':None})
 
 
@@ -229,9 +280,14 @@ class Profile(views.MethodView):
                 return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':'Failed to load projects.'})
 
 
+            print(f"{now_time()}: {username} has successfully visited his/her page")
             return jsonify({'result':True,'username':username,'token':token,'email':email,'organization':organization,'projectlist':projectlist,'error':None})
 
         except SQLAlchemyError as e:
+
+            print(f"{now_time()}: SQLAlchemyError during Profile: {e}")
+            logging.error(f"SQLAlchemyError during Profile: {e}")
+
             return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':"An internal error occurred. Please try again."})
 
 
@@ -260,6 +316,7 @@ class Login(views.MethodView):
                     db.session.add(new_token_tmp)
                     db.session.commit()  # 提交数据库会话以保存我们的更改
 
+                    print(f"{now_time()}: {username} has successfully log in")
                     return jsonify({'result': True, 'error': None, 'tokenTmp': tokenTmp})
                 else:
                     error = "wrong password"
@@ -270,16 +327,22 @@ class Login(views.MethodView):
 
         except SQLAlchemyError as e:
             # flash(f"A database error occurred: {e}", 'error')
+            print(f"{now_time()}: SQLAlchemyError during Login: {e}")
+            logging.error(f"SQLAlchemyError during Login: {e}")
+
             return jsonify({'result': False, 'error': "An internal error occurred. Please try again.", 'tokenTmp': None})
         except Exception as e:
             # flash(f"An unexpected error occurred: {e}", 'error')
+
+            print(f"{now_time()}: Error during Login: {e}")
+            logging.error(f"Error during Login: {e}")
             return jsonify({'result': False, 'error': "An unexpected error occurred. Please try again.", 'tokenTmp': None})
 
 
 
 
 
-
+# 这个页面只能从邮件中打开
 class Change_password(views.MethodView):
     def get(self, tokenTmp):
         return render_template('change_password.html', tokenTmp=tokenTmp)
@@ -313,14 +376,23 @@ class Change_password(views.MethodView):
             # 更新用户密码
             user.Password = hash_encipher(new_password)
             db.session.commit()
+
+            print(f"{now_time()}: {username} has change password successfully.")
             return render_template('change_password_succesfully.html')
 
         except SQLAlchemyError as e:
             db.session.rollback()
             flash(f"A database error occurred: {e}", 'error')
+
+
+            print(f"{now_time()}: SQLAlchemyError during Change_password: {e}")
+            logging.error(f"SQLAlchemyError during Change_password: {e}")
             return redirect(url_for('change_password', tokenTmp=tokenTmp))
         except Exception as e:
             flash(f"An unexpected error occurred: {e}", 'error')
+
+            print(f"{now_time()}: Error during Change_password: {e}")
+            logging.error(f"Error during Change_password: {e}")
             return redirect(url_for('change_password', tokenTmp=tokenTmp))
 
 
@@ -351,8 +423,8 @@ def email_request():
                 db.session.commit()  # 提交数据库会话以保存我们的更改
                 
                 # 构建重置密码的 URL
-                # reset_url = url_for('change_password', tokenTmp=tokenTmp, _external=True)
-                reset_url = 'https://rshub.zju.edu.cn/change-password/' + tokenTmp
+                reset_url = url_for('change_password', tokenTmp=tokenTmp, _external=True)
+                # reset_url = 'https://rshub.zju.edu.cn/change-password/' + tokenTmp
 
 
                 # 准备邮件内容
@@ -361,8 +433,14 @@ def email_request():
 
                 try:
                     send_email(email,message,1) 
+
+
+                    print(f"{now_time()}: change_password email has been sent to {username} ")
                     return jsonify({'result': True, 'error': None})
                 except Exception as e:
+
+                    print(f"{now_time()}: error happened whenn sending email:{e}")
+                    logging.error(f"error happened whenn sending email:{e}")
                     return jsonify({'result': False, 'error': f"error happened whenn sending email:{e}"})
             
             else:
@@ -374,9 +452,15 @@ def email_request():
 
     except SQLAlchemyError as e:
         # flash(f"A database error occurred: {e}", 'error')
+
+        print(f"{now_time()}: SQLAlchemyError during Email: {e}")
+        logging.error(f"SQLAlchemyError during Email: {e}")
         return jsonify({'result': False, 'error': "An internal error occurred. Please try again."})
     except Exception as e:
         # flash(f"An unexpected error occurred: {e}", 'error')
+
+        print(f"{now_time()}: Error during Email: {e}")
+        logging.error(f"Error during Email: {e}")
         return jsonify({'result': False, 'error': "An unexpected error occurred. Please try again."})
 
 
@@ -403,6 +487,8 @@ def project_creation():
                 project = UserProject(ProjectName=project_name, user_id=user.UserId)
                 db.session.add(project)
                 db.session.commit()
+
+                print(f"{now_time()}: {user.Username} successfully create project {project_name}")
                 return jsonify({'result': True, 'error_message': None})
             else:
                 return jsonify({'result': False, "error_message": 'User not found'})
@@ -411,10 +497,14 @@ def project_creation():
 
     except SQLAlchemyError as e:
         db.session.rollback()
-        print(f"Database error during project creation: {e}")
+
+        print(f"{now_time()}: SQLAlchemyError during project_creation: {e}")
+        logging.error(f"SQLAlchemyError during project_creation: {e}")
         return jsonify({'result': False, "error_message": "Database error. Unable to create project."})
     except Exception as e:
-        print(f"Unexpected error during project creation: {e}")
+        
+        print(f"{now_time()}: Error during project_creation: {e}")
+        logging.error(f"Error during project_creation: {e}")
         return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again."})
 
 
@@ -452,6 +542,7 @@ def task_creation():
                         db.session.add(new_task)
                         db.session.commit()
 
+                        print(f"{now_time()}: {user.Username} successfully create task '{task_name}' in project '{project_name}'")
                         return jsonify({'result': True, 'error_message': None, 'path': new_task.TaskPath})
                     else:
                         return jsonify({'result': False, "error_message": 'Project not exist', 'path': None})
@@ -464,10 +555,14 @@ def task_creation():
 
     except SQLAlchemyError as e:
         db.session.rollback()
-        print(f"Database error during task creation: {e}")
+
+        print(f"{now_time()}: SQLAlchemyError during Task-creation: {e}")
+        logging.error(f"SQLAlchemyError during Task-creation: {e}")
         return jsonify({'result': False, "error_message": "Database error. Unable to create task.", 'path': None})
     except Exception as e:
-        print(f"Unexpected error during task creation: {e}")
+
+        print(f"{now_time()}: Error during Task-creation: {e}")
+        logging.error(f"Error during Task-creation: {e}")
         return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again.", 'path': None})
 
 
@@ -497,6 +592,9 @@ def download_request():
 
                     for task in tasks[::-1]:
                         if task.TaskName == task_name:
+
+
+                            print(f"{now_time()}: {username} successfully Download request")
                             return jsonify({'result': True, 'error_message': None, 'path': task.TaskPath})
                     return jsonify({'result': False, "error_error_message": 'Task not exist', 'path': None})
                 
@@ -518,10 +616,14 @@ def download_request():
     
     except SQLAlchemyError as e:
         db.session.rollback()
-        print(f"Database error during download request: {e}")
+
+        print(f"{now_time()}: SQLAlchemyError during download_request: {e}")
+        logging.error(f"SQLAlchemyError during download_request: {e}")
         return jsonify({'result': False, "error_message": "Database error. Please try again.", 'path': None})
     except Exception as e:
-        print(f"Unexpected error during download request: {e}")
+        
+        print(f"{now_time()}: Error during download_request: {e}")
+        logging.error(f"Error during download_request: {e}")
         return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again.", 'path': None})
 
 
@@ -554,14 +656,11 @@ def handle_404_error(err):
 
 
 if __name__ == '__main__':
-    # with app.app_context():  #创建临时的Flask应用上下文
-    #     db.drop_all()  # 删除数据库下的所有 上述定义 的表，防止重复创建
-    #     db.create_all()  # 将上述定义的所有表对象映射为数据库下的表单（创建表）
 
     start_scheduler()    #定时任务启动，每十分钟删除一次过期tokenTmp
     app.run(debug=True)
 
-# session存储了当前用户名
+
 
 
 
