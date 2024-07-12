@@ -61,11 +61,9 @@ class Register(views.MethodView):
         Affiliation=data.get('Affiliation',None)
         ResearchArea=data.get('ResearchArea',None)
 
-
+        # 验证缺失模块
         parameter_list=[username,email,institution,password,confirm_password,FirstName,
                         LastName,Gender,Country,Affiliation,ResearchArea]
-
-        # 验证缺失模块
         for parameter in parameter_list:
             if parameter == None:
                 return jsonify({'result':False,'error':f'please fill in ALL the required infomation','tokenTmp':None})
@@ -143,7 +141,10 @@ class Profile(views.MethodView):
     def post(self):
 
         data=request.get_json()
-        tokenTmp=data.get('tokenTmp')
+        tokenTmp=data.get('tokenTmp',None)
+        if tokenTmp==None:
+            return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'credits':None,'projectlist':None,'error':"failed to get tokenTmp"})
+
 
         username=get_username_by_tokenTmp(tokenTmp)
 
@@ -192,8 +193,15 @@ class Login(views.MethodView):
 
     def post(self):
         data = request.get_json()
-        username = data.get("username")
-        password = data.get("password")
+        username = data.get("username",None)
+        password = data.get("password",None)
+        
+        # 验证缺失模块
+        parameter_list=[username, password]
+        for parameter in parameter_list:
+            if parameter == None:
+                return jsonify({'result': False, 'error': 'please fill in username and password', 'tokenTmp': None})
+
 
         try:
             user_exist = check_user_exists(username)  # 检查用户是否存在
@@ -299,8 +307,15 @@ class Change_password(views.MethodView):
 @app.route('/api/email',methods=['POST'])
 def email_request():
     data=request.get_json()
-    email=data.get('email')
-    username = data.get("username")
+    email=data.get('email',None)
+    username = data.get("username",None)
+
+    #验证缺失模块 
+    parameter_list=[email,username]
+    for parameter in parameter_list:
+        if parameter == None:
+            return jsonify({'result': False, 'error': 'please fill in both the email and username'})
+
 
     try:
         user_exist = check_user_exists(username)  # 检查用户是否存在
