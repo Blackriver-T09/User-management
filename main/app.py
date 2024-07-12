@@ -11,10 +11,6 @@ from database.config import Config
 from database.config import db
 
 
-
-from apscheduler.schedulers.background import BackgroundScheduler  #这个库用于设置定时任务，使tokenTmp 在创建后10分钟自动删除
-from datetime import datetime, timedelta, timezone
-import subprocess
 import os
 import logging
 import time
@@ -27,7 +23,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
 
 from services.database_operations import check_user_exists, check_token_exists, check_project_exists, check_task_exists, get_token_by_username, get_username_by_token, get_user_by_token, get_level_by_token, get_password_by_username, get_user_info_by_username, get_projects_by_username, get_tasks_by_project, get_username_by_tokenTmp,get_user_id_by_token,verify_user_email
-
+from services.scheduler_tasks  import now_time,start_scheduler
 
 app = Flask(__name__)
 app.secret_key = 'my_secret_key'  # 设置一个安全的密钥用于签名会话
@@ -43,158 +39,43 @@ db.init_app(app)
 
 
 
-# 配置日志
-logging.basicConfig(filename='./log/app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filemode='a')
-file_handler = logging.FileHandler('./log/app.log')
-file_handler.setLevel(logging.INFO)
-file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-
-stream_handler = logging.StreamHandler()
-stream_handler.setLevel(logging.WARNING)
-stream_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-
-# 配置日志处理器
-logger = logging.getLogger()
-logger.addHandler(file_handler)
-logger.addHandler(stream_handler)
-
-# 调整SQLAlchemy的日志级别
-sqlalchemy_logger = logging.getLogger('sqlalchemy.engine')
-sqlalchemy_logger.setLevel(logging.WARNING)
-
-
-
-
-
-
-
-
-
-
-def now_time():
-    return datetime.now().strftime("%Y-%m-%d %H:%M")
-
-
-
-# 删除过期的tokenTmp
-def delete_expired_tokenTmps():
-    with app.app_context():
-        try:
-            # 获取10分钟前的UTC时间
-            time_threshold = datetime.now(timezone.utc) - timedelta(minutes=10)
-            # 查找所有创建时间小于该阈值的tokenTmp
-            expired_tokens = TokenTmp.query.filter(TokenTmp.createdAt <= time_threshold).all()
-            count = len(expired_tokens)
-            for token in expired_tokens:
-                db.session.delete(token)
-            db.session.commit()
-
-            print(f'{now_time()}: Deleted {count} expired tokenTmp entries.')
-            logging.info(f"Deleted {count} expired tokenTmp entries.")
-        except Exception as e:
-            db.session.rollback()
-
-            print(f"{now_time()}: Failed to delete expired tokenTmps: {e}")
-            logging.error(f"Failed to delete expired tokenTmps: {e}")
-
-# 数据库备份任务
-def backup_database():
-    try:
-        # 读取数据库配置
-        db_user = app.config['MYSQL_USER']
-        db_password = app.config['MYSQL_PASSWORD']
-        db_name = app.config['MYSQL_DB']
-
-
-        # 确保备份目录存在
-        backup_dir = os.path.join(os.path.dirname(__file__), 'reserved')
-        os.makedirs(backup_dir, exist_ok=True)
-        backup_path = os.path.join(backup_dir, f"{db_name}_backup.sql")   #每次运行备份脚本时新的备份文件会覆盖前一次的备份文件
-        # 如果要保留历史备份文件，可以在文件名中包含当前日期和时间的时间戳
-        # timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-        # backup_path = os.path.join(backup_dir, f"{db_name}_backup_{timestamp}.sql")
-
-        command = f"mysqldump -u {db_user} -p{db_password} {db_name} > {backup_path}"
-        result = subprocess.run(command, shell=True, check=True)
-
-        if result.returncode == 0:
-
-            print(f'{now_time()}: Database backup completed successfully.')
-            logging.info("Database backup completed successfully.")
-        else:
-            print(f'{now_time()}: Database backup failed.')
-            logging.error("Database backup failed.")
-
-    except subprocess.CalledProcessError as e:
-        print(f'{now_time()}: Backup command failed with exit status {e.returncode}')
-        logging.error(f"Backup command failed with exit status {e.returncode}")
-
-    except Exception as e:
-        print(f'{now_time()}: Error executing backup: {e}')
-        logging.error(f"Error executing backup: {e}")
-
-# 检查数据库备份文件的大小
-def check_db_size():
-    try:
-        backup_dir = os.path.join(os.path.dirname(__file__), 'reserved')
-        backup_path = os.path.join(backup_dir, f"{app.config['MYSQL_DB']}_backup.sql")
-        file_size = os.path.getsize(backup_path)
-
-        print(f'{now_time()}: Database file size: {file_size} bytes')
-        logging.info(f"Database file size: {file_size} bytes")
-    except FileNotFoundError:
-
-        print(f'{now_time()}: Backup file does not exist.')
-        logging.error("Backup file does not exist.")
-    except Exception as e:
-
-        print(f'{now_time()}: Failed to check database file size: {e}')
-        logging.error(f"Failed to check database file size: {e}")
-
-
-
-def start_scheduler():
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(delete_expired_tokenTmps, 'interval', minutes=10)  # 保留这个任务每10分钟运行一次，以清理过期的 tokenTmp
-
-    # 将数据库备份和文件大小检查任务设置为每24小时执行一次
-    # 设置了next_run_time来控制首次任务执行的具体时间。
-    # 备份数据库任务将在启动调度器10秒后开始执行，而检查数据库文件大小的任务则会在40秒后开始执行。
-    scheduler.add_job(backup_database, 'interval', hours=24, next_run_time=datetime.now() + timedelta(seconds=10))  # 10秒后开始第一次备份
-    scheduler.add_job(check_db_size, 'interval', hours=24, next_run_time=datetime.now() + timedelta(seconds=40))  # 40秒后开始第一次文件大小检查
-
-    scheduler.start()
-
-
-
-
-
-
-
-
 class Register(views.MethodView):
 
     
      # 允许所有域进行跨源请求
     def post(self):
-        # username = request.form.get('fullname')
-        # email = request.form.get('email')
-        # institution = request.form.get('institution')
-        # password = request.form.get('password')
-        # confirm_password = request.form.get('confirm-password')
 
+        # 基础信息
         data= request.get_json()
-        username = data.get('username')
-        email = data.get('email')
-        institution = data.get('institution')
-        password = data.get('password')
-        confirm_password = data.get('confirm_password')
+        username = data.get('username',None)
+        email = data.get('email',None)
+        institution = data.get('institution',None)
+        password = data.get('password',None)
+        confirm_password = data.get('confirm_password',None)
 
+        # 更详细的信息
+        FirstName=data.get('FirstName',None)
+        LastName=data.get('LastName',None)
+        Gender=data.get('Gender',None)
+        Country=data.get('Country',None)
+        Affiliation=data.get('Affiliation',None)
+        ResearchArea=data.get('ResearchArea',None)
+
+
+        parameter_list=[username,email,institution,password,confirm_password,FirstName,
+                        LastName,Gender,Country,Affiliation,ResearchArea]
+
+        # 验证缺失模块
+        for parameter in parameter_list:
+            if parameter == None:
+                return jsonify({'result':False,'error':f'please fill in ALL the required infomation','tokenTmp':None})
+
+
+
+        # 安全性验证模块
         username_result, username_error = username_check(username)
         email_result, email_error = email_check(email)
         password_result, password_error = password_check(password)
-
-        # 验证错误模块
         if not username_result:
             return jsonify({'result':False,'error':username_error,'tokenTmp':None})
         if not email_result:
@@ -212,7 +93,17 @@ class Register(views.MethodView):
             
             # 创建用户信息  
             encrypted_password = hash_encipher(password)
-            user = User(Username=username, Password=encrypted_password, Email=email, Organization=institution)
+            user = User(Username=username, 
+                        Password=encrypted_password, 
+                        Email=email, 
+                        Organization=institution,
+                        FirstName=FirstName,
+                        LastName=LastName,
+                        Gender=Gender,
+                        Country=Country,
+                        Affiliation=Affiliation,
+                        ResearchArea=ResearchArea,
+                        Credits=100)
             db.session.add(user)
             db.session.flush()  # Flush to assign ID to user object without committing transaction
 
@@ -254,41 +145,42 @@ class Profile(views.MethodView):
         data=request.get_json()
         tokenTmp=data.get('tokenTmp')
 
-
-        # username = session.get('username')  # 从会话获取用户名  
         username=get_username_by_tokenTmp(tokenTmp)
 
 
         if username=="token out of date":
-            return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':"token out of date"})
+            return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'credits':None,'projectlist':None,'error':"token out of date"})
         elif username =="user not exist":
-            return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':"user not exist"})
+            return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'credits':None,'projectlist':None,'error':"user not exist"})
 
 
         try:
+            # 获取要展示的用户基本信息
             basic_info = get_user_info_by_username(username)
             if not basic_info:
-                return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':'Failed to retrieve user information.'})
-
+                return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'credits':None,'projectlist':None,'error':'Failed to retrieve user information.'})
             email = basic_info.get('Email', "Not Found")
             token = basic_info.get('Token', "No token")
             organization = basic_info.get('Organization', "Not Found")
+            credits=basic_info.get('Credits', "Not Found")
+
+            # 获取用户项目列表
             projectlist = get_projects_by_username(username)
 
             if projectlist is None:  # 处理项目列表可能为空的情况
                 projectlist = []
-                return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':'Failed to load projects.'})
+                return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'credits':None,'projectlist':None,'error':'Failed to load projects.'})
 
 
             print(f"{now_time()}: {username} has successfully visited his/her page")
-            return jsonify({'result':True,'username':username,'token':token,'email':email,'organization':organization,'projectlist':projectlist,'error':None})
+            return jsonify({'result':True,'username':username,'token':token,'email':email,'organization':organization,'credits':credits,'projectlist':projectlist,'error':None})
 
         except SQLAlchemyError as e:
 
             print(f"{now_time()}: SQLAlchemyError during Profile: {e}")
             logging.error(f"SQLAlchemyError during Profile: {e}")
 
-            return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'projectlist':None,'error':"An internal error occurred. Please try again."})
+            return jsonify({'result':False,'username':None,'token':None,'email':None,'organization':None,'credits':None,'projectlist':None,'error':"An internal error occurred. Please try again."})
 
 
 
@@ -324,6 +216,7 @@ class Login(views.MethodView):
             else:
                 error = "User not exist"
                 return jsonify({'result': False, 'error': error, 'tokenTmp': None})
+
 
         except SQLAlchemyError as e:
             # flash(f"A database error occurred: {e}", 'error')
@@ -657,7 +550,37 @@ def handle_404_error(err):
 
 if __name__ == '__main__':
 
-    start_scheduler()    #定时任务启动，每十分钟删除一次过期tokenTmp
+    
+
+    # 配置日志
+    logging.basicConfig(filename='./log/app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filemode='a')
+    file_handler = logging.FileHandler('./log/app.log')
+    file_handler.setLevel(logging.INFO)
+    file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+
+    stream_handler = logging.StreamHandler()
+    stream_handler.setLevel(logging.WARNING)
+    stream_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+
+    # 配置日志处理器
+    logger = logging.getLogger()
+    logger.addHandler(file_handler)
+    logger.addHandler(stream_handler)
+
+    # 调整SQLAlchemy的日志级别
+    sqlalchemy_logger = logging.getLogger('sqlalchemy.engine')
+    sqlalchemy_logger.setLevel(logging.WARNING)
+
+
+
+
+
+
+    #设置定时任务
+    gap_hours=24  #设置备份间隔时间
+    reserve_folder_path= os.path.join(os.path.dirname(__file__), 'reserved')   #获取备份文件夹目录
+    start_scheduler(app,db,reserve_folder_path,gap_hours)    #定时任务启动，每十分钟删除一次过期tokenTmp
+
     app.run(debug=True)
 
 
