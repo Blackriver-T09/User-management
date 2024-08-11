@@ -982,3 +982,99 @@
 2024-08-11 13:38:26,549 - INFO - Database file size: 6963 bytes
 2024-08-11 13:38:26,550 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:38:26 CST)" executed successfully
 2024-08-11 13:38:26,550 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:38:26 CST)" executed successfully
+2024-08-11 19:41:40,892 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 19:41:40,892 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 19:41:40,893 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 19:41:40,893 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 19:41:40,893 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 19:41:40,893 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 19:41:40,895 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 19:41:40,895 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 19:41:40,895 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 19:41:40,895 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 19:41:40,895 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 19:41:40,895 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 19:41:40,895 - INFO - Scheduler started
+2024-08-11 19:41:40,895 - INFO - Scheduler started
+2024-08-11 19:41:40,915 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-11 19:41:40,915 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-11 19:41:40,915 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-11 19:41:40,915 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-11 19:41:40,917 - INFO -  * Restarting with stat
+2024-08-11 19:41:40,917 - INFO -  * Restarting with stat
+2024-08-11 19:41:42,724 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 19:41:42,724 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 19:41:42,725 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 19:41:42,725 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 19:41:42,725 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 19:41:42,725 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 19:41:42,726 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 19:41:42,726 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 19:41:42,727 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 19:41:42,727 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 19:41:42,727 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 19:41:42,727 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 19:41:42,727 - INFO - Scheduler started
+2024-08-11 19:41:42,727 - INFO - Scheduler started
+2024-08-11 19:41:42,744 - WARNING -  * Debugger is active!
+2024-08-11 19:41:42,744 - WARNING -  * Debugger is active!
+2024-08-11 19:41:42,758 - INFO -  * Debugger PIN: 646-283-155
+2024-08-11 19:41:42,758 - INFO -  * Debugger PIN: 646-283-155
+2024-08-11 19:41:50,903 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:41:50 CST)" (scheduled at 2024-08-11 19:41:50.892439+08:00)
+2024-08-11 19:41:50,903 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:41:50 CST)" (scheduled at 2024-08-11 19:41:50.892439+08:00)
+2024-08-11 19:41:51,020 - INFO - Database backup completed successfully.
+2024-08-11 19:41:51,020 - INFO - Database backup completed successfully.
+2024-08-11 19:41:51,020 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:41:50 CST)" executed successfully
+2024-08-11 19:41:51,020 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:41:50 CST)" executed successfully
+2024-08-11 19:41:52,742 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:41:52 CST)" (scheduled at 2024-08-11 19:41:52.724326+08:00)
+2024-08-11 19:41:52,742 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:41:52 CST)" (scheduled at 2024-08-11 19:41:52.724326+08:00)
+2024-08-11 19:41:52,819 - INFO - Database backup completed successfully.
+2024-08-11 19:41:52,819 - INFO - Database backup completed successfully.
+2024-08-11 19:41:52,819 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:41:52 CST)" executed successfully
+2024-08-11 19:41:52,819 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:41:52 CST)" executed successfully
+2024-08-11 19:41:55,480 - INFO - 127.0.0.1 - - [11/Aug/2024 19:41:55] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 19:41:55,480 - INFO - 127.0.0.1 - - [11/Aug/2024 19:41:55] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 19:41:55,557 - INFO - 127.0.0.1 - - [11/Aug/2024 19:41:55] "POST /profile HTTP/1.1" 200 -
+2024-08-11 19:41:55,557 - INFO - 127.0.0.1 - - [11/Aug/2024 19:41:55] "POST /profile HTTP/1.1" 200 -
+2024-08-11 19:42:20,906 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:42:20 CST)" (scheduled at 2024-08-11 19:42:20.893435+08:00)
+2024-08-11 19:42:20,906 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:42:20 CST)" (scheduled at 2024-08-11 19:42:20.893435+08:00)
+2024-08-11 19:42:20,909 - INFO - Database file size: 7247 bytes
+2024-08-11 19:42:20,909 - INFO - Database file size: 7247 bytes
+2024-08-11 19:42:20,910 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:42:20 CST)" executed successfully
+2024-08-11 19:42:20,910 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:42:20 CST)" executed successfully
+2024-08-11 19:42:22,730 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:42:22 CST)" (scheduled at 2024-08-11 19:42:22.725314+08:00)
+2024-08-11 19:42:22,730 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:42:22 CST)" (scheduled at 2024-08-11 19:42:22.725314+08:00)
+2024-08-11 19:42:22,732 - INFO - Database file size: 7247 bytes
+2024-08-11 19:42:22,732 - INFO - Database file size: 7247 bytes
+2024-08-11 19:42:22,733 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:42:22 CST)" executed successfully
+2024-08-11 19:42:22,733 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 19:42:22 CST)" executed successfully
+2024-08-11 19:42:32,940 - INFO - 127.0.0.1 - - [11/Aug/2024 19:42:32] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-11 19:42:32,940 - INFO - 127.0.0.1 - - [11/Aug/2024 19:42:32] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-11 19:42:33,172 - INFO - 127.0.0.1 - - [11/Aug/2024 19:42:33] "POST /register HTTP/1.1" 200 -
+2024-08-11 19:42:33,172 - INFO - 127.0.0.1 - - [11/Aug/2024 19:42:33] "POST /register HTTP/1.1" 200 -
+2024-08-11 19:42:33,190 - INFO - 127.0.0.1 - - [11/Aug/2024 19:42:33] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 19:42:33,190 - INFO - 127.0.0.1 - - [11/Aug/2024 19:42:33] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 19:42:33,211 - INFO - 127.0.0.1 - - [11/Aug/2024 19:42:33] "POST /profile HTTP/1.1" 200 -
+2024-08-11 19:42:33,211 - INFO - 127.0.0.1 - - [11/Aug/2024 19:42:33] "POST /profile HTTP/1.1" 200 -
+2024-08-11 19:43:56,848 - INFO - 127.0.0.1 - - [11/Aug/2024 19:43:56] "OPTIONS /api/email HTTP/1.1" 200 -
+2024-08-11 19:43:56,848 - INFO - 127.0.0.1 - - [11/Aug/2024 19:43:56] "OPTIONS /api/email HTTP/1.1" 200 -
+2024-08-11 19:43:56,860 - INFO - 127.0.0.1 - - [11/Aug/2024 19:43:56] "POST /api/email HTTP/1.1" 200 -
+2024-08-11 19:43:56,860 - INFO - 127.0.0.1 - - [11/Aug/2024 19:43:56] "POST /api/email HTTP/1.1" 200 -
+2024-08-11 19:44:09,129 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:09] "OPTIONS /api/email HTTP/1.1" 200 -
+2024-08-11 19:44:09,129 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:09] "OPTIONS /api/email HTTP/1.1" 200 -
+2024-08-11 19:44:09,144 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:09] "POST /api/email HTTP/1.1" 200 -
+2024-08-11 19:44:09,144 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:09] "POST /api/email HTTP/1.1" 200 -
+2024-08-11 19:44:09,306 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:09] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 19:44:09,306 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:09] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 19:44:09,314 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:09] "POST /profile HTTP/1.1" 200 -
+2024-08-11 19:44:09,314 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:09] "POST /profile HTTP/1.1" 200 -
+2024-08-11 19:44:47,126 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:47] "GET /change-password/gqnqmcqse1sbgvcrnsz727kjiihkxo HTTP/1.1" 200 -
+2024-08-11 19:44:47,126 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:47] "GET /change-password/gqnqmcqse1sbgvcrnsz727kjiihkxo HTTP/1.1" 200 -
+2024-08-11 19:44:47,210 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:47] "GET /favicon.ico HTTP/1.1" 200 -
+2024-08-11 19:44:47,210 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:47] "GET /favicon.ico HTTP/1.1" 200 -
+2024-08-11 19:44:57,845 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:57] "POST /change-password/gqnqmcqse1sbgvcrnsz727kjiihkxo HTTP/1.1" 200 -
+2024-08-11 19:44:57,845 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:57] "POST /change-password/gqnqmcqse1sbgvcrnsz727kjiihkxo HTTP/1.1" 200 -
+2024-08-11 19:44:57,886 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:57] "GET /favicon.ico HTTP/1.1" 200 -
+2024-08-11 19:44:57,886 - INFO - 127.0.0.1 - - [11/Aug/2024 19:44:57] "GET /favicon.ico HTTP/1.1" 200 -

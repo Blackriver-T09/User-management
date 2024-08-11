@@ -1,3 +1,8 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+
 from flask import Flask, render_template, request, views, url_for, redirect, session,abort,jsonify,flash
 from utils import username_check,password_check,email_check, hash_encipher, decryptor_check,send_email,path_generate,token_generate,tokenTmp_generate
 
@@ -9,12 +14,9 @@ from database.models_project_task import ProjectTask
 from database.temp_tokens import TokenTmp
 from database.config import Config
 from database.config import db
-
-
 import os
 import logging
 import time
-
 
 from flask_cors import CORS,cross_origin
 
@@ -25,40 +27,12 @@ from sqlalchemy.exc import SQLAlchemyError
 from services.database_operations import check_user_exists, check_token_exists, check_project_exists, check_task_exists, get_token_by_username, get_username_by_token, get_user_by_token, get_level_by_token, get_password_by_username, get_user_info_by_username, get_projects_by_username, get_tasks_by_project, get_username_by_tokenTmp,get_user_id_by_token,verify_user_email
 from services.scheduler_tasks  import now_time,start_scheduler
 
-app = Flask(__name__)
-app.secret_key = 'my_secret_key'  # 设置一个安全的密钥用于签名会话
-
-app.config.from_object(Config)
-CORS(app)
-
-db.app=app
-db.init_app(app)
-
-
-
-from APIs.Register import Register 
-from APIs.Profile import Profile
-from APIs.Login import Login
-from APIs.Change_password import Change_password
-from APIs.SendEmail import SendEmail
-
-
-
-    
-
-
-
-
 
 
 
 
 
 # 本地API—— Download-request
-
-
-
-
 class Download_request(views.MethodView):
     def get():
         token = request.args.get('token')
@@ -115,82 +89,3 @@ class Download_request(views.MethodView):
             print(f"{now_time()}: Error during download_request: {e}")
             logging.error(f"Error during download_request: {e}")
             return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again.", 'path': None})
-
-
-
-
-
-
-        
-
-
-
-# 注册路由
-app.add_url_rule('/login', view_func=Login.as_view('login'))
-app.add_url_rule('/', view_func=Login.as_view('main_website'))
-app.add_url_rule('/profile', view_func=Profile.as_view('profile'))
-app.add_url_rule('/register',view_func=Register.as_view('register'))
-app.add_url_rule('/change-password/<tokenTmp>', view_func=Change_password.as_view('change_password'), methods=['GET', 'POST'])
-app.add_url_rule('/api/email',view_func=SendEmail.as_view('send_email'))
-
-
-app.add_url_rule('/api/Project-creation',view_func=Register.as_view('register'))
-@app.route('/api/Project-creation', methods=['GET'])
-
-@app.route('/api/Task-creation', methods=['GET'])
-@app.route('/api/Download-request', methods=['GET'])
-
-
-# 错误处理模块
-@app.errorhandler(404)
-def handle_404_error(err):
-    # return "发生了错误，错误情况是：%s"%err
-    return render_template('404.html')
-@app.errorhandler(403)
-def handle_404_error(err):
-    # return "发生了错误，错误情况是：%s"%err
-    return render_template('403.html')
-
-
-
-
-if __name__ == '__main__':
-
-    
-
-    # 配置日志
-    logging.basicConfig(filename='./log/app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s', filemode='a')
-    file_handler = logging.FileHandler('./log/app.log')
-    file_handler.setLevel(logging.INFO)
-    file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-
-    stream_handler = logging.StreamHandler()
-    stream_handler.setLevel(logging.WARNING)
-    stream_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-
-    # 配置日志处理器
-    logger = logging.getLogger()
-    logger.addHandler(file_handler)
-    logger.addHandler(stream_handler)
-
-    # 调整SQLAlchemy的日志级别
-    sqlalchemy_logger = logging.getLogger('sqlalchemy.engine')
-    sqlalchemy_logger.setLevel(logging.WARNING)
-
-
-
-
-
-
-    #设置定时任务
-    gap_hours=24  #设置备份间隔时间
-    reserve_folder_path= os.path.join(os.path.dirname(__file__), 'reserved')   #获取备份文件夹目录
-    start_scheduler(app,db,reserve_folder_path,gap_hours)    #定时任务启动，每十分钟删除一次过期tokenTmp
-
-    app.run(debug=True)
-
-
-
-
-
-

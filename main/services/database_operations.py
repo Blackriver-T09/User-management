@@ -227,3 +227,29 @@ def verify_user_email(username, email):
     except SQLAlchemyError as e:
         print(f"Database error occurred: {e}")
         return None  # 发生数据库错误，无法验证
+    
+
+
+
+
+def get_credits_by_token(token_value):
+    try:
+        # 通过 token 查询用户
+        token = Token.query.filter_by(Token=token_value).first()   #获取第一条记录
+        if token:
+            user = User.query.filter_by(UserId=token.user_id).first()
+            if user:
+                return {
+                    'status': 'success',
+                    'credits': user.Credits
+                }
+        return {
+            'status': 'error',
+            'message': 'Token not found or invalid.'
+        }
+    except SQLAlchemyError as e:
+        print(f"Database error occurred when retrieving credits by token: {e}")
+        return {
+            'status': 'error',
+            'message': 'Database error.'
+        }
