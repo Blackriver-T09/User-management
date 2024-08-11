@@ -552,3 +552,433 @@
 2024-07-12 15:35:07,198 - INFO - 127.0.0.1 - - [12/Jul/2024 15:35:07] "OPTIONS /profile HTTP/1.1" 200 -
 2024-07-12 15:35:07,254 - INFO - 127.0.0.1 - - [12/Jul/2024 15:35:07] "POST /profile HTTP/1.1" 200 -
 2024-07-12 15:35:07,254 - INFO - 127.0.0.1 - - [12/Jul/2024 15:35:07] "POST /profile HTTP/1.1" 200 -
+2024-08-04 22:49:18,501 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-04 22:49:18,501 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-04 22:49:18,502 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-04 22:49:18,502 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-04 22:49:18,502 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-04 22:49:18,502 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-04 22:49:18,505 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-04 22:49:18,505 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-04 22:49:18,506 - INFO - Added job "backup_database" to job store "default"
+2024-08-04 22:49:18,506 - INFO - Added job "backup_database" to job store "default"
+2024-08-04 22:49:18,506 - INFO - Added job "check_db_size" to job store "default"
+2024-08-04 22:49:18,506 - INFO - Added job "check_db_size" to job store "default"
+2024-08-04 22:49:18,506 - INFO - Scheduler started
+2024-08-04 22:49:18,506 - INFO - Scheduler started
+2024-08-04 22:49:18,532 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-04 22:49:18,532 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-04 22:49:18,533 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-04 22:49:18,533 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-04 22:49:18,535 - INFO -  * Restarting with stat
+2024-08-04 22:49:18,535 - INFO -  * Restarting with stat
+2024-08-04 22:49:20,863 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-04 22:49:20,863 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-04 22:49:20,863 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-04 22:49:20,863 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-04 22:49:20,864 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-04 22:49:20,864 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-04 22:49:20,867 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-04 22:49:20,867 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-04 22:49:20,867 - INFO - Added job "backup_database" to job store "default"
+2024-08-04 22:49:20,867 - INFO - Added job "backup_database" to job store "default"
+2024-08-04 22:49:20,867 - INFO - Added job "check_db_size" to job store "default"
+2024-08-04 22:49:20,867 - INFO - Added job "check_db_size" to job store "default"
+2024-08-04 22:49:20,867 - INFO - Scheduler started
+2024-08-04 22:49:20,867 - INFO - Scheduler started
+2024-08-04 22:49:20,877 - WARNING -  * Debugger is active!
+2024-08-04 22:49:20,877 - WARNING -  * Debugger is active!
+2024-08-04 22:49:20,885 - INFO -  * Debugger PIN: 224-650-166
+2024-08-04 22:49:20,885 - INFO -  * Debugger PIN: 224-650-166
+2024-08-04 22:49:28,517 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:49:28 CST)" (scheduled at 2024-08-04 22:49:28.502343+08:00)
+2024-08-04 22:49:28,517 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:49:28 CST)" (scheduled at 2024-08-04 22:49:28.502343+08:00)
+2024-08-04 22:49:28,694 - INFO - Database backup completed successfully.
+2024-08-04 22:49:28,694 - INFO - Database backup completed successfully.
+2024-08-04 22:49:28,694 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:49:28 CST)" executed successfully
+2024-08-04 22:49:28,694 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:49:28 CST)" executed successfully
+2024-08-04 22:49:30,865 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:49:30 CST)" (scheduled at 2024-08-04 22:49:30.863400+08:00)
+2024-08-04 22:49:30,865 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:49:30 CST)" (scheduled at 2024-08-04 22:49:30.863400+08:00)
+2024-08-04 22:49:30,941 - INFO - Database backup completed successfully.
+2024-08-04 22:49:30,941 - INFO - Database backup completed successfully.
+2024-08-04 22:49:30,941 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:49:30 CST)" executed successfully
+2024-08-04 22:49:30,941 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:49:30 CST)" executed successfully
+2024-08-04 22:49:58,502 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:49:58 CST)" (scheduled at 2024-08-04 22:49:58.502343+08:00)
+2024-08-04 22:49:58,502 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:49:58 CST)" (scheduled at 2024-08-04 22:49:58.502343+08:00)
+2024-08-04 22:49:58,504 - INFO - Database file size: 6221 bytes
+2024-08-04 22:49:58,504 - INFO - Database file size: 6221 bytes
+2024-08-04 22:49:58,504 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:49:58 CST)" executed successfully
+2024-08-04 22:49:58,504 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:49:58 CST)" executed successfully
+2024-08-04 22:50:00,867 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:50:00 CST)" (scheduled at 2024-08-04 22:50:00.864472+08:00)
+2024-08-04 22:50:00,867 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:50:00 CST)" (scheduled at 2024-08-04 22:50:00.864472+08:00)
+2024-08-04 22:50:00,869 - INFO - Database file size: 6221 bytes
+2024-08-04 22:50:00,869 - INFO - Database file size: 6221 bytes
+2024-08-04 22:50:00,869 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:50:00 CST)" executed successfully
+2024-08-04 22:50:00,869 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-05 22:50:00 CST)" executed successfully
+2024-08-04 22:51:38,773 - INFO - 127.0.0.1 - - [04/Aug/2024 22:51:38] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-04 22:51:38,773 - INFO - 127.0.0.1 - - [04/Aug/2024 22:51:38] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-04 22:51:38,781 - INFO - 127.0.0.1 - - [04/Aug/2024 22:51:38] "POST /register HTTP/1.1" 200 -
+2024-08-04 22:51:38,781 - INFO - 127.0.0.1 - - [04/Aug/2024 22:51:38] "POST /register HTTP/1.1" 200 -
+2024-08-04 22:51:42,021 - INFO - 127.0.0.1 - - [04/Aug/2024 22:51:42] "POST /register HTTP/1.1" 200 -
+2024-08-04 22:51:42,021 - INFO - 127.0.0.1 - - [04/Aug/2024 22:51:42] "POST /register HTTP/1.1" 200 -
+2024-08-04 22:51:52,497 - INFO - 127.0.0.1 - - [04/Aug/2024 22:51:52] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-04 22:51:52,497 - INFO - 127.0.0.1 - - [04/Aug/2024 22:51:52] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-04 22:51:52,504 - INFO - 127.0.0.1 - - [04/Aug/2024 22:51:52] "POST /register HTTP/1.1" 200 -
+2024-08-04 22:51:52,504 - INFO - 127.0.0.1 - - [04/Aug/2024 22:51:52] "POST /register HTTP/1.1" 200 -
+2024-08-04 22:54:58,219 - INFO - 127.0.0.1 - - [04/Aug/2024 22:54:58] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-04 22:54:58,219 - INFO - 127.0.0.1 - - [04/Aug/2024 22:54:58] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-04 22:54:58,225 - INFO - 127.0.0.1 - - [04/Aug/2024 22:54:58] "POST /register HTTP/1.1" 200 -
+2024-08-04 22:54:58,225 - INFO - 127.0.0.1 - - [04/Aug/2024 22:54:58] "POST /register HTTP/1.1" 200 -
+2024-08-11 11:46:35,405 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 11:46:35,405 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 11:46:35,407 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 11:46:35,407 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 11:46:35,407 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 11:46:35,407 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 11:46:35,410 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 11:46:35,410 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 11:46:35,410 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 11:46:35,410 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 11:46:35,410 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 11:46:35,410 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 11:46:35,410 - INFO - Scheduler started
+2024-08-11 11:46:35,410 - INFO - Scheduler started
+2024-08-11 11:46:35,430 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-11 11:46:35,430 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-11 11:46:35,430 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-11 11:46:35,430 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-11 11:46:35,433 - INFO -  * Restarting with stat
+2024-08-11 11:46:35,433 - INFO -  * Restarting with stat
+2024-08-11 11:46:37,184 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 11:46:37,184 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 11:46:37,184 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 11:46:37,184 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 11:46:37,184 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 11:46:37,184 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 11:46:37,186 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 11:46:37,186 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 11:46:37,186 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 11:46:37,186 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 11:46:37,186 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 11:46:37,186 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 11:46:37,186 - INFO - Scheduler started
+2024-08-11 11:46:37,186 - INFO - Scheduler started
+2024-08-11 11:46:37,193 - WARNING -  * Debugger is active!
+2024-08-11 11:46:37,193 - WARNING -  * Debugger is active!
+2024-08-11 11:46:37,199 - INFO -  * Debugger PIN: 646-283-155
+2024-08-11 11:46:37,199 - INFO -  * Debugger PIN: 646-283-155
+2024-08-11 11:46:45,414 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:46:45 CST)" (scheduled at 2024-08-11 11:46:45.406801+08:00)
+2024-08-11 11:46:45,414 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:46:45 CST)" (scheduled at 2024-08-11 11:46:45.406801+08:00)
+2024-08-11 11:46:45,540 - INFO - Database backup completed successfully.
+2024-08-11 11:46:45,540 - INFO - Database backup completed successfully.
+2024-08-11 11:46:45,540 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:46:45 CST)" executed successfully
+2024-08-11 11:46:45,540 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:46:45 CST)" executed successfully
+2024-08-11 11:46:47,194 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:46:47 CST)" (scheduled at 2024-08-11 11:46:47.184913+08:00)
+2024-08-11 11:46:47,194 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:46:47 CST)" (scheduled at 2024-08-11 11:46:47.184913+08:00)
+2024-08-11 11:46:47,250 - INFO - Database backup completed successfully.
+2024-08-11 11:46:47,250 - INFO - Database backup completed successfully.
+2024-08-11 11:46:47,252 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:46:47 CST)" executed successfully
+2024-08-11 11:46:47,252 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:46:47 CST)" executed successfully
+2024-08-11 11:47:15,417 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:47:15 CST)" (scheduled at 2024-08-11 11:47:15.407788+08:00)
+2024-08-11 11:47:15,417 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:47:15 CST)" (scheduled at 2024-08-11 11:47:15.407788+08:00)
+2024-08-11 11:47:15,418 - INFO - Database file size: 6221 bytes
+2024-08-11 11:47:15,418 - INFO - Database file size: 6221 bytes
+2024-08-11 11:47:15,418 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:47:15 CST)" executed successfully
+2024-08-11 11:47:15,418 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:47:15 CST)" executed successfully
+2024-08-11 11:47:17,190 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:47:17 CST)" (scheduled at 2024-08-11 11:47:17.184913+08:00)
+2024-08-11 11:47:17,190 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:47:17 CST)" (scheduled at 2024-08-11 11:47:17.184913+08:00)
+2024-08-11 11:47:17,191 - INFO - Database file size: 6221 bytes
+2024-08-11 11:47:17,191 - INFO - Database file size: 6221 bytes
+2024-08-11 11:47:17,191 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:47:17 CST)" executed successfully
+2024-08-11 11:47:17,191 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 11:47:17 CST)" executed successfully
+2024-08-11 11:47:39,095 - INFO - 127.0.0.1 - - [11/Aug/2024 11:47:39] "OPTIONS /login HTTP/1.1" 200 -
+2024-08-11 11:47:39,095 - INFO - 127.0.0.1 - - [11/Aug/2024 11:47:39] "OPTIONS /login HTTP/1.1" 200 -
+2024-08-11 11:47:39,371 - INFO - 127.0.0.1 - - [11/Aug/2024 11:47:39] "POST /login HTTP/1.1" 200 -
+2024-08-11 11:47:39,371 - INFO - 127.0.0.1 - - [11/Aug/2024 11:47:39] "POST /login HTTP/1.1" 200 -
+2024-08-11 11:47:39,394 - INFO - 127.0.0.1 - - [11/Aug/2024 11:47:39] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 11:47:39,394 - INFO - 127.0.0.1 - - [11/Aug/2024 11:47:39] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 11:47:39,425 - INFO - 127.0.0.1 - - [11/Aug/2024 11:47:39] "POST /profile HTTP/1.1" 200 -
+2024-08-11 11:47:39,425 - INFO - 127.0.0.1 - - [11/Aug/2024 11:47:39] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:12:07,135 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:12:07,135 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:12:07,135 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:12:07,135 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:12:07,136 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:12:07,136 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:12:07,137 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 13:12:07,137 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 13:12:07,138 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 13:12:07,138 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 13:12:07,138 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 13:12:07,138 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 13:12:07,138 - INFO - Scheduler started
+2024-08-11 13:12:07,138 - INFO - Scheduler started
+2024-08-11 13:12:07,156 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-11 13:12:07,156 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-11 13:12:07,156 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-11 13:12:07,156 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-11 13:12:07,159 - INFO -  * Restarting with stat
+2024-08-11 13:12:07,159 - INFO -  * Restarting with stat
+2024-08-11 13:12:08,942 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:12:08,942 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:12:08,943 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:12:08,943 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:12:08,943 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:12:08,943 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:12:08,944 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 13:12:08,944 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 13:12:08,945 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 13:12:08,945 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 13:12:08,945 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 13:12:08,945 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 13:12:08,945 - INFO - Scheduler started
+2024-08-11 13:12:08,945 - INFO - Scheduler started
+2024-08-11 13:12:08,952 - WARNING -  * Debugger is active!
+2024-08-11 13:12:08,952 - WARNING -  * Debugger is active!
+2024-08-11 13:12:08,956 - INFO -  * Debugger PIN: 646-283-155
+2024-08-11 13:12:08,956 - INFO -  * Debugger PIN: 646-283-155
+2024-08-11 13:12:17,153 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:17 CST)" (scheduled at 2024-08-11 13:12:17.135263+08:00)
+2024-08-11 13:12:17,153 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:17 CST)" (scheduled at 2024-08-11 13:12:17.135263+08:00)
+2024-08-11 13:12:17,274 - INFO - Database backup completed successfully.
+2024-08-11 13:12:17,274 - INFO - Database backup completed successfully.
+2024-08-11 13:12:17,274 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:17 CST)" executed successfully
+2024-08-11 13:12:17,274 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:17 CST)" executed successfully
+2024-08-11 13:12:18,946 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:18 CST)" (scheduled at 2024-08-11 13:12:18.942535+08:00)
+2024-08-11 13:12:18,946 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:18 CST)" (scheduled at 2024-08-11 13:12:18.942535+08:00)
+2024-08-11 13:12:19,012 - INFO - Database backup completed successfully.
+2024-08-11 13:12:19,012 - INFO - Database backup completed successfully.
+2024-08-11 13:12:19,012 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:18 CST)" executed successfully
+2024-08-11 13:12:19,012 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:18 CST)" executed successfully
+2024-08-11 13:12:32,842 - INFO - 127.0.0.1 - - [11/Aug/2024 13:12:32] "OPTIONS /login HTTP/1.1" 200 -
+2024-08-11 13:12:32,842 - INFO - 127.0.0.1 - - [11/Aug/2024 13:12:32] "OPTIONS /login HTTP/1.1" 200 -
+2024-08-11 13:12:33,097 - INFO - 127.0.0.1 - - [11/Aug/2024 13:12:33] "POST /login HTTP/1.1" 200 -
+2024-08-11 13:12:33,097 - INFO - 127.0.0.1 - - [11/Aug/2024 13:12:33] "POST /login HTTP/1.1" 200 -
+2024-08-11 13:12:33,127 - INFO - 127.0.0.1 - - [11/Aug/2024 13:12:33] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:12:33,127 - INFO - 127.0.0.1 - - [11/Aug/2024 13:12:33] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:12:33,151 - INFO - 127.0.0.1 - - [11/Aug/2024 13:12:33] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:12:33,151 - INFO - 127.0.0.1 - - [11/Aug/2024 13:12:33] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:12:47,136 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:47 CST)" (scheduled at 2024-08-11 13:12:47.135263+08:00)
+2024-08-11 13:12:47,136 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:47 CST)" (scheduled at 2024-08-11 13:12:47.135263+08:00)
+2024-08-11 13:12:47,136 - INFO - Database file size: 6282 bytes
+2024-08-11 13:12:47,136 - INFO - Database file size: 6282 bytes
+2024-08-11 13:12:47,136 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:47 CST)" executed successfully
+2024-08-11 13:12:47,136 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:47 CST)" executed successfully
+2024-08-11 13:12:48,947 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:48 CST)" (scheduled at 2024-08-11 13:12:48.943553+08:00)
+2024-08-11 13:12:48,947 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:48 CST)" (scheduled at 2024-08-11 13:12:48.943553+08:00)
+2024-08-11 13:12:48,948 - INFO - Database file size: 6282 bytes
+2024-08-11 13:12:48,948 - INFO - Database file size: 6282 bytes
+2024-08-11 13:12:48,948 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:48 CST)" executed successfully
+2024-08-11 13:12:48,948 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:12:48 CST)" executed successfully
+2024-08-11 13:13:04,063 - INFO - 127.0.0.1 - - [11/Aug/2024 13:13:04] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:13:04,063 - INFO - 127.0.0.1 - - [11/Aug/2024 13:13:04] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:13:04,083 - INFO - 127.0.0.1 - - [11/Aug/2024 13:13:04] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:13:04,083 - INFO - 127.0.0.1 - - [11/Aug/2024 13:13:04] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:14:13,416 - INFO - 127.0.0.1 - - [11/Aug/2024 13:14:13] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-11 13:14:13,416 - INFO - 127.0.0.1 - - [11/Aug/2024 13:14:13] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-11 13:14:13,626 - INFO - 127.0.0.1 - - [11/Aug/2024 13:14:13] "POST /register HTTP/1.1" 200 -
+2024-08-11 13:14:13,626 - INFO - 127.0.0.1 - - [11/Aug/2024 13:14:13] "POST /register HTTP/1.1" 200 -
+2024-08-11 13:14:13,650 - INFO - 127.0.0.1 - - [11/Aug/2024 13:14:13] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:14:13,650 - INFO - 127.0.0.1 - - [11/Aug/2024 13:14:13] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:14:13,672 - INFO - 127.0.0.1 - - [11/Aug/2024 13:14:13] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:14:13,672 - INFO - 127.0.0.1 - - [11/Aug/2024 13:14:13] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:21:55,343 - INFO - 127.0.0.1 - - [11/Aug/2024 13:21:55] "OPTIONS /login HTTP/1.1" 200 -
+2024-08-11 13:21:55,343 - INFO - 127.0.0.1 - - [11/Aug/2024 13:21:55] "OPTIONS /login HTTP/1.1" 200 -
+2024-08-11 13:21:55,558 - INFO - 127.0.0.1 - - [11/Aug/2024 13:21:55] "POST /login HTTP/1.1" 200 -
+2024-08-11 13:21:55,558 - INFO - 127.0.0.1 - - [11/Aug/2024 13:21:55] "POST /login HTTP/1.1" 200 -
+2024-08-11 13:21:55,575 - INFO - 127.0.0.1 - - [11/Aug/2024 13:21:55] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:21:55,575 - INFO - 127.0.0.1 - - [11/Aug/2024 13:21:55] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:21:55,599 - INFO - 127.0.0.1 - - [11/Aug/2024 13:21:55] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:21:55,599 - INFO - 127.0.0.1 - - [11/Aug/2024 13:21:55] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:22:07,143 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-08-11 13:32:07 CST)" (scheduled at 2024-08-11 13:22:07.134285+08:00)
+2024-08-11 13:22:07,143 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-08-11 13:32:07 CST)" (scheduled at 2024-08-11 13:22:07.134285+08:00)
+2024-08-11 13:22:07,183 - INFO - Deleted 2 expired tokenTmp entries.
+2024-08-11 13:22:07,183 - INFO - Deleted 2 expired tokenTmp entries.
+2024-08-11 13:22:07,184 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-08-11 13:32:07 CST)" executed successfully
+2024-08-11 13:22:07,184 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-08-11 13:32:07 CST)" executed successfully
+2024-08-11 13:22:08,948 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-08-11 13:32:08 CST)" (scheduled at 2024-08-11 13:22:08.942535+08:00)
+2024-08-11 13:22:08,948 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-08-11 13:32:08 CST)" (scheduled at 2024-08-11 13:22:08.942535+08:00)
+2024-08-11 13:22:08,953 - INFO - Deleted 0 expired tokenTmp entries.
+2024-08-11 13:22:08,953 - INFO - Deleted 0 expired tokenTmp entries.
+2024-08-11 13:22:08,953 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-08-11 13:32:08 CST)" executed successfully
+2024-08-11 13:22:08,953 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-08-11 13:32:08 CST)" executed successfully
+2024-08-11 13:22:57,249 - INFO - 127.0.0.1 - - [11/Aug/2024 13:22:57] "OPTIONS /api/email HTTP/1.1" 200 -
+2024-08-11 13:22:57,249 - INFO - 127.0.0.1 - - [11/Aug/2024 13:22:57] "OPTIONS /api/email HTTP/1.1" 200 -
+2024-08-11 13:22:57,264 - INFO - 127.0.0.1 - - [11/Aug/2024 13:22:57] "POST /api/email HTTP/1.1" 200 -
+2024-08-11 13:22:57,264 - INFO - 127.0.0.1 - - [11/Aug/2024 13:22:57] "POST /api/email HTTP/1.1" 200 -
+2024-08-11 13:22:57,461 - INFO - 127.0.0.1 - - [11/Aug/2024 13:22:57] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:22:57,461 - INFO - 127.0.0.1 - - [11/Aug/2024 13:22:57] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:22:57,470 - INFO - 127.0.0.1 - - [11/Aug/2024 13:22:57] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:22:57,470 - INFO - 127.0.0.1 - - [11/Aug/2024 13:22:57] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:23:17,978 - INFO - 127.0.0.1 - - [11/Aug/2024 13:23:17] "GET /change-password/4p7a6dnn3f51c85rgkoim9r3tpi3a3 HTTP/1.1" 200 -
+2024-08-11 13:23:17,978 - INFO - 127.0.0.1 - - [11/Aug/2024 13:23:17] "GET /change-password/4p7a6dnn3f51c85rgkoim9r3tpi3a3 HTTP/1.1" 200 -
+2024-08-11 13:23:18,911 - INFO - 127.0.0.1 - - [11/Aug/2024 13:23:18] "GET /favicon.ico HTTP/1.1" 200 -
+2024-08-11 13:23:18,911 - INFO - 127.0.0.1 - - [11/Aug/2024 13:23:18] "GET /favicon.ico HTTP/1.1" 200 -
+2024-08-11 13:23:31,103 - INFO - 127.0.0.1 - - [11/Aug/2024 13:23:31] "POST /change-password/4p7a6dnn3f51c85rgkoim9r3tpi3a3 HTTP/1.1" 200 -
+2024-08-11 13:23:31,103 - INFO - 127.0.0.1 - - [11/Aug/2024 13:23:31] "POST /change-password/4p7a6dnn3f51c85rgkoim9r3tpi3a3 HTTP/1.1" 200 -
+2024-08-11 13:23:31,690 - INFO - 127.0.0.1 - - [11/Aug/2024 13:23:31] "GET /favicon.ico HTTP/1.1" 200 -
+2024-08-11 13:23:31,690 - INFO - 127.0.0.1 - - [11/Aug/2024 13:23:31] "GET /favicon.ico HTTP/1.1" 200 -
+2024-08-11 13:26:02,786 - INFO - 127.0.0.1 - - [11/Aug/2024 13:26:02] "OPTIONS /login HTTP/1.1" 200 -
+2024-08-11 13:26:02,786 - INFO - 127.0.0.1 - - [11/Aug/2024 13:26:02] "OPTIONS /login HTTP/1.1" 200 -
+2024-08-11 13:26:02,982 - INFO - 127.0.0.1 - - [11/Aug/2024 13:26:02] "POST /login HTTP/1.1" 200 -
+2024-08-11 13:26:02,982 - INFO - 127.0.0.1 - - [11/Aug/2024 13:26:02] "POST /login HTTP/1.1" 200 -
+2024-08-11 13:26:03,003 - INFO - 127.0.0.1 - - [11/Aug/2024 13:26:03] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:26:03,003 - INFO - 127.0.0.1 - - [11/Aug/2024 13:26:03] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:26:03,019 - INFO - 127.0.0.1 - - [11/Aug/2024 13:26:03] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:26:03,019 - INFO - 127.0.0.1 - - [11/Aug/2024 13:26:03] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:31:08,794 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:31:08,794 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:31:08,795 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:31:08,795 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:31:08,795 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:31:08,795 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:31:08,796 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 13:31:08,796 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 13:31:08,797 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 13:31:08,797 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 13:31:08,797 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 13:31:08,797 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 13:31:08,797 - INFO - Scheduler started
+2024-08-11 13:31:08,797 - INFO - Scheduler started
+2024-08-11 13:31:08,816 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-11 13:31:08,816 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-11 13:31:08,816 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-11 13:31:08,816 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-11 13:31:08,819 - INFO -  * Restarting with stat
+2024-08-11 13:31:08,819 - INFO -  * Restarting with stat
+2024-08-11 13:31:10,600 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:31:10,600 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:31:10,602 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:31:10,602 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:31:10,602 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:31:10,602 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:31:10,604 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 13:31:10,604 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 13:31:10,604 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 13:31:10,604 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 13:31:10,604 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 13:31:10,604 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 13:31:10,604 - INFO - Scheduler started
+2024-08-11 13:31:10,604 - INFO - Scheduler started
+2024-08-11 13:31:10,612 - WARNING -  * Debugger is active!
+2024-08-11 13:31:10,612 - WARNING -  * Debugger is active!
+2024-08-11 13:31:10,617 - INFO -  * Debugger PIN: 646-283-155
+2024-08-11 13:31:10,617 - INFO -  * Debugger PIN: 646-283-155
+2024-08-11 13:31:18,812 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:18 CST)" (scheduled at 2024-08-11 13:31:18.795588+08:00)
+2024-08-11 13:31:18,812 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:18 CST)" (scheduled at 2024-08-11 13:31:18.795588+08:00)
+2024-08-11 13:31:18,895 - INFO - Database backup completed successfully.
+2024-08-11 13:31:18,895 - INFO - Database backup completed successfully.
+2024-08-11 13:31:18,895 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:18 CST)" executed successfully
+2024-08-11 13:31:18,895 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:18 CST)" executed successfully
+2024-08-11 13:31:20,606 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:20 CST)" (scheduled at 2024-08-11 13:31:20.602137+08:00)
+2024-08-11 13:31:20,606 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:20 CST)" (scheduled at 2024-08-11 13:31:20.602137+08:00)
+2024-08-11 13:31:20,683 - INFO - Database backup completed successfully.
+2024-08-11 13:31:20,683 - INFO - Database backup completed successfully.
+2024-08-11 13:31:20,683 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:20 CST)" executed successfully
+2024-08-11 13:31:20,683 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:20 CST)" executed successfully
+2024-08-11 13:31:48,807 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:48 CST)" (scheduled at 2024-08-11 13:31:48.795588+08:00)
+2024-08-11 13:31:48,807 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:48 CST)" (scheduled at 2024-08-11 13:31:48.795588+08:00)
+2024-08-11 13:31:48,807 - INFO - Database file size: 6684 bytes
+2024-08-11 13:31:48,807 - INFO - Database file size: 6684 bytes
+2024-08-11 13:31:48,808 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:48 CST)" executed successfully
+2024-08-11 13:31:48,808 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:48 CST)" executed successfully
+2024-08-11 13:31:50,610 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:50 CST)" (scheduled at 2024-08-11 13:31:50.602137+08:00)
+2024-08-11 13:31:50,610 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:50 CST)" (scheduled at 2024-08-11 13:31:50.602137+08:00)
+2024-08-11 13:31:50,610 - INFO - Database file size: 6684 bytes
+2024-08-11 13:31:50,610 - INFO - Database file size: 6684 bytes
+2024-08-11 13:31:50,611 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:50 CST)" executed successfully
+2024-08-11 13:31:50,611 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:31:50 CST)" executed successfully
+2024-08-11 13:31:52,750 - INFO - 127.0.0.1 - - [11/Aug/2024 13:31:52] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:31:52,750 - INFO - 127.0.0.1 - - [11/Aug/2024 13:31:52] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:31:52,856 - INFO - 127.0.0.1 - - [11/Aug/2024 13:31:52] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:31:52,856 - INFO - 127.0.0.1 - - [11/Aug/2024 13:31:52] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:32:39,535 - INFO - 127.0.0.1 - - [11/Aug/2024 13:32:39] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-11 13:32:39,535 - INFO - 127.0.0.1 - - [11/Aug/2024 13:32:39] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-11 13:32:39,778 - INFO - 127.0.0.1 - - [11/Aug/2024 13:32:39] "POST /register HTTP/1.1" 200 -
+2024-08-11 13:32:39,778 - INFO - 127.0.0.1 - - [11/Aug/2024 13:32:39] "POST /register HTTP/1.1" 200 -
+2024-08-11 13:32:39,814 - INFO - 127.0.0.1 - - [11/Aug/2024 13:32:39] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:32:39,814 - INFO - 127.0.0.1 - - [11/Aug/2024 13:32:39] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:32:39,839 - INFO - 127.0.0.1 - - [11/Aug/2024 13:32:39] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:32:39,839 - INFO - 127.0.0.1 - - [11/Aug/2024 13:32:39] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:37:44,829 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:37:44,829 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:37:44,829 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:37:44,829 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:37:44,830 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:37:44,830 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:37:44,832 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 13:37:44,832 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 13:37:44,832 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 13:37:44,832 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 13:37:44,832 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 13:37:44,832 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 13:37:44,832 - INFO - Scheduler started
+2024-08-11 13:37:44,832 - INFO - Scheduler started
+2024-08-11 13:37:44,850 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-11 13:37:44,850 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-11 13:37:44,851 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-11 13:37:44,851 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-11 13:37:44,853 - INFO -  * Restarting with stat
+2024-08-11 13:37:44,853 - INFO -  * Restarting with stat
+2024-08-11 13:37:46,534 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:37:46,534 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:37:46,535 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:37:46,535 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:37:46,535 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:37:46,535 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-08-11 13:37:46,536 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 13:37:46,536 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-08-11 13:37:46,537 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 13:37:46,537 - INFO - Added job "backup_database" to job store "default"
+2024-08-11 13:37:46,537 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 13:37:46,537 - INFO - Added job "check_db_size" to job store "default"
+2024-08-11 13:37:46,537 - INFO - Scheduler started
+2024-08-11 13:37:46,537 - INFO - Scheduler started
+2024-08-11 13:37:46,544 - WARNING -  * Debugger is active!
+2024-08-11 13:37:46,544 - WARNING -  * Debugger is active!
+2024-08-11 13:37:46,548 - INFO -  * Debugger PIN: 646-283-155
+2024-08-11 13:37:46,548 - INFO -  * Debugger PIN: 646-283-155
+2024-08-11 13:37:54,834 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:37:54 CST)" (scheduled at 2024-08-11 13:37:54.829946+08:00)
+2024-08-11 13:37:54,834 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:37:54 CST)" (scheduled at 2024-08-11 13:37:54.829946+08:00)
+2024-08-11 13:37:54,901 - INFO - Database backup completed successfully.
+2024-08-11 13:37:54,901 - INFO - Database backup completed successfully.
+2024-08-11 13:37:54,901 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:37:54 CST)" executed successfully
+2024-08-11 13:37:54,901 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:37:54 CST)" executed successfully
+2024-08-11 13:37:56,548 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:37:56 CST)" (scheduled at 2024-08-11 13:37:56.535762+08:00)
+2024-08-11 13:37:56,548 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:37:56 CST)" (scheduled at 2024-08-11 13:37:56.535762+08:00)
+2024-08-11 13:37:56,612 - INFO - Database backup completed successfully.
+2024-08-11 13:37:56,612 - INFO - Database backup completed successfully.
+2024-08-11 13:37:56,612 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:37:56 CST)" executed successfully
+2024-08-11 13:37:56,612 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:37:56 CST)" executed successfully
+2024-08-11 13:38:01,999 - INFO - 127.0.0.1 - - [11/Aug/2024 13:38:01] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:38:01,999 - INFO - 127.0.0.1 - - [11/Aug/2024 13:38:01] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:38:02,070 - INFO - 127.0.0.1 - - [11/Aug/2024 13:38:02] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:38:02,070 - INFO - 127.0.0.1 - - [11/Aug/2024 13:38:02] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:38:20,193 - INFO - 127.0.0.1 - - [11/Aug/2024 13:38:20] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-11 13:38:20,193 - INFO - 127.0.0.1 - - [11/Aug/2024 13:38:20] "OPTIONS /register HTTP/1.1" 200 -
+2024-08-11 13:38:20,425 - INFO - 127.0.0.1 - - [11/Aug/2024 13:38:20] "POST /register HTTP/1.1" 200 -
+2024-08-11 13:38:20,425 - INFO - 127.0.0.1 - - [11/Aug/2024 13:38:20] "POST /register HTTP/1.1" 200 -
+2024-08-11 13:38:20,448 - INFO - 127.0.0.1 - - [11/Aug/2024 13:38:20] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:38:20,448 - INFO - 127.0.0.1 - - [11/Aug/2024 13:38:20] "OPTIONS /profile HTTP/1.1" 200 -
+2024-08-11 13:38:20,471 - INFO - 127.0.0.1 - - [11/Aug/2024 13:38:20] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:38:20,471 - INFO - 127.0.0.1 - - [11/Aug/2024 13:38:20] "POST /profile HTTP/1.1" 200 -
+2024-08-11 13:38:24,835 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:38:24 CST)" (scheduled at 2024-08-11 13:38:24.829946+08:00)
+2024-08-11 13:38:24,835 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:38:24 CST)" (scheduled at 2024-08-11 13:38:24.829946+08:00)
+2024-08-11 13:38:24,836 - INFO - Database file size: 6963 bytes
+2024-08-11 13:38:24,836 - INFO - Database file size: 6963 bytes
+2024-08-11 13:38:24,837 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:38:24 CST)" executed successfully
+2024-08-11 13:38:24,837 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:38:24 CST)" executed successfully
+2024-08-11 13:38:26,546 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:38:26 CST)" (scheduled at 2024-08-11 13:38:26.535762+08:00)
+2024-08-11 13:38:26,546 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:38:26 CST)" (scheduled at 2024-08-11 13:38:26.535762+08:00)
+2024-08-11 13:38:26,549 - INFO - Database file size: 6963 bytes
+2024-08-11 13:38:26,549 - INFO - Database file size: 6963 bytes
+2024-08-11 13:38:26,550 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:38:26 CST)" executed successfully
+2024-08-11 13:38:26,550 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-08-12 13:38:26 CST)" executed successfully

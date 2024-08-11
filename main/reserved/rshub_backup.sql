@@ -57,7 +57,7 @@ CREATE TABLE `tokens` (
   PRIMARY KEY (`TokenId`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `tokens` (
 
 LOCK TABLES `tokens` WRITE;
 /*!40000 ALTER TABLE `tokens` DISABLE KEYS */;
-INSERT INTO `tokens` VALUES (1,'otj!upan@#h!v*rb7q#e!vc@h!!@?q',1,1);
+INSERT INTO `tokens` VALUES (1,'otj!upan@#h!v*rb7q#e!vc@h!!@?q',1,1),(2,'3*gh$mgbvsx1#tky*@b#s8rxedh?#o',1,2),(3,'6u!$g92*6l!h6c898rx@hqo$ab5baq',1,3);
 /*!40000 ALTER TABLE `tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +86,7 @@ CREATE TABLE `tokentmp` (
   UNIQUE KEY `tempToken` (`tempToken`),
   KEY `userId` (`userId`),
   CONSTRAINT `tokentmp_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,6 +95,7 @@ CREATE TABLE `tokentmp` (
 
 LOCK TABLES `tokentmp` WRITE;
 /*!40000 ALTER TABLE `tokentmp` DISABLE KEYS */;
+INSERT INTO `tokentmp` VALUES (5,'fy1dr0jhw4sa6tbj26syabdlnwh4xx','2024-08-11 05:12:33',1),(6,'m36w83zjje1hjfg2ag5gju73bwor4y','2024-08-11 05:14:14',2),(7,'20tuzbc9skbdjfhzzt2lechzl0o07i','2024-08-11 05:21:56',2),(8,'4p7a6dnn3f51c85rgkoim9r3tpi3a3','2024-08-11 05:22:57',2),(9,'oogfdmdpmfudttq2yi986nig03lunl','2024-08-11 05:26:03',2),(10,'0fnr1kbkss5gv53cl6lqciw3h6u70l','2024-08-11 05:32:40',3);
 /*!40000 ALTER TABLE `tokentmp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +147,7 @@ CREATE TABLE `users` (
   `Credits` int DEFAULT NULL,
   PRIMARY KEY (`UserId`),
   UNIQUE KEY `Username` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,7 +156,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'2345','$2b$12$5DApIX/Z/wLLiR9HuRmRSuGoYbyM1r5UaCt6zP5T2Ln41EwQSytui','jiayang.23@intl.zju.edu.cn','浙江大学',NULL,NULL,NULL,NULL,NULL,NULL,100);
+INSERT INTO `users` VALUES (1,'2345','$2b$12$5DApIX/Z/wLLiR9HuRmRSuGoYbyM1r5UaCt6zP5T2Ln41EwQSytui','jiayang.23@intl.zju.edu.cn','浙江大学',NULL,NULL,NULL,NULL,NULL,NULL,100),(2,'heihe','$2b$12$s1M7b7dfX3DckE4GHxKK3uKyaNhGDpzMWUdmN/tCe7NG9CUuH0EMm','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100),(3,'1234','$2b$12$0u4.l.jwD/StPtF5DvETzeDkKuh4VScgq5wvEtIWs26T1r5oSdiAK','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -168,4 +169,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-12 15:34:35
+-- Dump completed on 2024-08-11 13:37:56

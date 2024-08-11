@@ -115,7 +115,16 @@ def get_user_info_by_username(username):
                 "Email": user.Email,
                 "Token": token.Token if token else 'No token',
                 "Organization": user.Organization,
-                'Credits':user.Credits
+                'Credits':user.Credits,
+                 
+                'FirstName':user.FirstName,
+                'LastName':user.LastName,
+                'Gender':user.Gender,
+                'Country':user.Country,
+                'Affiliation':user.Affiliation,
+                'ResearchArea':user.ResearchArea,
+
+
             }
     except SQLAlchemyError as e:
         print(f"Database error occurred when retrieving user info by username: {e}")
