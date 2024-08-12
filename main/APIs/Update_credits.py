@@ -32,9 +32,11 @@ from services.scheduler_tasks  import *
 
 
 class Update_credits(views.MethodView):
-    def get(self):  
-        token = request.args.get('token')
-        credits_needed=request.args.get('credits')
+    def post(self):  
+        data=request.get_json()
+
+        token = data.get('token')
+        credits_needed=data.get('credits')
 
 
             
@@ -49,9 +51,11 @@ class Update_credits(views.MethodView):
 
 
             user.Credits -= credits_needed
+            newcredits = user.Credits
             db.session.commit()  # 提交更改到数据库
 
-            print(f"{now_time()}: User with token:{token} has successfully updated credits ")
+            userid=get_user_id_by_token(token)
+            print(f"{now_time()}: User ID {userid} has successfully updated credits to {newcredits}( change size:{-credits_needed}) ")
             return jsonify({"result": True, "message": None})
 
         except SQLAlchemyError as e:

@@ -31,9 +31,19 @@ from services.scheduler_tasks  import *
 
 
 class Check_credits(views.MethodView):
-    def get(self):  
-        token = request.args.get('token')
-        credits_needed=request.args.get('credits')
+    def post(self):  
+        data=request.get_json()
+
+        token = data.get('token',None)
+        credits_needed=data.get('credits',None)
+
+        if token==None:
+            return jsonify({'logic':False,'message':'please offer token'})
+        
+        if credits_needed==None :
+            return jsonify({'logic':False,'message':'please offer credits'})
+
+
 
         try:
             responce= get_credits_by_token(token)
@@ -44,11 +54,18 @@ class Check_credits(views.MethodView):
         
             if status:
                 if credits >= int(credits_needed):    #使用 get 方法获取数据时，返回的类型默认是字符串（str）。无论参数的内容是数字、布尔值还是其他
-                    print(f"{now_time()}: User with token:{token} has successfully check credits ")
+                    userid=get_user_id_by_token(token)
+                    print(f"{now_time()}: User ID {userid} successfully check credits, remains {credits} credits, requires {credits_needed} credits, so access ")
                     return jsonify({'logic':True,'message':None})
                 else:
+                    userid=get_user_id_by_token(token)
+                    print(f"{now_time()}: User ID {userid} successfully check credits, remains {credits} credits, requires {credits_needed} credits, so rejected")
                     return jsonify({'logic':False,'message':'Insufficient remaining credits'})
+                
+            
             else:
+                userid=get_user_id_by_token(token)
+                print(f"{now_time()}: User ID {userid} failed to check credits, because of {error_message} ")
                 return jsonify({'logic':False,'message':error_message})
             
 

@@ -1,6 +1,7 @@
 import requests
 import os
 
+
 # PORT = os.environ.get("UM_PORT")
 def create_project(token, project_name):
     # API 端点
@@ -32,7 +33,7 @@ def create_project(token, project_name):
                 return None
         else:
             # 处理不成功的响应
-            print(f"Failed to request download. Status code: {response.status_code}, Response: {response.text}")
+            print(f"Failed to create project. Status code: {response.status_code}, Response: {response.text}")
             return None
         
     except requests.exceptions.ConnectionError:

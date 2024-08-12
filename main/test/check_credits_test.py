@@ -1,34 +1,32 @@
 import requests
 
-
-
-def check(token, credits):
+def check_credits(token, credits_needed):
     url = 'http://127.0.0.1:5000/api/Check-credits'
     
-
-    # 查询参数
-    params = {
+    # 需要发送到API的数据
+    data = {
         'token': token,
-        'credits': credits
+        'credits': credits_needed
     }
     
+    headers = {
+        'Content-Type': 'application/json'
+    }
+
     try:
-        # 发送 GET 请求
-        response = requests.get(url, params=params)
+        # 发送 POST 请求
+        response = requests.post(url, json=data, headers=headers)
         
         # 检查请求是否成功
         if response.status_code == 200:
             try:
-                # 解析 JSON 响应体
                 result = response.json()
                 return result
-            except ValueError:
-                # JSON 解析失败
+            except ValueError:                  # JSON 解析失败
                 print("Failed to parse response as JSON.")
                 return None
-        else:
-            # 处理不成功的响应
-            print(f"Failed to request download. Status code: {response.status_code}, Response: {response.text}")
+        else:               # 处理失败的响应
+            print(f"Failed to check credits. Status code: {response.status_code}, Response: {response.text}")
             return None
         
     except requests.exceptions.ConnectionError:
@@ -42,11 +40,10 @@ def check(token, credits):
         print(f"An error occurred: {e}")
         return None
 
-
-if __name__=="__main__":
+if __name__ == "__main__":
     # 示例用法
     token = "3*gh$mgbvsx1#tky*@b#s8rxedh?#o"
-    credits =150
-    result = check(token, credits)
+    credits_needed = 75
+    result = check_credits(token, credits_needed)
     if result:
         print("API Call Result:", result)

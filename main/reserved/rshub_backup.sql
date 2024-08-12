@@ -158,7 +158,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'2345','$2b$12$5DApIX/Z/wLLiR9HuRmRSuGoYbyM1r5UaCt6zP5T2Ln41EwQSytui','jiayang.23@intl.zju.edu.cn','浙江大学',NULL,NULL,NULL,NULL,NULL,NULL,100),(2,'heihe','$2b$12$s1M7b7dfX3DckE4GHxKK3uKyaNhGDpzMWUdmN/tCe7NG9CUuH0EMm','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100),(3,'1234','$2b$12$0u4.l.jwD/StPtF5DvETzeDkKuh4VScgq5wvEtIWs26T1r5oSdiAK','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100),(4,'陈嘉阳','$2b$12$HemsQmbGwqyjd4fbh6U.4OzWQL5ZlXlyXSgmXmpgBw9Df5JqL2IcG','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100),(5,'test1','$2b$12$Jq9UX/wijfqtJp6zfzz4de.9Pt9qLOhvZBoZLO1zBqI/jKLC9SCV.','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100);
+INSERT INTO `users` VALUES (1,'2345','$2b$12$5DApIX/Z/wLLiR9HuRmRSuGoYbyM1r5UaCt6zP5T2Ln41EwQSytui','jiayang.23@intl.zju.edu.cn','浙江大学',NULL,NULL,NULL,NULL,NULL,NULL,100),(2,'heihe','$2b$12$s1M7b7dfX3DckE4GHxKK3uKyaNhGDpzMWUdmN/tCe7NG9CUuH0EMm','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',1050),(3,'1234','$2b$12$0u4.l.jwD/StPtF5DvETzeDkKuh4VScgq5wvEtIWs26T1r5oSdiAK','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100),(4,'陈嘉阳','$2b$12$HemsQmbGwqyjd4fbh6U.4OzWQL5ZlXlyXSgmXmpgBw9Df5JqL2IcG','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100),(5,'test1','$2b$12$Jq9UX/wijfqtJp6zfzz4de.9Pt9qLOhvZBoZLO1zBqI/jKLC9SCV.','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -171,4 +171,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-12 13:15:15
+-- Dump completed on 2024-08-12 17:31:34

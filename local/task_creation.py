@@ -31,7 +31,7 @@ def create_task(token, project_name, task_name, level_required=1):
                 return None
         else:
             # 处理不成功的响应
-            print(f"Failed to request download. Status code: {response.status_code}, Response: {response.text}")
+            print(f"Failed to create task. Status code: {response.status_code}, Response: {response.text}")
             return None
         
     except requests.exceptions.ConnectionError:
