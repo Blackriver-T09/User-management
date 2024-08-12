@@ -257,18 +257,17 @@ def get_projects_and_tasks_by_username(username):
         if not user:
             return None
         
-        projects = UserProject.query.filter_by(user_id=user.UserId).all()
+        projects = UserProject.query.filter_by(user_id=user.UserId).all()     #该用户下的所有project
         project_list = []
         
         for project in projects:
-            tasks = ProjectTask.query.filter_by(user_project_id=project.UserProjectId).all()
+            tasks = ProjectTask.query.filter_by(user_project_id=project.UserProjectId).all()    #某个project下的所有task
             task_list = []
             
             for task in tasks:
-                status = TaskStatus.query.filter_by(TaskPath=task.TaskPath).first()
+                status = TaskStatus.query.filter_by(TaskPath=task.TaskPath).first()         #用Taskpath去TaskStatus下面找
                 task_info = {
                     'TaskName': task.TaskName,
-                    'TaskPath': task.TaskPath,
                     'Status': status.Status if status else 'Unknown'
                 }
                 task_list.append(task_info)
@@ -280,8 +279,14 @@ def get_projects_and_tasks_by_username(username):
             project_list.append(project_info)
         
         return project_list
+    
     except SQLAlchemyError as e:
         print(f"Database error occurred: {e}")
         return None
 
 
+
+
+if __name__=='__main__':
+    result=get_projects_and_tasks_by_username('heihe')
+    print(result)

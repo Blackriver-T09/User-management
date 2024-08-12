@@ -116,7 +116,7 @@ CREATE TABLE `tokentmp` (
   UNIQUE KEY `tempToken` (`tempToken`),
   KEY `userId` (`userId`),
   CONSTRAINT `tokentmp_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +125,7 @@ CREATE TABLE `tokentmp` (
 
 LOCK TABLES `tokentmp` WRITE;
 /*!40000 ALTER TABLE `tokentmp` DISABLE KEYS */;
-INSERT INTO `tokentmp` VALUES (5,'2i91gmbs9mrzob8atu6tbeyrbgo6fi','2024-08-12 14:11:44',1),(6,'esxo99mvl6mazefeoqeaabqakcidc5','2024-08-12 15:45:13',1);
+INSERT INTO `tokentmp` VALUES (5,'2i91gmbs9mrzob8atu6tbeyrbgo6fi','2024-08-12 14:11:44',1),(6,'esxo99mvl6mazefeoqeaabqakcidc5','2024-08-12 15:45:13',1),(7,'fp8232s9e869uu3f9mjqqfcm9lhfs0','2024-08-12 16:03:03',1),(8,'feagmot7mx0uc9q93rjvo6xv0yg9fd','2024-08-12 16:04:59',1),(9,'x9uvab55bzjympfospjv7ta8a2ihn0','2024-08-12 16:05:15',1),(10,'rge1clfbl65z15eyubz8qvfnh9z3d7','2024-08-12 16:08:07',1),(11,'86ez8lrvfdxzwskrscke8a3r5s9idn','2024-08-12 16:09:31',1),(12,'psl66h4n4d70kwqf3d3l3o1qy0axst','2024-08-12 17:29:51',1);
 /*!40000 ALTER TABLE `tokentmp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -200,4 +200,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-12 23:45:14
+-- Dump completed on 2024-08-13  1:39:44

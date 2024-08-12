@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, views, url_for, redirect, session,abort,jsonify,flash
 from utils import *
 from database import *
-
+from flask_jwt_extended import JWTManager
 import os
 import logging
 import time
@@ -17,6 +17,7 @@ from services import *
 
 
 app = Flask(__name__)
+ 
 app.secret_key = 'my_secret_key'  # 设置一个安全的密钥用于签名会话
 
 app.config.from_object(Config)
@@ -24,8 +25,12 @@ CORS(app)
 
 db.app=app
 db.init_app(app)
+jwt = JWTManager(app)
 
 
+# 注册后台API蓝图
+from backstage import admin_api      
+app.register_blueprint(admin_api, url_prefix='/admin')  
 
 
 # 导入所有API
@@ -58,7 +63,7 @@ app.add_url_rule('/api/Project-creation',view_func=Project_creation.as_view('pro
 app.add_url_rule('/api/Task-creation',view_func=Task_creation.as_view('task_creation'))
 app.add_url_rule('/api/Download-request',view_func=Download_request.as_view('download_request'))
 
-# 
+# 新增API
 app.add_url_rule('/api/Check-credits',view_func=Check_credits.as_view('check_credits'))
 app.add_url_rule('/api/Update-credits',view_func=Update_credits.as_view('update_credits'))
 app.add_url_rule('/api/update-task-status',view_func=Update_task_status.as_view('update_task_status'))

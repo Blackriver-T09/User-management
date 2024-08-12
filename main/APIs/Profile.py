@@ -40,19 +40,19 @@ class Profile(views.MethodView):
                               Country=None, Affiliation=None, ResearchArea=None, error=None):
             return jsonify({
                 'result': result,
-                'username': username or "Not Found",
-                'token': token or "No token",
-                'email': email or "Not Found",
-                'organization': organization or "Not Found",
-                'credits': credits or "Not Found",
+                'username': username,
+                'token': token,
+                'email': email,
+                'organization': organization,
+                'credits': credits,
                 'projectlist': projectlist or [],
-                'FirstName': FirstName or "Not Found",
-                'LastName': LastName or "Not Found",
-                'Gender': Gender or "Not Found",
-                'Country': Country or "Not Found",
-                'Affiliation': Affiliation or "Not Found",
-                'ResearchArea': ResearchArea or "Not Found",
-                'error': error or "No error provided"
+                'FirstName': FirstName,
+                'LastName': LastName,
+                'Gender': Gender,
+                'Country': Country,
+                'Affiliation': Affiliation,
+                'ResearchArea': ResearchArea,
+                'error': error
             })
 
 
@@ -89,10 +89,9 @@ class Profile(views.MethodView):
 
 
             # 获取用户项目列表
+            # projectlist = get_projects_and_tasks_by_username(username)   #想要更多projects信息，请取消这行的注释
             projectlist = get_projects_by_username(username)
-
             if projectlist is None:  # 处理项目列表可能为空的情况
-                projectlist = []
                 error_msg = 'Failed to load projects.'
                 return generate_profile_response(False, error=error_msg)
 

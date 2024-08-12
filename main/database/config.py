@@ -12,4 +12,8 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     # SQLALCHEMY_ECHO = False
 
+    # JWT 配置
+    JWT_SECRET_KEY = 'secret_key'  
+    JWT_TOKEN_LOCATION = ['headers']  # 可以选择 ['headers', 'cookies', 'query_string', 'json']
+    JWT_ACCESS_TOKEN_EXPIRES = 3600  # 访问令牌过期时间，单位为秒
 
