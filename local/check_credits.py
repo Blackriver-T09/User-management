@@ -1,21 +1,20 @@
 import requests
-import os
-PORT = os.environ.get("UM_PORT")
-def request_download(token, project_name, task_name):
-    # API 端点
-    # url = 'http://127.0.0.1:' + str(PORT) + '/api/Download-request'
-    url = 'http://127.0.0.1:5000/api/Download-request'
+
+
+
+def check(token, credits):
+    url = 'http://127.0.0.1:5000/api/Check-credits'
     
+
     # 查询参数
     params = {
         'token': token,
-        'project_name': project_name,
-        'task_name': task_name,
+        'credits': credits
     }
     
     try:
         # 发送 GET 请求
-        response = requests.get(url, params=params, timeout=10)  # 设置合理的超时时间
+        response = requests.get(url, params=params)
         
         # 检查请求是否成功
         if response.status_code == 200:
@@ -31,7 +30,7 @@ def request_download(token, project_name, task_name):
             # 处理不成功的响应
             print(f"Failed to request download. Status code: {response.status_code}, Response: {response.text}")
             return None
-    
+        
     except requests.exceptions.ConnectionError:
         print("Failed to connect to the server.")
         return None
@@ -45,10 +44,9 @@ def request_download(token, project_name, task_name):
 
 
 if __name__=="__main__":
+    # 示例用法
     token = "3*gh$mgbvsx1#tky*@b#s8rxedh?#o"
-    project_name =  "User1 Project1"
-    task_name = "task1"
-
-    result = request_download(token, project_name, task_name)
+    credits =150
+    result = check(token, credits)
     if result:
         print("API Call Result:", result)

@@ -1,0 +1,67 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
+
+from flask import Flask, render_template, request, views, url_for, redirect, session,abort,jsonify,flash
+from utils import username_check,password_check,email_check, hash_encipher, decryptor_check,send_email,path_generate,token_generate,tokenTmp_generate
+
+
+from database.models_user import User
+from database.models_token import Token
+from database.models_user_project import UserProject
+from database.models_project_task import ProjectTask
+from database.temp_tokens import TokenTmp
+from database.config import Config
+from database.config import db
+import os
+import logging
+import time
+
+from flask_cors import CORS,cross_origin
+
+# 增强容错机制
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.exc import SQLAlchemyError
+
+from services.database_operations import *
+from services.scheduler_tasks  import *
+
+
+
+
+class Check_credits(views.MethodView):
+    def get(self):  
+        token = request.args.get('token')
+        credits_needed=request.args.get('credits')
+
+        try:
+            responce= get_credits_by_token(token)
+            status = responce.get('status',False)
+            credits= responce.get('credits',0)
+            error_message=responce.get('error message','cant receive responce when checking credits')
+
+        
+            if status:
+                if credits >= int(credits_needed):    #使用 get 方法获取数据时，返回的类型默认是字符串（str）。无论参数的内容是数字、布尔值还是其他
+                    print(f"{now_time()}: User with token:{token} has successfully check credits ")
+                    return jsonify({'logic':True,'message':None})
+                else:
+                    return jsonify({'logic':False,'message':'Insufficient remaining credits'})
+            else:
+                return jsonify({'logic':False,'message':error_message})
+            
+
+
+        except SQLAlchemyError as e:
+            print(f"{now_time()}: SQLAlchemyError during Check_credits: {e}")
+            logging.error(f"SQLAlchemyError during Check_credits: {e}")
+            return jsonify({'logic':False,'message':"An internal error occurred. Please try again."})
+        
+        except Exception as e:
+            print(f"{now_time()}: Error during Check_credits: {e}")
+            logging.error(f"Error during Check_credits: {e}")
+            return jsonify({'logic':False,'message':"An unexpected error occurred. Please try again."})
+
+
+

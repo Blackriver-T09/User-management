@@ -32,7 +32,7 @@ from services.scheduler_tasks  import now_time,start_scheduler
 
 # 本地API——Task-creation
 class Task_creation(views.MethodView):
-    def get():
+    def get(self):
         token = request.args.get('token')
         project_name = request.args.get('project_name')
         task_name = request.args.get('task_name')
@@ -44,8 +44,8 @@ class Task_creation(views.MethodView):
 
         try:
             if check_token_exists(token):
-                user = get_username_by_token(token)
-                projects = get_projects_by_username(user)
+                user = get_user_by_token(token)
+                projects = get_projects_by_username(user.Username)
 
                 if project_name in projects:
                     level = get_level_by_token(token)

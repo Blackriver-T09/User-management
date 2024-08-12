@@ -240,16 +240,24 @@ def get_credits_by_token(token_value):
             user = User.query.filter_by(UserId=token.user_id).first()
             if user:
                 return {
-                    'status': 'success',
-                    'credits': user.Credits
+                    'status': True,
+                    'credits': user.Credits,
+                    'error message': None
                 }
         return {
-            'status': 'error',
-            'message': 'Token not found or invalid.'
+            'status': False,
+            'credits': None,
+            'error message': 'Token not found or invalid.'
         }
     except SQLAlchemyError as e:
         print(f"Database error occurred when retrieving credits by token: {e}")
         return {
-            'status': 'error',
+            'status': False,
+            'credits': None,
             'message': 'Database error.'
         }
+
+
+
+
+

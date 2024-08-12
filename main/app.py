@@ -22,8 +22,8 @@ from flask_cors import CORS,cross_origin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
 
-from services.database_operations import check_user_exists, check_token_exists, check_project_exists, check_task_exists, get_token_by_username, get_username_by_token, get_user_by_token, get_level_by_token, get_password_by_username, get_user_info_by_username, get_projects_by_username, get_tasks_by_project, get_username_by_tokenTmp,get_user_id_by_token,verify_user_email
-from services.scheduler_tasks  import now_time,start_scheduler
+from services.database_operations import *       #所有的数据库操作函数
+from services.scheduler_tasks  import *          #所有的定时任务
 
 app = Flask(__name__)
 app.secret_key = 'my_secret_key'  # 设置一个安全的密钥用于签名会话
@@ -36,96 +36,24 @@ db.init_app(app)
 
 
 
+
+# 导入所有API
 from APIs.Register import Register 
 from APIs.Profile import Profile
 from APIs.Login import Login
 from APIs.Change_password import Change_password
 from APIs.SendEmail import SendEmail
 
+from APIs.Project_creation import Project_creation
+from APIs.Task_creation import Task_creation
+from APIs.Download_request import Download_request
 
-
-    
-
-
-
-
-
-
+from APIs.Check_credits import Check_credits
+from APIs.Update_credits import Update_credits
 
 
 
-# 本地API—— Download-request
-
-
-
-
-class Download_request(views.MethodView):
-    def get():
-        token = request.args.get('token')
-        project_name = request.args.get('project_name')
-        task_name = request.args.get('task_name')
-
-        # 检查请求来源是否是本地
-        if request.remote_addr != '127.0.0.1':
-            abort(403)  # 403错误：权限不足
-
-        try:
-            if check_token_exists(token):
-                username = get_username_by_token(token)
-                if username:
-                    projects = get_projects_by_username(username)
-
-                    if project_name in projects:
-                        user_id=get_user_id_by_token(token)
-                        tasks = get_tasks_by_project(user_id,project_name)
-
-
-                        for task in tasks[::-1]:
-                            if task.TaskName == task_name:
-
-
-                                print(f"{now_time()}: {username} successfully Download request")
-                                return jsonify({'result': True, 'error_message': None, 'path': task.TaskPath})
-                        return jsonify({'result': False, "error_error_message": 'Task not exist', 'path': None})
-                    
-
-                        # if task_name in tasks:
-                        #     task = ProjectTask.query.filter_by(TaskName=task_name).first()
-                        #     if task:
-                        #         return jsonify({'result': True, 'error_message': None, 'path': task.TaskPath})
-                        #     else:
-                        #         return jsonify({'result': False, "error_message": 'Task data retrieval failed', 'path': None})
-                        # else:
-                        #     return jsonify({'result': False, "error_error_message": 'Task not exist', 'path': None})
-                    else:
-                        return jsonify({'result': False, "error_message": 'Project not exist', 'path': None})
-                else:
-                    return jsonify({'result': False, "error_message": 'User not found', 'path': None})
-            else:
-                return jsonify({'result': False, "error_message": 'Token does not exist', 'path': None})
-        
-        except SQLAlchemyError as e:
-            db.session.rollback()
-
-            print(f"{now_time()}: SQLAlchemyError during download_request: {e}")
-            logging.error(f"SQLAlchemyError during download_request: {e}")
-            return jsonify({'result': False, "error_message": "Database error. Please try again.", 'path': None})
-        except Exception as e:
-            
-            print(f"{now_time()}: Error during download_request: {e}")
-            logging.error(f"Error during download_request: {e}")
-            return jsonify({'result': False, "error_message": "An unexpected error occurred. Please try again.", 'path': None})
-
-
-
-
-
-
-        
-
-
-
-# 注册路由
+# 网页API
 app.add_url_rule('/login', view_func=Login.as_view('login'))
 app.add_url_rule('/', view_func=Login.as_view('main_website'))
 app.add_url_rule('/profile', view_func=Profile.as_view('profile'))
@@ -133,12 +61,15 @@ app.add_url_rule('/register',view_func=Register.as_view('register'))
 app.add_url_rule('/change-password/<tokenTmp>', view_func=Change_password.as_view('change_password'), methods=['GET', 'POST'])
 app.add_url_rule('/api/email',view_func=SendEmail.as_view('send_email'))
 
+# 本地API
+app.add_url_rule('/api/Project-creation',view_func=Project_creation.as_view('project_creation'))
+app.add_url_rule('/api/Task-creation',view_func=Task_creation.as_view('task_creation'))
+app.add_url_rule('/api/Download-request',view_func=Download_request.as_view('download_request'))
 
-app.add_url_rule('/api/Project-creation',view_func=Register.as_view('register'))
-@app.route('/api/Project-creation', methods=['GET'])
+# 
+app.add_url_rule('/api/Check-credits',view_func=Check_credits.as_view('check_credits'))
+app.add_url_rule('/api/Update-credits',view_func=Update_credits.as_view('update_credits'))
 
-@app.route('/api/Task-creation', methods=['GET'])
-@app.route('/api/Download-request', methods=['GET'])
 
 
 # 错误处理模块

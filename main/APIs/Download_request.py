@@ -34,7 +34,7 @@ from services.scheduler_tasks  import now_time,start_scheduler
 
 # 本地API—— Download-request
 class Download_request(views.MethodView):
-    def get():
+    def get(self):
         token = request.args.get('token')
         project_name = request.args.get('project_name')
         task_name = request.args.get('task_name')

@@ -29,9 +29,9 @@ from services.scheduler_tasks  import now_time,start_scheduler
 
 
 
-# 本地API——Project-creation
+# 本地API——Project-creation     
 class Project_creation(views.MethodView):
-    def get():
+    def get(self):
         token = request.args.get('token')
         project_name = request.args.get('project_name')
 
