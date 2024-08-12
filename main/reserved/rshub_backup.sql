@@ -28,9 +28,10 @@ CREATE TABLE `project_tasks` (
   `TaskPath` varchar(100) NOT NULL,
   `user_project_id` int DEFAULT NULL,
   PRIMARY KEY (`ProjectTaskId`),
+  UNIQUE KEY `ix_project_tasks_TaskPath` (`TaskPath`),
   KEY `user_project_id` (`user_project_id`),
   CONSTRAINT `project_tasks_ibfk_1` FOREIGN KEY (`user_project_id`) REFERENCES `user_projects` (`UserProjectId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,8 +40,36 @@ CREATE TABLE `project_tasks` (
 
 LOCK TABLES `project_tasks` WRITE;
 /*!40000 ALTER TABLE `project_tasks` DISABLE KEYS */;
-INSERT INTO `project_tasks` VALUES (1,'task1','DZXedkstDjIDfd1dryPgYXXykUpUxR',1),(2,'task1','DuYbw3pvWJK5RyUdawpg8VH8qFT6SR',1);
+INSERT INTO `project_tasks` VALUES (1,'task1','eLLCQoJ2vnfdGceD4aaGFYxmKTEj9k',1);
 /*!40000 ALTER TABLE `project_tasks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `task_status`
+--
+
+DROP TABLE IF EXISTS `task_status`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `task_status` (
+  `StatusId` int NOT NULL AUTO_INCREMENT,
+  `TaskPath` varchar(100) NOT NULL,
+  `Status` varchar(50) NOT NULL,
+  `UpdatedAt` datetime NOT NULL,
+  PRIMARY KEY (`StatusId`),
+  UNIQUE KEY `TaskPath` (`TaskPath`),
+  CONSTRAINT `task_status_ibfk_1` FOREIGN KEY (`TaskPath`) REFERENCES `project_tasks` (`TaskPath`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `task_status`
+--
+
+LOCK TABLES `task_status` WRITE;
+/*!40000 ALTER TABLE `task_status` DISABLE KEYS */;
+INSERT INTO `task_status` VALUES (1,'eLLCQoJ2vnfdGceD4aaGFYxmKTEj9k','in queue','2024-08-12 13:52:02');
+/*!40000 ALTER TABLE `task_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -58,7 +87,7 @@ CREATE TABLE `tokens` (
   PRIMARY KEY (`TokenId`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +96,7 @@ CREATE TABLE `tokens` (
 
 LOCK TABLES `tokens` WRITE;
 /*!40000 ALTER TABLE `tokens` DISABLE KEYS */;
-INSERT INTO `tokens` VALUES (1,'otj!upan@#h!v*rb7q#e!vc@h!!@?q',1,1),(2,'3*gh$mgbvsx1#tky*@b#s8rxedh?#o',1,2),(3,'6u!$g92*6l!h6c898rx@hqo$ab5baq',1,3),(4,'#x#x4j!gl6d0ttcs4ko?#6mjza!8j!',1,4),(5,'u0bd#h#2sy00p?n$wzuqr#t9uk!sw6',1,5);
+INSERT INTO `tokens` VALUES (1,'k!*ijl?jfx88hl!4cyadxt2bfa*chc',1,1),(2,'bw879?wepc#f56!!*@231vqd@@fg7z',1,2);
 /*!40000 ALTER TABLE `tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +116,7 @@ CREATE TABLE `tokentmp` (
   UNIQUE KEY `tempToken` (`tempToken`),
   KEY `userId` (`userId`),
   CONSTRAINT `tokentmp_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +125,6 @@ CREATE TABLE `tokentmp` (
 
 LOCK TABLES `tokentmp` WRITE;
 /*!40000 ALTER TABLE `tokentmp` DISABLE KEYS */;
-INSERT INTO `tokentmp` VALUES (15,'foztums980wt5qnoofi0vmgbleo9ez','2024-08-12 03:52:43',2);
 /*!40000 ALTER TABLE `tokentmp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +142,7 @@ CREATE TABLE `user_projects` (
   PRIMARY KEY (`UserProjectId`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_projects_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,7 +151,7 @@ CREATE TABLE `user_projects` (
 
 LOCK TABLES `user_projects` WRITE;
 /*!40000 ALTER TABLE `user_projects` DISABLE KEYS */;
-INSERT INTO `user_projects` VALUES (1,'User1 Project1',2),(2,'User1 Project2',2);
+INSERT INTO `user_projects` VALUES (1,'Project1',1);
 /*!40000 ALTER TABLE `user_projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +177,7 @@ CREATE TABLE `users` (
   `Credits` int DEFAULT NULL,
   PRIMARY KEY (`UserId`),
   UNIQUE KEY `Username` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,7 +186,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'2345','$2b$12$5DApIX/Z/wLLiR9HuRmRSuGoYbyM1r5UaCt6zP5T2Ln41EwQSytui','jiayang.23@intl.zju.edu.cn','浙江大学',NULL,NULL,NULL,NULL,NULL,NULL,100),(2,'heihe','$2b$12$s1M7b7dfX3DckE4GHxKK3uKyaNhGDpzMWUdmN/tCe7NG9CUuH0EMm','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',1050),(3,'1234','$2b$12$0u4.l.jwD/StPtF5DvETzeDkKuh4VScgq5wvEtIWs26T1r5oSdiAK','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100),(4,'陈嘉阳','$2b$12$HemsQmbGwqyjd4fbh6U.4OzWQL5ZlXlyXSgmXmpgBw9Df5JqL2IcG','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100),(5,'test1','$2b$12$Jq9UX/wijfqtJp6zfzz4de.9Pt9qLOhvZBoZLO1zBqI/jKLC9SCV.','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100);
+INSERT INTO `users` VALUES (1,'heihe','$2b$12$Qb3zlqyQlXNhWBsKhh02quo32x50PLepbDcYziiEqq525ICJLcOGe','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100),(2,'User1','$2b$12$BN9CpUUDxUlXkb1V38j49egAinsXI5nvEkt/hbbrDLVTojvYr8Cva','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -171,4 +199,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-12 17:31:34
+-- Dump completed on 2024-08-12 22:11:18

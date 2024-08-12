@@ -46,8 +46,8 @@ def create_task(token, project_name, task_name, level_required=1):
         return None
 
 if __name__=="__main__":
-    token = "3*gh$mgbvsx1#tky*@b#s8rxedh?#o"
-    project_name = "User1 Project1"
+    token = "k!*ijl?jfx88hl!4cyadxt2bfa*chc"
+    project_name = "Project1"
     task_name = "task1"
     level_required = "1"
     result = create_task(token, project_name, task_name, level_required)

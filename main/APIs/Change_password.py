@@ -4,16 +4,10 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 
 from flask import Flask, render_template, request, views, url_for, redirect, session,abort,jsonify,flash
-from utils import username_check,password_check,email_check, hash_encipher, decryptor_check,send_email,path_generate,token_generate,tokenTmp_generate
+from utils import *
 
 
-from database.models_user import User
-from database.models_token import Token
-from database.models_user_project import UserProject
-from database.models_project_task import ProjectTask
-from database.temp_tokens import TokenTmp
-from database.config import Config
-from database.config import db
+from database import *
 import os
 import logging
 import time
@@ -24,8 +18,8 @@ from flask_cors import CORS,cross_origin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
 
-from services.database_operations import check_user_exists, check_token_exists, check_project_exists, check_task_exists, get_token_by_username, get_username_by_token, get_user_by_token, get_level_by_token, get_password_by_username, get_user_info_by_username, get_projects_by_username, get_tasks_by_project, get_username_by_tokenTmp,get_user_id_by_token,verify_user_email
-from services.scheduler_tasks  import now_time,start_scheduler
+from services import *
+
 
 
 

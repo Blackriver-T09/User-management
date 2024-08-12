@@ -1,15 +1,6 @@
 from flask import Flask, render_template, request, views, url_for, redirect, session,abort,jsonify,flash
-from utils import username_check,password_check,email_check, hash_encipher, decryptor_check,send_email,path_generate,token_generate,tokenTmp_generate
-
-
-from database.models_user import User
-from database.models_token import Token
-from database.models_user_project import UserProject
-from database.models_project_task import ProjectTask
-from database.temp_tokens import TokenTmp
-from database.config import Config
-from database.config import db
-
+from utils import *
+from database import *
 
 import os
 import logging
@@ -22,8 +13,8 @@ from flask_cors import CORS,cross_origin
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.exc import SQLAlchemyError
 
-from services.database_operations import *       #所有的数据库操作函数
-from services.scheduler_tasks  import *          #所有的定时任务
+from services import *
+
 
 app = Flask(__name__)
 app.secret_key = 'my_secret_key'  # 设置一个安全的密钥用于签名会话
@@ -50,6 +41,7 @@ from APIs.Download_request import Download_request
 
 from APIs.Check_credits import Check_credits
 from APIs.Update_credits import Update_credits
+from APIs.Update_task_status import Update_task_status 
 
 
 

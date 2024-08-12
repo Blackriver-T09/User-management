@@ -9,7 +9,7 @@ def create_project(token, project_name):
     url = 'http://127.0.0.1:5000/api/Project-creation'
     
 
-    print(url)
+    # print(url)
     
     # 查询参数
     params = {
@@ -50,8 +50,8 @@ def create_project(token, project_name):
 
 if __name__=="__main__":
     # 示例用法
-    token = "3*gh$mgbvsx1#tky*@b#s8rxedh?#o"
-    project_name = "User1 Project2"
+    token = "k!*ijl?jfx88hl!4cyadxt2bfa*chc"
+    project_name = "Project1"
     result = create_project(token, project_name)
     if result:
         print("API Call Result:", result)

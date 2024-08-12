@@ -1,10 +1,5 @@
 from sqlalchemy.exc import SQLAlchemyError
-from database.models_user import User
-from database.models_token import Token
-from database.models_user_project import UserProject
-from database.models_project_task import ProjectTask
-from database.temp_tokens import TokenTmp
-
+from database import *
 
 
 
@@ -143,15 +138,8 @@ def get_projects_by_username(username):
     return None  # 如果发生错误或找不到项目，返回 None
 
 
-# def get_tasks_by_project(project_name):
-#     try:
-#         project = UserProject.query.filter_by(ProjectName=project_name).first()
-#         if project:
-#             tasks = ProjectTask.query.filter_by(user_project_id=project.UserProjectId).all()
-#             return [task.TaskName for task in tasks]  # 返回任务名列表
-#     except SQLAlchemyError as e:
-#         print(f"Database error occurred when retrieving tasks by project: {e}")
-#     return None  # 如果发生错误或找
+
+
 
 
 def get_tasks_by_project(user_id, project_name):
@@ -203,18 +191,6 @@ def get_username_by_tokenTmp(tokenTmp):
 
 
 
-# def check_if_tokenTmp_exist(tokenTmp):
-#     try:
-#         # 查询 TokenTmp 表以获取与 temp_token 相关联的用户
-#         token_record = TokenTmp.query.filter_by(tempToken=tokenTmp).first()
-        
-#         if token_record:
-#             return None
-#         else:
-#             return "token out of date"
-#     except SQLAlchemyError as e:
-#         print(f"Database error occurred when retrieving tasks by project: {e}")
-
 
 def verify_user_email(username, email):
     try:
@@ -259,5 +235,16 @@ def get_credits_by_token(token_value):
 
 
 
+
+
+def get_task_status_by_path(task_path):
+    try:
+        # 通过 TaskPath 查询 TaskStatus 对象
+        task_status = TaskStatus.query.filter_by(TaskPath=task_path).first()
+        return task_status    #注意这里返回的是一个对象
+    except SQLAlchemyError as e:
+        # 处理可能的数据库查询错误
+        print(f"Database error occurred when retrieving task status by path: {e}")
+        return None
 
 
