@@ -48,7 +48,7 @@ def create_task(token, project_name, task_name, level_required=1):
 if __name__=="__main__":
     token = "k!*ijl?jfx88hl!4cyadxt2bfa*chc"
     project_name = "Project1"
-    task_name = "task1"
+    task_name = "task3"
     level_required = "1"
     result = create_task(token, project_name, task_name, level_required)
     if result:

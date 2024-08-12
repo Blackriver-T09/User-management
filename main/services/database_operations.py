@@ -248,3 +248,40 @@ def get_task_status_by_path(task_path):
         return None
 
 
+
+
+
+def get_projects_and_tasks_by_username(username):
+    try:
+        user = User.query.filter_by(Username=username).first()
+        if not user:
+            return None
+        
+        projects = UserProject.query.filter_by(user_id=user.UserId).all()
+        project_list = []
+        
+        for project in projects:
+            tasks = ProjectTask.query.filter_by(user_project_id=project.UserProjectId).all()
+            task_list = []
+            
+            for task in tasks:
+                status = TaskStatus.query.filter_by(TaskPath=task.TaskPath).first()
+                task_info = {
+                    'TaskName': task.TaskName,
+                    'TaskPath': task.TaskPath,
+                    'Status': status.Status if status else 'Unknown'
+                }
+                task_list.append(task_info)
+            
+            project_info = {
+                'ProjectName': project.ProjectName,
+                'Tasks': task_list
+            }
+            project_list.append(project_info)
+        
+        return project_list
+    except SQLAlchemyError as e:
+        print(f"Database error occurred: {e}")
+        return None
+
+

@@ -61,6 +61,7 @@ app.add_url_rule('/api/Download-request',view_func=Download_request.as_view('dow
 # 
 app.add_url_rule('/api/Check-credits',view_func=Check_credits.as_view('check_credits'))
 app.add_url_rule('/api/Update-credits',view_func=Update_credits.as_view('update_credits'))
+app.add_url_rule('/api/update-task-status',view_func=Update_task_status.as_view('update_task_status'))
 
 
 

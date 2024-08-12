@@ -49,9 +49,15 @@ class Download_request(views.MethodView):
                         for task in tasks[::-1]:
                             if task.TaskName == task_name:
 
+                                task_path=task.TaskPath
+                                task_status=get_task_status_by_path(task_path).Status
 
-                                print(f"{now_time()}: {username} successfully Download request")
-                                return jsonify({'result': True, 'error_message': None, 'path': task.TaskPath})
+                                if task_status!="complete":
+                                    return jsonify({'result': False, 'error_message': f'task not finish yet, current status:{task_status}', 'path': None})
+                                else:
+                                    print(f"{now_time()}: {username} make a successfully Download request")
+                                    return jsonify({'result': True, 'error_message': None, 'path': task_path})
+                                
                         return jsonify({'result': False, "error_error_message": 'Task not exist', 'path': None})
                     
 

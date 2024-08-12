@@ -31,7 +31,7 @@ CREATE TABLE `project_tasks` (
   UNIQUE KEY `ix_project_tasks_TaskPath` (`TaskPath`),
   KEY `user_project_id` (`user_project_id`),
   CONSTRAINT `project_tasks_ibfk_1` FOREIGN KEY (`user_project_id`) REFERENCES `user_projects` (`UserProjectId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `project_tasks` (
 
 LOCK TABLES `project_tasks` WRITE;
 /*!40000 ALTER TABLE `project_tasks` DISABLE KEYS */;
-INSERT INTO `project_tasks` VALUES (1,'task1','eLLCQoJ2vnfdGceD4aaGFYxmKTEj9k',1);
+INSERT INTO `project_tasks` VALUES (1,'task1','eLLCQoJ2vnfdGceD4aaGFYxmKTEj9k',1),(2,'task2','s3Dkc71NICNaM6qRBASGBMpbwlf5KX',1),(3,'task3','klDoGa7cMGvI7yZAygaz9qps457GlL',1);
 /*!40000 ALTER TABLE `project_tasks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `task_status` (
   PRIMARY KEY (`StatusId`),
   UNIQUE KEY `TaskPath` (`TaskPath`),
   CONSTRAINT `task_status_ibfk_1` FOREIGN KEY (`TaskPath`) REFERENCES `project_tasks` (`TaskPath`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `task_status` (
 
 LOCK TABLES `task_status` WRITE;
 /*!40000 ALTER TABLE `task_status` DISABLE KEYS */;
-INSERT INTO `task_status` VALUES (1,'eLLCQoJ2vnfdGceD4aaGFYxmKTEj9k','in queue','2024-08-12 13:52:02');
+INSERT INTO `task_status` VALUES (1,'eLLCQoJ2vnfdGceD4aaGFYxmKTEj9k','complete','2024-08-12 15:07:31'),(2,'s3Dkc71NICNaM6qRBASGBMpbwlf5KX','complete','2024-08-12 15:09:18'),(3,'klDoGa7cMGvI7yZAygaz9qps457GlL','in queue','2024-08-12 15:19:56');
 /*!40000 ALTER TABLE `task_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +116,7 @@ CREATE TABLE `tokentmp` (
   UNIQUE KEY `tempToken` (`tempToken`),
   KEY `userId` (`userId`),
   CONSTRAINT `tokentmp_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,6 +125,7 @@ CREATE TABLE `tokentmp` (
 
 LOCK TABLES `tokentmp` WRITE;
 /*!40000 ALTER TABLE `tokentmp` DISABLE KEYS */;
+INSERT INTO `tokentmp` VALUES (5,'2i91gmbs9mrzob8atu6tbeyrbgo6fi','2024-08-12 14:11:44',1),(6,'esxo99mvl6mazefeoqeaabqakcidc5','2024-08-12 15:45:13',1);
 /*!40000 ALTER TABLE `tokentmp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,4 +200,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-12 22:11:18
+-- Dump completed on 2024-08-12 23:45:14

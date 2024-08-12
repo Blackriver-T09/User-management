@@ -10,7 +10,7 @@ from utils import *
 from database import *
 import os
 import logging
-import time
+from datetime import datetime, timezone
 
 from flask_cors import CORS,cross_origin
 
@@ -24,15 +24,33 @@ from services import *
 
 
 class Update_task_status(views.MethodView):
-    def post():
+    def post(self):
         data=request.get_json()
         task_path = data.get('task_path')
-        new_job_status=data.get('credits')
+        new_job_status=data.get('new_job_status')
+
+
+        if new_job_status in ['in queue', 'calculating','complete']:
+            pass
+        else:
+            return jsonify({"result": False, "message": "new_job_status has to be 'in queue','calculating' or 'complete'"})
 
 
         try:
-            pass
+            task_status=get_task_status_by_path(task_path)   #注意返回的是一个对象而不是一个字符串！
+            if task_status==None:
+                return jsonify({"result": False, "message": "Invalid task path or task path does not exist"})
+            
 
+            old_task_status= task_status.Status
+            task_status.Status = new_job_status
+            task_status.UpdatedAt = datetime.now(timezone.utc)  # 更新时间戳
+            db.session.commit()
+
+            print(f"{now_time()}: task with path '{task_path}' has changed from '{old_task_status}' to '{new_job_status}' ")
+            return jsonify({"result": True, "message": None})
+
+            
         except SQLAlchemyError as e:
             db.session.rollback()  # 回滚在出现异常时的所有更改
             print(f"{now_time()}: SQLAlchemyError during Update_task_status: {e}")
