@@ -20,9 +20,10 @@ from sqlalchemy.exc import SQLAlchemyError
 from services import *
 
 
+from backstage.Backstage_Config import B_USERNAME, B_PASSWORD 
 
-
-
+b_username=B_USERNAME
+b_password=B_PASSWORD
 
 class Login(views.MethodView):
 
@@ -39,7 +40,11 @@ class Login(views.MethodView):
                 return jsonify({'result': False, 'error': 'please fill in username and password', 'tokenTmp': None})
 
 
+
+
+
         try:
+            
             user_exist = check_user_exists(username)  # 检查用户是否存在
             if user_exist:
                 user = User.query.filter_by(Username=username).first()

@@ -73,11 +73,9 @@ app.add_url_rule('/api/update-task-status',view_func=Update_task_status.as_view(
 # 错误处理模块
 @app.errorhandler(404)
 def handle_404_error(err):
-    # return "发生了错误，错误情况是：%s"%err
     return render_template('404.html')
 @app.errorhandler(403)
 def handle_404_error(err):
-    # return "发生了错误，错误情况是：%s"%err
     return render_template('403.html')
 
 

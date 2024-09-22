@@ -89,8 +89,8 @@ class Profile(views.MethodView):
 
 
             # 获取用户项目列表
-            # projectlist = get_projects_and_tasks_by_username(username)   #想要更多projects信息，请取消这行的注释
-            projectlist = get_projects_by_username(username)
+            projectlist = get_projects_and_tasks_by_username(username)   #想要更多projects信息，请取消这行的注释
+            # projectlist = get_projects_by_username(username)
             if projectlist is None:  # 处理项目列表可能为空的情况
                 error_msg = 'Failed to load projects.'
                 return generate_profile_response(False, error=error_msg)

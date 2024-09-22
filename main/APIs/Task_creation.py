@@ -57,6 +57,11 @@ class Task_creation(views.MethodView):
                             # 创建任务状态记录
                             new_task_status = TaskStatus(TaskPath=new_task.TaskPath)
                             db.session.add(new_task_status)
+                            db.session.flush()
+
+                            # 创建任务起始时间
+                            new_task_status = TaskTime(TaskPath=new_task.TaskPath)
+                            db.session.add(new_task_status)                            
                             db.session.commit()
 
                             print(f"{now_time()}: {user.Username} successfully create task '{task_name}' in project '{project_name}'")

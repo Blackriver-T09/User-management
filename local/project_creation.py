@@ -50,7 +50,7 @@ def create_project(token, project_name):
 
 if __name__=="__main__":
     # 示例用法
-    token = "k!*ijl?jfx88hl!4cyadxt2bfa*chc"
+    token = "lquxi?xr!$k?8ocohfiofx91!#!0xg"
     project_name = "Project1"
     result = create_project(token, project_name)
     if result:

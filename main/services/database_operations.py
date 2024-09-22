@@ -266,9 +266,13 @@ def get_projects_and_tasks_by_username(username):
             
             for task in tasks:
                 status = TaskStatus.query.filter_by(TaskPath=task.TaskPath).first()         #用Taskpath去TaskStatus下面找
+                time_info = TaskTime.query.filter_by(TaskPath=task.TaskPath).first()       # 获取任务时间信息
+
                 task_info = {
                     'TaskName': task.TaskName,
-                    'Status': status.Status if status else 'Unknown'
+                    'Status': status.Status if status else 'Unknown',
+                    'StartDate': time_info.StartTime if time_info else 'Not Started',
+                    'EndDate': time_info.EndTime if time_info and time_info.EndTime else 'Not Completed'
                 }
                 task_list.append(task_info)
             

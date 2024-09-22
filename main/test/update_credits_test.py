@@ -42,7 +42,7 @@ def update_credits(token, credits_needed):
 
 if __name__ == "__main__":
     # 示例用法
-    token = "3*gh$mgbvsx1#tky*@b#s8rxedh?#o"
+    token = "k!*ijl?jfx88hl!4cyadxt2bfa*chc"
     credits_needed = 1000     #设置为负数时为加上点数
     result = update_credits(token, credits_needed)
     if result:

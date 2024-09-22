@@ -31,7 +31,7 @@ CREATE TABLE `project_tasks` (
   UNIQUE KEY `ix_project_tasks_TaskPath` (`TaskPath`),
   KEY `user_project_id` (`user_project_id`),
   CONSTRAINT `project_tasks_ibfk_1` FOREIGN KEY (`user_project_id`) REFERENCES `user_projects` (`UserProjectId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `project_tasks` (
 
 LOCK TABLES `project_tasks` WRITE;
 /*!40000 ALTER TABLE `project_tasks` DISABLE KEYS */;
-INSERT INTO `project_tasks` VALUES (1,'task1','eLLCQoJ2vnfdGceD4aaGFYxmKTEj9k',1),(2,'task2','s3Dkc71NICNaM6qRBASGBMpbwlf5KX',1),(3,'task3','klDoGa7cMGvI7yZAygaz9qps457GlL',1);
+INSERT INTO `project_tasks` VALUES (1,'task3','wnJjxAcrxtlxYzi6U1OgTw1aevAqNg',1),(2,'task0','IzQn3kmLVXTeBuijBGgJ70fbZFstJa',2),(3,'task1','K9drgWuxTfMJ76ZWludwXCy2sOlyT9',2),(4,'task2','JWuX2duarTFNPmRmG4jS6vPEuTMmJO',2),(5,'task0','mTWikh1S82kHIcdxnGWPDmLjme0sdl',1),(6,'task1','RIQmDnUpXNK9MSEJ7bfIg9Y7Mv7lxq',1),(7,'task2','mg2XFIjchpLusa5DnIaW7F9zUHqdQ1',1),(8,'task0','r66tLpadGIzS7JLeGZ1KdxaIEwWAJh',4),(9,'task1','oK48ECat5oo7EIHQfqR38gItHi5Eyp',4),(10,'task2','SUUM0ZNN51S6cxA0HWayePErtOUWpm',4);
 /*!40000 ALTER TABLE `project_tasks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `task_status` (
   PRIMARY KEY (`StatusId`),
   UNIQUE KEY `TaskPath` (`TaskPath`),
   CONSTRAINT `task_status_ibfk_1` FOREIGN KEY (`TaskPath`) REFERENCES `project_tasks` (`TaskPath`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,8 +68,36 @@ CREATE TABLE `task_status` (
 
 LOCK TABLES `task_status` WRITE;
 /*!40000 ALTER TABLE `task_status` DISABLE KEYS */;
-INSERT INTO `task_status` VALUES (1,'eLLCQoJ2vnfdGceD4aaGFYxmKTEj9k','complete','2024-08-12 15:07:31'),(2,'s3Dkc71NICNaM6qRBASGBMpbwlf5KX','complete','2024-08-12 15:09:18'),(3,'klDoGa7cMGvI7yZAygaz9qps457GlL','in queue','2024-08-12 15:19:56');
+INSERT INTO `task_status` VALUES (1,'wnJjxAcrxtlxYzi6U1OgTw1aevAqNg','in queue','2024-09-22 13:44:25'),(2,'IzQn3kmLVXTeBuijBGgJ70fbZFstJa','in queue','2024-09-22 13:52:32'),(3,'K9drgWuxTfMJ76ZWludwXCy2sOlyT9','in queue','2024-09-22 13:52:32'),(4,'JWuX2duarTFNPmRmG4jS6vPEuTMmJO','in queue','2024-09-22 13:52:32'),(5,'mTWikh1S82kHIcdxnGWPDmLjme0sdl','in queue','2024-09-22 13:52:32'),(6,'RIQmDnUpXNK9MSEJ7bfIg9Y7Mv7lxq','in queue','2024-09-22 13:52:32'),(7,'mg2XFIjchpLusa5DnIaW7F9zUHqdQ1','in queue','2024-09-22 13:52:32'),(8,'r66tLpadGIzS7JLeGZ1KdxaIEwWAJh','in queue','2024-09-22 13:52:32'),(9,'oK48ECat5oo7EIHQfqR38gItHi5Eyp','in queue','2024-09-22 13:52:32'),(10,'SUUM0ZNN51S6cxA0HWayePErtOUWpm','in queue','2024-09-22 13:52:32');
 /*!40000 ALTER TABLE `task_status` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `task_times`
+--
+
+DROP TABLE IF EXISTS `task_times`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `task_times` (
+  `TimeId` int NOT NULL AUTO_INCREMENT,
+  `TaskPath` varchar(100) NOT NULL,
+  `StartTime` datetime NOT NULL,
+  `EndTime` datetime DEFAULT NULL,
+  PRIMARY KEY (`TimeId`),
+  UNIQUE KEY `TaskPath` (`TaskPath`),
+  CONSTRAINT `task_times_ibfk_1` FOREIGN KEY (`TaskPath`) REFERENCES `project_tasks` (`TaskPath`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `task_times`
+--
+
+LOCK TABLES `task_times` WRITE;
+/*!40000 ALTER TABLE `task_times` DISABLE KEYS */;
+INSERT INTO `task_times` VALUES (1,'wnJjxAcrxtlxYzi6U1OgTw1aevAqNg','2024-09-22 21:43:00',NULL),(2,'IzQn3kmLVXTeBuijBGgJ70fbZFstJa','2024-09-22 21:52:00',NULL),(3,'K9drgWuxTfMJ76ZWludwXCy2sOlyT9','2024-09-22 21:52:00',NULL),(4,'JWuX2duarTFNPmRmG4jS6vPEuTMmJO','2024-09-22 21:52:00',NULL),(5,'mTWikh1S82kHIcdxnGWPDmLjme0sdl','2024-09-22 21:52:00',NULL),(6,'RIQmDnUpXNK9MSEJ7bfIg9Y7Mv7lxq','2024-09-22 21:52:00',NULL),(7,'mg2XFIjchpLusa5DnIaW7F9zUHqdQ1','2024-09-22 21:52:00',NULL),(8,'r66tLpadGIzS7JLeGZ1KdxaIEwWAJh','2024-09-22 21:52:00',NULL),(9,'oK48ECat5oo7EIHQfqR38gItHi5Eyp','2024-09-22 21:52:00',NULL),(10,'SUUM0ZNN51S6cxA0HWayePErtOUWpm','2024-09-22 21:52:00',NULL);
+/*!40000 ALTER TABLE `task_times` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -87,7 +115,7 @@ CREATE TABLE `tokens` (
   PRIMARY KEY (`TokenId`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `tokens_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +124,7 @@ CREATE TABLE `tokens` (
 
 LOCK TABLES `tokens` WRITE;
 /*!40000 ALTER TABLE `tokens` DISABLE KEYS */;
-INSERT INTO `tokens` VALUES (1,'k!*ijl?jfx88hl!4cyadxt2bfa*chc',1,1),(2,'bw879?wepc#f56!!*@231vqd@@fg7z',1,2);
+INSERT INTO `tokens` VALUES (1,'lquxi?xr!$k?8ocohfiofx91!#!0xg',1,1);
 /*!40000 ALTER TABLE `tokens` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -116,7 +144,7 @@ CREATE TABLE `tokentmp` (
   UNIQUE KEY `tempToken` (`tempToken`),
   KEY `userId` (`userId`),
   CONSTRAINT `tokentmp_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -125,7 +153,7 @@ CREATE TABLE `tokentmp` (
 
 LOCK TABLES `tokentmp` WRITE;
 /*!40000 ALTER TABLE `tokentmp` DISABLE KEYS */;
-INSERT INTO `tokentmp` VALUES (5,'2i91gmbs9mrzob8atu6tbeyrbgo6fi','2024-08-12 14:11:44',1),(6,'esxo99mvl6mazefeoqeaabqakcidc5','2024-08-12 15:45:13',1),(7,'fp8232s9e869uu3f9mjqqfcm9lhfs0','2024-08-12 16:03:03',1),(8,'feagmot7mx0uc9q93rjvo6xv0yg9fd','2024-08-12 16:04:59',1),(9,'x9uvab55bzjympfospjv7ta8a2ihn0','2024-08-12 16:05:15',1),(10,'rge1clfbl65z15eyubz8qvfnh9z3d7','2024-08-12 16:08:07',1),(11,'86ez8lrvfdxzwskrscke8a3r5s9idn','2024-08-12 16:09:31',1),(12,'psl66h4n4d70kwqf3d3l3o1qy0axst','2024-08-12 17:29:51',1);
+INSERT INTO `tokentmp` VALUES (1,'erya7jg5hh3mefu8ab3ldjfwk2jon0','2024-09-22 13:42:15',1),(2,'k2scf40own87yqakqasvxswosdw7ke','2024-09-22 15:09:08',1);
 /*!40000 ALTER TABLE `tokentmp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,7 +171,7 @@ CREATE TABLE `user_projects` (
   PRIMARY KEY (`UserProjectId`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `user_projects_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`UserId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,7 +180,7 @@ CREATE TABLE `user_projects` (
 
 LOCK TABLES `user_projects` WRITE;
 /*!40000 ALTER TABLE `user_projects` DISABLE KEYS */;
-INSERT INTO `user_projects` VALUES (1,'Project1',1);
+INSERT INTO `user_projects` VALUES (1,'Project1',1),(2,'project0',1),(3,'project1',1),(4,'project2',1);
 /*!40000 ALTER TABLE `user_projects` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +206,7 @@ CREATE TABLE `users` (
   `Credits` int DEFAULT NULL,
   PRIMARY KEY (`UserId`),
   UNIQUE KEY `Username` (`Username`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -187,7 +215,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'heihe','$2b$12$Qb3zlqyQlXNhWBsKhh02quo32x50PLepbDcYziiEqq525ICJLcOGe','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100),(2,'User1','$2b$12$BN9CpUUDxUlXkb1V38j49egAinsXI5nvEkt/hbbrDLVTojvYr8Cva','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100);
+INSERT INTO `users` VALUES (1,'User1','$2b$12$MNmMKoG8LN4yTdVj4MsBC.UVyfr1Cy8oShua5IS11bz/y90hYfFGC','jiayang.23@intl.zju.edu.cn','浙江大学','嘉阳','陈','male','中国','manager','Web safety',100);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -200,4 +228,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-13  1:39:44
+-- Dump completed on 2024-09-22 23:17:13
