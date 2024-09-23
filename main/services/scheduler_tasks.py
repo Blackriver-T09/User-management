@@ -97,6 +97,29 @@ def check_db_size(app,reserve_folder_path):
 
 
 
+# 扫描并删除24h未激活的账户
+def delete_unactivated_users(app, db):
+    with app.app_context():
+        try:
+            # 获取当前时间24小时前的时间点
+            time_threshold = datetime.now() - timedelta(hours=24)
+            # 查询所有未激活的用户且创建时间小于该时间阈值的用户
+            unactivated_users = User.query.filter(User.Activated == False, User.createdAt < time_threshold).all()
+            count = len(unactivated_users)
+            for user in unactivated_users:
+                db.session.delete(user)
+            db.session.commit()
+
+            print(f'{now_time()}: Deleted {count} unactivated user accounts.')
+            logging.info(f"Deleted {count} unactivated user accounts.")
+        except Exception as e:
+            db.session.rollback()
+
+            print(f"{now_time()}: Failed to delete unactivated user accounts: {e}")
+            logging.error(f"Failed to delete unactivated user accounts: {e}")
+
+
+
 def start_scheduler(app,db,reserve_folder_path,gap_hours):
     scheduler = BackgroundScheduler()
     scheduler.add_job(delete_expired_tokenTmps, 
@@ -113,6 +136,10 @@ def start_scheduler(app,db,reserve_folder_path,gap_hours):
                       hours=gap_hours, 
                       next_run_time=datetime.now() + timedelta(seconds=40),   # 40秒后开始第一次文件大小检查
                       args=[app,reserve_folder_path])  
+    scheduler.add_job(delete_unactivated_users, 
+                      'interval', 
+                      hours=24, 
+                      args=[app, db])
 
     scheduler.start()
 

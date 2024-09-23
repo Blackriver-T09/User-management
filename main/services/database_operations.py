@@ -12,6 +12,15 @@ def check_user_exists(username):
         # 处理可能的数据库查询错误
         print(f"Database error occurred: {e}")
         return None  # 数据库错误时返回None
+    
+def check_email_exists(email):
+    try:
+        user = User.query.filter_by(Email=email).first()
+        return bool(user)  # 邮箱存在返回True，不存在返回False
+    except SQLAlchemyError as e:
+        # 处理可能的数据库查询错误
+        print(f"Database error occurred: {e}")
+        return None  # 数据库错误时返回None
 
 def check_token_exists(token_value):
     try:

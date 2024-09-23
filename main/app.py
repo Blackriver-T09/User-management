@@ -39,6 +39,7 @@ from APIs.Profile import Profile
 from APIs.Login import Login
 from APIs.Change_password import Change_password
 from APIs.SendEmail import SendEmail
+from APIs.Activate_account import Activate
 
 from APIs.Project_creation import Project_creation
 from APIs.Task_creation import Task_creation
@@ -56,6 +57,8 @@ app.add_url_rule('/', view_func=Login.as_view('main_website'))
 app.add_url_rule('/profile', view_func=Profile.as_view('profile'))
 app.add_url_rule('/register',view_func=Register.as_view('register'))
 app.add_url_rule('/change-password/<tokenTmp>', view_func=Change_password.as_view('change_password'), methods=['GET', 'POST'])
+app.add_url_rule('/activate-account/<tokenTmp>', view_func=Activate.as_view('activate_account'), methods=['GET', 'POST'])
+
 app.add_url_rule('/api/email',view_func=SendEmail.as_view('send_email'))
 
 # 本地API

@@ -18,3 +18,5 @@ class User(db.Model):
     Affiliation = db.Column(db.String(100), nullable=True)  # 归属，如学校、公司等
     ResearchArea = db.Column(db.String(100), nullable=True)  # 研究领域
     Credits = db.Column(db.Integer, default=100)  # 积分或信誉分，初值设为100
+
+    Activated = db.Column(db.Boolean, default=False, nullable=False)  # 默认为False，表示账户未激活

@@ -50,15 +50,20 @@ class Login(views.MethodView):
                 user = User.query.filter_by(Username=username).first()
                 password_hashed = get_password_by_username(username)
                 if decryptor_check(password, password_hashed):  # 验证密码
-                    tokenTmp = tokenTmp_generate()  # 假设 token_generate() 是一个函数来生成一个临时令牌
 
-                    # 创建一个 TokenTmp 实例并保存到数据库
-                    new_token_tmp = TokenTmp(tempToken=tokenTmp, userId=user.UserId)
-                    db.session.add(new_token_tmp)
-                    db.session.commit()  # 提交数据库会话以保存我们的更改
+                    if user.Activated == True:
+                        tokenTmp = tokenTmp_generate()  # 假设 token_generate() 是一个函数来生成一个临时令牌
 
-                    print(f"{now_time()}: {username} has successfully log in")
-                    return jsonify({'result': True, 'error': None, 'tokenTmp': tokenTmp})
+                        # 创建一个 TokenTmp 实例并保存到数据库
+                        new_token_tmp = TokenTmp(tempToken=tokenTmp, userId=user.UserId)
+                        db.session.add(new_token_tmp)
+                        db.session.commit()  # 提交数据库会话以保存我们的更改
+
+                        print(f"{now_time()}: {username} has successfully log in")
+                        return jsonify({'result': True, 'error': None, 'tokenTmp': tokenTmp})
+                    else:
+                        error = "Account not activated!"
+                        return jsonify({'result': False, 'error': error, 'tokenTmp': None})
                 else:
                     error = "wrong password"
                     return jsonify({'result': False, 'error': error, 'tokenTmp': None})

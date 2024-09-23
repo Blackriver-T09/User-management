@@ -51,7 +51,7 @@ class Register(views.MethodView):
                         LastName,Gender,Country,Affiliation,ResearchArea]
         for parameter in parameter_list:
             if parameter == None:
-                return jsonify({'result':False,'error':f'please fill in ALL the required infomation','tokenTmp':None})
+                return jsonify({'result':False,'error':f'please fill in ALL the required infomation'})
 
 
 
@@ -60,20 +60,23 @@ class Register(views.MethodView):
         email_result, email_error = email_check(email)
         password_result, password_error = password_check(password)
         if not username_result:
-            return jsonify({'result':False,'error':username_error,'tokenTmp':None})
+            return jsonify({'result':False,'error':username_error})
         if not email_result:
-            return jsonify({'result':False,'error':email_error,'tokenTmp':None})
+            return jsonify({'result':False,'error':email_error})
         if not password_result:
-            return jsonify({'result':False,'error':password_error,'tokenTmp':None})
+            return jsonify({'result':False,'error':password_error})
         if password != confirm_password:
-            return jsonify({'result':False,'error':"confirm password not match your password!",'tokenTmp':None})
+            return jsonify({'result':False,'error':"confirm password not match your password!"})
 
 
         # 所有验证通过，进行注册
         try:
             if check_user_exists(username):
-                return jsonify({'result':False,'error':"User already exist",'tokenTmp':None})
-            
+                return jsonify({'result':False,'error':"User already exist"})
+            if check_email_exists(email):
+                return jsonify({'result':False,'error':"Email already used"})
+                
+
             # 创建用户信息  
             encrypted_password = hash_encipher(password)
             user = User(Username=username, 
@@ -90,25 +93,20 @@ class Register(views.MethodView):
             db.session.add(user)
             db.session.flush()  # Flush to assign ID to user object without committing transaction
 
-            # 创建令牌信息
-            token_value = token_generate()
-            token = Token(Token=token_value, Level=1, user_id=user.UserId)
-            db.session.add(token)
-            db.session.commit()
 
-            # 创建临时令牌
+            # 创建临时令牌  并保存到数据库
             tokenTmp = tokenTmp_generate()  
-
-            # 创建一个 TokenTmp 实例并保存到数据库
-            new_token_tmp = TokenTmp(tempToken=tokenTmp, userId=user.UserId)
+            new_token_tmp = TokenTmp(tempToken=tokenTmp, userId=user.UserId)   #临时令牌实例
             db.session.add(new_token_tmp)
             db.session.commit()  
 
-            send_email(email,f'Congratulations,{username}! You have seccessfully register your account for RShub! ',0)
+            activation_link = url_for('activate_account', tokenTmp=tokenTmp, _external=True)
 
-            print(f'{now_time()}: {username} has registered Successfully')
+            send_email(email,f'Congratulations,{username}! \n Please click this link {activation_link} to finish the last step to activate your account! ',0)
 
-            return jsonify({'result':True,'error':None,'tokenTmp':tokenTmp})
+            print(f'{now_time()}: {username} has completed the preliminary registration task')
+
+            return jsonify({'result':True,'error':None})
         
         except Exception as e:
             db.session.rollback()
@@ -117,3 +115,4 @@ class Register(views.MethodView):
             logging.error(f"Error during registration: {e}")
 
             return jsonify({'result':False,'error':"An error occurred during registration. Please try again.",'tokenTmp':None})
+

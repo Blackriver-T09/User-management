@@ -13,54 +13,64 @@ def to_encode(nickname,email):
 #定义这个函数是因为message['From']和message['To']对格式有严格的要求。尤其是中文(非ASCLL编码)字符需要进一步编码
 #然而这个编码函数对ASCLL码字符同样适用，所以直接全面采用了
 
-# def send_email(receivers,message,mode):
-#     sender = 'rshub.zjui@outlook.com'              # 发件人邮箱
-#     key='rnjtvlpqnazgvfno'                    # QQ邮箱授权码，需要从“账号安全”设置里获取
-#     nickname1="RShub"
-#     nickname2='Receiver'
+
+# def send_email_async(sender, receivers,msg ,key):
+
+#     try:
+#         smtper = SMTP('smtp-mail.outlook.com')
+#         smtper.starttls()
+#         smtper.login(sender, key)
+#         smtper.sendmail(sender, receivers, msg.as_string())
+#         smtper.quit()
+#         print('email has been sent!')
+
+#     except Exception as e:
+#         print(f'Failed to send mail: {e}')
+
+# def send_email(receivers, message, mode ):
+#     sender = 'svc-rshub_auto_reply@intl.zju.edu.cn'
+#     key = 'this_is_key'
+#     nickname1 = "RShub"
+#     nickname2 = 'Receiver'
 #     subject = 'Change Password' if mode == 1 else 'Successful Registration'
-
-#     message = MIMEText(message, 'plain', 'utf-8')     #plain表示正文将包含纯文本信息，没有格式或样式。
-#     message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
-#     message['To'] =  to_encode(nickname2,receivers)
-#     message['Subject'] = Header(subject, 'utf-8')     #设置了邮件的主题
-#     smtper = SMTP('smtp-mail.outlook.com')             ## 使用 QQ 邮箱的 SMTP 服务器
-#     smtper.starttls()
-#     smtper.login(sender,key)
-#     smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
-#     smtper.quit()
-#     print('email has been sent!')
+    
+#     msg = MIMEText(message, 'plain', 'utf-8')
+#     msg['From'] = to_encode(nickname1, sender)
+#     msg['To'] = to_encode(nickname2, receivers)
+#     msg['Subject'] = Header(subject, 'utf-8')
+    
+#     # 创建线程来异步发送邮件
+#     thr = Thread(target=send_email_async, args=[sender, receivers,msg,key])
+#     thr.start()
 
 
 
-def send_email_async(sender, receivers,msg ,key):
+# 开发使用的QQ邮箱
+def send_email(receivers, message, mode ):
+    sender = '2812104715@qq.com'              # 发件人邮箱
+    key='sywosrqwftjgdgdj'                    # QQ邮箱授权码，需要从“账号安全”设置里获取
+    
+    nickname1 = "RShub"
+    nickname2 = 'Receiver'
+    subject = 'Change Password' if mode == 1 else 'Successful Registration'
 
+    message = MIMEText(message, 'plain', 'utf-8')     #plain表示正文将包含纯文本信息，没有格式或样式。
+    message['From'] = to_encode(nickname1,sender)         #这里一定要注意格式，nickname和地址间有空格
+    message['To'] =  to_encode(nickname2,receivers)
+    message['Subject'] = Header(subject, 'utf-8')     #设置了邮件的主题
+    
     try:
-        smtper = SMTP('smtp-mail.outlook.com')
-        smtper.starttls()
-        smtper.login(sender, key)
-        smtper.sendmail(sender, receivers, msg.as_string())
-        smtper.quit()
+        smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
+        smtper.login(sender,key )
+        smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
         print('email has been sent!')
 
     except Exception as e:
         print(f'Failed to send mail: {e}')
 
-def send_email(receivers, message, mode ):
-    sender = 'rshub.zjui@outlook.com'
-    key = 'rnjtvlpqnazgvfno'
-    nickname1 = "RShub"
-    nickname2 = 'Receiver'
-    subject = 'Change Password' if mode == 1 else 'Successful Registration'
-    
-    msg = MIMEText(message, 'plain', 'utf-8')
-    msg['From'] = to_encode(nickname1, sender)
-    msg['To'] = to_encode(nickname2, receivers)
-    msg['Subject'] = Header(subject, 'utf-8')
-    
-    # 创建线程来异步发送邮件
-    thr = Thread(target=send_email_async, args=[sender, receivers,msg,key])
-    thr.start()
+
+
+
 
 
 
