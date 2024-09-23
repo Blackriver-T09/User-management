@@ -117,7 +117,7 @@ if __name__ == '__main__':
     reserve_folder_path= os.path.join(os.path.dirname(__file__), 'reserved')   #获取备份文件夹目录
     start_scheduler(app,db,reserve_folder_path,gap_hours)    #定时任务启动，每十分钟删除一次过期tokenTmp
 
-    app.run(debug=True)
+    app.run(host='0.0.0.0',debug=True)
 
 
 
