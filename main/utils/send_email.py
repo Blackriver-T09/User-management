@@ -61,9 +61,14 @@ def send_email(receivers, message, mode ):
     
     try:
         smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
+        # 我们用set_debuglevel(1)就可以打印出和SMTP服务器交互的所有信息。
+        # smtp.set_debuglevel(1)
+        smtper.ehlo("smtp.qq.com")
+
         smtper.login(sender,key )
         smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
         print('email has been sent!')
+        smtper.quit()
 
     except Exception as e:
         print(f'Failed to send mail: {e}')
@@ -71,6 +76,8 @@ def send_email(receivers, message, mode ):
 
 
 
+
+  
 
 
 

@@ -28,9 +28,7 @@ db.init_app(app)
 jwt = JWTManager(app)
 
 
-# 注册后台API蓝图
-from backstage import admin_api      
-app.register_blueprint(admin_api, url_prefix='/admin')  
+
 
 
 # 导入所有API
@@ -49,6 +47,9 @@ from APIs.Check_credits import Check_credits
 from APIs.Update_credits import Update_credits
 from APIs.Update_task_status import Update_task_status 
 
+from backstage.Identify  import Identify
+from backstage.Dashboard import Dashboard
+from backstage.DatabaseInfo import DatabaseInfo
 
 
 # 网页API
@@ -70,6 +71,16 @@ app.add_url_rule('/api/Download-request',view_func=Download_request.as_view('dow
 app.add_url_rule('/api/Check-credits',view_func=Check_credits.as_view('check_credits'))
 app.add_url_rule('/api/Update-credits',view_func=Update_credits.as_view('update_credits'))
 app.add_url_rule('/api/update-task-status',view_func=Update_task_status.as_view('update_task_status'))
+
+
+# 后台API
+app.add_url_rule('/backstage/',view_func=Identify.as_view('backstage'))
+app.add_url_rule('/backstage/identify',view_func=Identify.as_view('identify'))
+app.add_url_rule('/backstage/dashboard/<token>', view_func=Dashboard.as_view('dashboard'))
+app.add_url_rule('/api/dashboard/stats', view_func=DatabaseInfo.as_view('databaseInfo'), methods=['GET', 'POST'])
+
+
+
 
 
 
@@ -106,7 +117,6 @@ if __name__ == '__main__':
     # 调整SQLAlchemy的日志级别
     sqlalchemy_logger = logging.getLogger('sqlalchemy.engine')
     sqlalchemy_logger.setLevel(logging.WARNING)
-
 
 
 

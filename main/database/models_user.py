@@ -1,5 +1,5 @@
 from .config import db
-
+from datetime import datetime, timezone
 
 
 
@@ -20,3 +20,4 @@ class User(db.Model):
     Credits = db.Column(db.Integer, default=100)  # 积分或信誉分，初值设为100
 
     Activated = db.Column(db.Boolean, default=False, nullable=False)  # 默认为False，表示账户未激活
+    createdAt = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc), nullable=False)

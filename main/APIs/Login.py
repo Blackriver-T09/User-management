@@ -20,10 +20,7 @@ from sqlalchemy.exc import SQLAlchemyError
 from services import *
 
 
-from backstage.Backstage_Config import B_USERNAME, B_PASSWORD 
 
-b_username=B_USERNAME
-b_password=B_PASSWORD
 
 class Login(views.MethodView):
 
@@ -38,9 +35,6 @@ class Login(views.MethodView):
         for parameter in parameter_list:
             if parameter == None:
                 return jsonify({'result': False, 'error': 'please fill in username and password', 'tokenTmp': None})
-
-
-
 
 
         try:
