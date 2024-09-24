@@ -51,5 +51,4 @@ def test_register():
 
 if __name__ == "__main__":
     test_result = test_register()
-    if test_result:
-        print("API Call Result:", test_result)
+

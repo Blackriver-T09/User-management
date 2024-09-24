@@ -1,4 +1,4 @@
-from smtplib import SMTP
+from smtplib import SMTP,SMTP_SSL
 from email.header import Header
 from email.mime.text import MIMEText
 import base64
@@ -60,12 +60,9 @@ def send_email(receivers, message, mode ):
     message['Subject'] = Header(subject, 'utf-8')     #设置了邮件的主题
     
     try:
-        smtper = SMTP('smtp.qq.com')             ## 使用 QQ 邮箱的 SMTP 服务器
-        # 我们用set_debuglevel(1)就可以打印出和SMTP服务器交互的所有信息。
-        # smtp.set_debuglevel(1)
-        smtper.ehlo("smtp.qq.com")
-
-        smtper.login(sender,key )
+        smtper = SMTP_SSL('smtp.qq.com', 465)  # 使用SSL连接   注意使用普通的STMP连接在CentOS上是不可以的！
+        smtper.ehlo()
+        smtper.login(sender, key)
         smtper.sendmail(sender, receivers, message.as_string())   #将邮件内容以字符串形式发送
         print('email has been sent!')
         smtper.quit()
