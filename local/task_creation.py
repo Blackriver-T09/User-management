@@ -2,7 +2,7 @@ import requests
 import os
 
 PORT = os.environ.get("UM_PORT")
-def create_task(token, project_name, task_name, level_required=1):
+def create_task(token, project_name, task_name, level_required=1,force_update=0):
     # API 端点
     # url = 'http://127.0.0.1:' + str(PORT) + '/api/Task-creation'
     url = 'http://127.0.0.1:5000/api/Task-creation'
@@ -12,7 +12,8 @@ def create_task(token, project_name, task_name, level_required=1):
         'token': token,
         'project_name': project_name,
         'task_name': task_name,
-        'level': level_required  # 注意这里参数名应与API中接收的参数名一致
+        'level': level_required,  # 注意这里参数名应与API中接收的参数名一致
+        'force_update_flag':force_update_flag
     }
     
     try:
@@ -46,10 +47,11 @@ def create_task(token, project_name, task_name, level_required=1):
         return None
 
 if __name__=="__main__":
-    token = "lquxi?xr!$k?8ocohfiofx91!#!0xg"
+    token = "wcc3aigo@m!!rzz2g547nuz05c430y"
     project_name = "Project1"
-    task_name = "task3"
+    task_name = "Project1 task0"
     level_required = "1"
-    result = create_task(token, project_name, task_name, level_required)
+    force_update_flag='1'
+    result = create_task(token, project_name, task_name, level_required,force_update_flag)
     if result:
         print("API Call Result:", result)

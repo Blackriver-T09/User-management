@@ -58,7 +58,7 @@ class Download_request(views.MethodView):
                                     print(f"{now_time()}: {username} make a successfully Download request")
                                     return jsonify({'result': True, 'error_message': None, 'path': task_path})
                                 
-                        return jsonify({'result': False, "error_error_message": 'Task not exist', 'path': None})
+                        return jsonify({'result': False, "error_message": 'Task not exist', 'path': None})
                     
 
                         # if task_name in tasks:

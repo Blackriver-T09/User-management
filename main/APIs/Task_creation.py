@@ -30,6 +30,7 @@ class Task_creation(views.MethodView):
         project_name = request.args.get('project_name')
         task_name = request.args.get('task_name')
         level_required = request.args.get('level', 1)
+        force_update_flag=request.args.get('force_update_flag',0)
 
         # 检查请求来源是否是本地
         if request.remote_addr != '127.0.0.1':
@@ -44,6 +45,10 @@ class Task_creation(views.MethodView):
                     level = get_level_by_token(token)
                     
                     if level and int(level) >= int(level_required):
+
+                        if  int(force_update_flag)==0 and ProjectTask.query.filter_by(TaskName=task_name).first() != None:
+                            return jsonify({'result': False, "error_message": 'task has been created, please change a task name or set force_update_flag to 1', 'path': None})
+
                         # 创建新的任务
                         new_task = ProjectTask(TaskName=task_name, TaskPath=path_generate())
 
