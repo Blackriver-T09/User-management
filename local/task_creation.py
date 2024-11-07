@@ -2,7 +2,7 @@ import requests
 import os
 
 PORT = os.environ.get("UM_PORT")
-def create_task(token, project_name, task_name, level_required=1,force_update=0):
+def create_task(token, project_name, task_name, level_required=1,force_update_flag=0):
     # API 端点
     # url = 'http://127.0.0.1:' + str(PORT) + '/api/Task-creation'
     url = 'http://127.0.0.1:5000/api/Task-creation'

@@ -31,7 +31,7 @@ CREATE TABLE `project_tasks` (
   UNIQUE KEY `ix_project_tasks_TaskPath` (`TaskPath`),
   KEY `user_project_id` (`user_project_id`),
   CONSTRAINT `project_tasks_ibfk_1` FOREIGN KEY (`user_project_id`) REFERENCES `user_projects` (`UserProjectId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `project_tasks` (
 
 LOCK TABLES `project_tasks` WRITE;
 /*!40000 ALTER TABLE `project_tasks` DISABLE KEYS */;
+INSERT INTO `project_tasks` VALUES (1,'Project1 task0','65aotIibUyXu7VbNuBdLFPYie07PxD',1),(2,'Project1 task0','3XhdEV998FtBq7zNLzyZfgPEeqHqvQ',1),(3,'Project1 task0','GK3tJ4JEcSrApIx69WKOBCkFcmhVuk',1);
 /*!40000 ALTER TABLE `project_tasks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +59,7 @@ CREATE TABLE `task_status` (
   PRIMARY KEY (`StatusId`),
   UNIQUE KEY `TaskPath` (`TaskPath`),
   CONSTRAINT `task_status_ibfk_1` FOREIGN KEY (`TaskPath`) REFERENCES `project_tasks` (`TaskPath`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,6 +68,7 @@ CREATE TABLE `task_status` (
 
 LOCK TABLES `task_status` WRITE;
 /*!40000 ALTER TABLE `task_status` DISABLE KEYS */;
+INSERT INTO `task_status` VALUES (1,'65aotIibUyXu7VbNuBdLFPYie07PxD','in queue','2024-09-29 12:20:39'),(2,'3XhdEV998FtBq7zNLzyZfgPEeqHqvQ','in queue','2024-09-29 12:21:56'),(3,'GK3tJ4JEcSrApIx69WKOBCkFcmhVuk','in queue','2024-09-29 12:22:03');
 /*!40000 ALTER TABLE `task_status` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +87,7 @@ CREATE TABLE `task_times` (
   PRIMARY KEY (`TimeId`),
   UNIQUE KEY `TaskPath` (`TaskPath`),
   CONSTRAINT `task_times_ibfk_1` FOREIGN KEY (`TaskPath`) REFERENCES `project_tasks` (`TaskPath`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,6 +96,7 @@ CREATE TABLE `task_times` (
 
 LOCK TABLES `task_times` WRITE;
 /*!40000 ALTER TABLE `task_times` DISABLE KEYS */;
+INSERT INTO `task_times` VALUES (1,'65aotIibUyXu7VbNuBdLFPYie07PxD','2024-09-29 20:20:00',NULL),(2,'3XhdEV998FtBq7zNLzyZfgPEeqHqvQ','2024-09-29 20:20:00',NULL),(3,'GK3tJ4JEcSrApIx69WKOBCkFcmhVuk','2024-09-29 20:20:00',NULL);
 /*!40000 ALTER TABLE `task_times` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -150,7 +153,6 @@ CREATE TABLE `tokentmp` (
 
 LOCK TABLES `tokentmp` WRITE;
 /*!40000 ALTER TABLE `tokentmp` DISABLE KEYS */;
-INSERT INTO `tokentmp` VALUES (1,'xeouuid61mbprkr8zbdpw3myoj0b0c','2024-09-29 12:14:57',1),(2,'n8xjfrngercvu4dn1axld3lqiey47g','2024-09-29 12:17:04',1);
 /*!40000 ALTER TABLE `tokentmp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,4 +229,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-29 20:20:35
+-- Dump completed on 2024-11-07 15:39:40

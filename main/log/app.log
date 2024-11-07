@@ -8363,3 +8363,671 @@
 2024-09-29 20:21:56,279 - INFO - 127.0.0.1 - - [29/Sep/2024 20:21:56] "GET /api/Task-creation?token=wcc3aigo@m!!rzz2g547nuz05c430y&project_name=Project1&task_name=Project1+task0&level=1&force_update_flag=1 HTTP/1.1" 200 -
 2024-09-29 20:22:03,183 - INFO - 127.0.0.1 - - [29/Sep/2024 20:22:03] "GET /api/Task-creation?token=wcc3aigo@m!!rzz2g547nuz05c430y&project_name=Project1&task_name=Project1+task0&level=1&force_update_flag=1 HTTP/1.1" 200 -
 2024-09-29 20:22:03,183 - INFO - 127.0.0.1 - - [29/Sep/2024 20:22:03] "GET /api/Task-creation?token=wcc3aigo@m!!rzz2g547nuz05c430y&project_name=Project1&task_name=Project1+task0&level=1&force_update_flag=1 HTTP/1.1" 200 -
+2024-10-18 14:14:07,206 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:07,206 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:07,209 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:07,209 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:07,209 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:07,209 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:07,209 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:07,209 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:07,209 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-10-18 14:14:07,209 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-10-18 14:14:07,209 - INFO - Added job "backup_database" to job store "default"
+2024-10-18 14:14:07,209 - INFO - Added job "backup_database" to job store "default"
+2024-10-18 14:14:07,209 - INFO - Added job "check_db_size" to job store "default"
+2024-10-18 14:14:07,209 - INFO - Added job "check_db_size" to job store "default"
+2024-10-18 14:14:07,209 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-10-18 14:14:07,209 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-10-18 14:14:07,209 - INFO - Scheduler started
+2024-10-18 14:14:07,209 - INFO - Scheduler started
+2024-10-18 14:14:07,229 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.107.155.216:5000
+2024-10-18 14:14:07,229 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.107.155.216:5000
+2024-10-18 14:14:07,229 - INFO - [33mPress CTRL+C to quit[0m
+2024-10-18 14:14:07,229 - INFO - [33mPress CTRL+C to quit[0m
+2024-10-18 14:14:07,229 - INFO -  * Restarting with stat
+2024-10-18 14:14:07,229 - INFO -  * Restarting with stat
+2024-10-18 14:14:08,865 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:08,865 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:08,865 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:08,865 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:08,865 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:08,865 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:08,865 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:08,865 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-10-18 14:14:08,866 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-10-18 14:14:08,866 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-10-18 14:14:08,867 - INFO - Added job "backup_database" to job store "default"
+2024-10-18 14:14:08,867 - INFO - Added job "backup_database" to job store "default"
+2024-10-18 14:14:08,867 - INFO - Added job "check_db_size" to job store "default"
+2024-10-18 14:14:08,867 - INFO - Added job "check_db_size" to job store "default"
+2024-10-18 14:14:08,867 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-10-18 14:14:08,867 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-10-18 14:14:08,867 - INFO - Scheduler started
+2024-10-18 14:14:08,867 - INFO - Scheduler started
+2024-10-18 14:14:08,873 - WARNING -  * Debugger is active!
+2024-10-18 14:14:08,873 - WARNING -  * Debugger is active!
+2024-10-18 14:14:08,884 - INFO -  * Debugger PIN: 646-283-155
+2024-10-18 14:14:08,884 - INFO -  * Debugger PIN: 646-283-155
+2024-10-18 14:14:17,221 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-10-18 14:14:17 CST)" (scheduled at 2024-10-18 14:14:17.209346+08:00)
+2024-10-18 14:14:17,221 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:17 CST)" (scheduled at 2024-10-18 14:14:17.209346+08:00)
+2024-10-18 14:14:17,510 - INFO - Database backup completed successfully.
+2024-10-18 14:14:17,510 - INFO - Database backup completed successfully.
+2024-10-18 14:14:17,511 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:17 CST)" executed successfully
+2024-10-18 14:14:17,511 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:17 CST)" executed successfully
+2024-10-18 14:14:18,878 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-10-18 14:14:18 CST)" (scheduled at 2024-10-18 14:14:18.865464+08:00)
+2024-10-18 14:14:18,878 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-10-18 14:14:18 CST)" (scheduled at 2024-10-18 14:14:18.865464+08:00)
+2024-10-18 14:14:19,024 - INFO - Database backup completed successfully.
+2024-10-18 14:14:19,024 - INFO - Database backup completed successfully.
+2024-10-18 14:14:19,024 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:18 CST)" executed successfully
+2024-10-18 14:14:19,024 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:18 CST)" executed successfully
+2024-10-18 14:14:23,479 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:23] "[32mGET /backstage HTTP/1.1[0m" 308 -
+2024-10-18 14:14:23,479 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:23] "[32mGET /backstage HTTP/1.1[0m" 308 -
+2024-10-18 14:14:23,512 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:23] "GET /backstage/ HTTP/1.1" 200 -
+2024-10-18 14:14:23,512 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:23] "GET /backstage/ HTTP/1.1" 200 -
+2024-10-18 14:14:24,526 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:24] "GET /favicon.ico HTTP/1.1" 200 -
+2024-10-18 14:14:24,526 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:24] "GET /favicon.ico HTTP/1.1" 200 -
+2024-10-18 14:14:27,645 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:27] "POST /backstage/identify HTTP/1.1" 200 -
+2024-10-18 14:14:27,645 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:27] "POST /backstage/identify HTTP/1.1" 200 -
+2024-10-18 14:14:27,692 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:27] "GET /favicon.ico HTTP/1.1" 200 -
+2024-10-18 14:14:27,692 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:27] "GET /favicon.ico HTTP/1.1" 200 -
+2024-10-18 14:14:44,318 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:44] "[32mPOST /backstage/identify HTTP/1.1[0m" 302 -
+2024-10-18 14:14:44,318 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:44] "[32mPOST /backstage/identify HTTP/1.1[0m" 302 -
+2024-10-18 14:14:44,358 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:44] "GET /backstage/dashboard/e3Q6hHwW8PCE-QkQ1-0ft4hILOwFTKPV6jLZ6BMAkG_dGHU3FYgJ8hgJ-BXhf22m HTTP/1.1" 200 -
+2024-10-18 14:14:44,358 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:44] "GET /backstage/dashboard/e3Q6hHwW8PCE-QkQ1-0ft4hILOwFTKPV6jLZ6BMAkG_dGHU3FYgJ8hgJ-BXhf22m HTTP/1.1" 200 -
+2024-10-18 14:14:45,522 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:45] "GET /favicon.ico HTTP/1.1" 200 -
+2024-10-18 14:14:45,522 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:45] "GET /favicon.ico HTTP/1.1" 200 -
+2024-10-18 14:14:45,599 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:45] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:14:45,599 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:45] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:14:47,214 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:47 CST)" (scheduled at 2024-10-18 14:14:47.209346+08:00)
+2024-10-18 14:14:47,214 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:47 CST)" (scheduled at 2024-10-18 14:14:47.209346+08:00)
+2024-10-18 14:14:47,214 - INFO - Database file size: 9019 bytes
+2024-10-18 14:14:47,214 - INFO - Database file size: 9019 bytes
+2024-10-18 14:14:47,214 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:47 CST)" executed successfully
+2024-10-18 14:14:47,214 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:47 CST)" executed successfully
+2024-10-18 14:14:48,866 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:48 CST)" (scheduled at 2024-10-18 14:14:48.865464+08:00)
+2024-10-18 14:14:48,866 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:48 CST)" (scheduled at 2024-10-18 14:14:48.865464+08:00)
+2024-10-18 14:14:48,866 - INFO - Database file size: 9019 bytes
+2024-10-18 14:14:48,866 - INFO - Database file size: 9019 bytes
+2024-10-18 14:14:48,866 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:48 CST)" executed successfully
+2024-10-18 14:14:48,866 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-10-19 14:14:48 CST)" executed successfully
+2024-10-18 14:14:55,522 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:55] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:14:55,522 - INFO - 127.0.0.1 - - [18/Oct/2024 14:14:55] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:15:05,524 - INFO - 127.0.0.1 - - [18/Oct/2024 14:15:05] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:15:05,524 - INFO - 127.0.0.1 - - [18/Oct/2024 14:15:05] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:15:15,522 - INFO - 127.0.0.1 - - [18/Oct/2024 14:15:15] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:15:15,522 - INFO - 127.0.0.1 - - [18/Oct/2024 14:15:15] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:15:25,525 - INFO - 127.0.0.1 - - [18/Oct/2024 14:15:25] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:15:25,525 - INFO - 127.0.0.1 - - [18/Oct/2024 14:15:25] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:15:35,527 - INFO - 127.0.0.1 - - [18/Oct/2024 14:15:35] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:15:35,527 - INFO - 127.0.0.1 - - [18/Oct/2024 14:15:35] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:15:45,511 - INFO - 127.0.0.1 - - [18/Oct/2024 14:15:45] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:15:45,511 - INFO - 127.0.0.1 - - [18/Oct/2024 14:15:45] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:15:55,516 - INFO - 127.0.0.1 - - [18/Oct/2024 14:15:55] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:15:55,516 - INFO - 127.0.0.1 - - [18/Oct/2024 14:15:55] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:16:06,511 - INFO - 127.0.0.1 - - [18/Oct/2024 14:16:06] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:16:06,511 - INFO - 127.0.0.1 - - [18/Oct/2024 14:16:06] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:16:16,514 - INFO - 127.0.0.1 - - [18/Oct/2024 14:16:16] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:16:16,514 - INFO - 127.0.0.1 - - [18/Oct/2024 14:16:16] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:16:26,513 - INFO - 127.0.0.1 - - [18/Oct/2024 14:16:26] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:16:26,513 - INFO - 127.0.0.1 - - [18/Oct/2024 14:16:26] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:16:36,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:16:36] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:16:36,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:16:36] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:16:46,513 - INFO - 127.0.0.1 - - [18/Oct/2024 14:16:46] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:16:46,513 - INFO - 127.0.0.1 - - [18/Oct/2024 14:16:46] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:16:56,506 - INFO - 127.0.0.1 - - [18/Oct/2024 14:16:56] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:16:56,506 - INFO - 127.0.0.1 - - [18/Oct/2024 14:16:56] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:17:24,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:17:24] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:17:24,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:17:24] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:18:24,510 - INFO - 127.0.0.1 - - [18/Oct/2024 14:18:24] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:18:24,510 - INFO - 127.0.0.1 - - [18/Oct/2024 14:18:24] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:19:24,511 - INFO - 127.0.0.1 - - [18/Oct/2024 14:19:24] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:19:24,511 - INFO - 127.0.0.1 - - [18/Oct/2024 14:19:24] "POST /api/dashboard/stats HTTP/1.1" 200 -
+2024-10-18 14:20:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:20:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:20:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:20:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:21:24,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:21:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:21:24,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:21:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:22:24,504 - INFO - 127.0.0.1 - - [18/Oct/2024 14:22:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:22:24,504 - INFO - 127.0.0.1 - - [18/Oct/2024 14:22:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:23:24,498 - INFO - 127.0.0.1 - - [18/Oct/2024 14:23:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:23:24,498 - INFO - 127.0.0.1 - - [18/Oct/2024 14:23:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:24:07,211 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:34:07 CST)" (scheduled at 2024-10-18 14:24:07.206831+08:00)
+2024-10-18 14:24:07,211 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:34:07 CST)" (scheduled at 2024-10-18 14:24:07.206831+08:00)
+2024-10-18 14:24:07,271 - INFO - Deleted 2 expired tokenTmp entries.
+2024-10-18 14:24:07,271 - INFO - Deleted 2 expired tokenTmp entries.
+2024-10-18 14:24:07,271 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:34:07 CST)" executed successfully
+2024-10-18 14:24:07,271 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:34:07 CST)" executed successfully
+2024-10-18 14:24:08,874 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:34:08 CST)" (scheduled at 2024-10-18 14:24:08.865464+08:00)
+2024-10-18 14:24:08,874 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:34:08 CST)" (scheduled at 2024-10-18 14:24:08.865464+08:00)
+2024-10-18 14:24:08,882 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:24:08,882 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:24:08,882 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:34:08 CST)" executed successfully
+2024-10-18 14:24:08,882 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:34:08 CST)" executed successfully
+2024-10-18 14:24:24,501 - INFO - 127.0.0.1 - - [18/Oct/2024 14:24:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:24:24,501 - INFO - 127.0.0.1 - - [18/Oct/2024 14:24:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:25:24,517 - INFO - 127.0.0.1 - - [18/Oct/2024 14:25:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:25:24,517 - INFO - 127.0.0.1 - - [18/Oct/2024 14:25:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:26:24,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:26:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:26:24,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:26:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:26:59,344 - INFO - 127.0.0.1 - - [18/Oct/2024 14:26:59] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:26:59,344 - INFO - 127.0.0.1 - - [18/Oct/2024 14:26:59] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:27:06,502 - INFO - 127.0.0.1 - - [18/Oct/2024 14:27:06] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:27:06,502 - INFO - 127.0.0.1 - - [18/Oct/2024 14:27:06] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:27:16,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:27:16] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:27:16,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:27:16] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:27:26,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:27:26] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:27:26,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:27:26] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:27:36,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:27:36] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:27:36,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:27:36] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:27:46,500 - INFO - 127.0.0.1 - - [18/Oct/2024 14:27:46] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:27:46,500 - INFO - 127.0.0.1 - - [18/Oct/2024 14:27:46] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:27:56,498 - INFO - 127.0.0.1 - - [18/Oct/2024 14:27:56] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:27:56,498 - INFO - 127.0.0.1 - - [18/Oct/2024 14:27:56] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:28:24,502 - INFO - 127.0.0.1 - - [18/Oct/2024 14:28:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:28:24,502 - INFO - 127.0.0.1 - - [18/Oct/2024 14:28:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:29:24,509 - INFO - 127.0.0.1 - - [18/Oct/2024 14:29:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:29:24,509 - INFO - 127.0.0.1 - - [18/Oct/2024 14:29:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:30:24,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:30:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:30:24,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:30:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:31:24,498 - INFO - 127.0.0.1 - - [18/Oct/2024 14:31:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:31:24,498 - INFO - 127.0.0.1 - - [18/Oct/2024 14:31:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:32:24,503 - INFO - 127.0.0.1 - - [18/Oct/2024 14:32:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:32:24,503 - INFO - 127.0.0.1 - - [18/Oct/2024 14:32:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:33:24,501 - INFO - 127.0.0.1 - - [18/Oct/2024 14:33:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:33:24,501 - INFO - 127.0.0.1 - - [18/Oct/2024 14:33:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:34:07,221 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:44:07 CST)" (scheduled at 2024-10-18 14:34:07.206831+08:00)
+2024-10-18 14:34:07,221 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:44:07 CST)" (scheduled at 2024-10-18 14:34:07.206831+08:00)
+2024-10-18 14:34:07,227 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:34:07,227 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:34:07,227 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:44:07 CST)" executed successfully
+2024-10-18 14:34:07,227 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:44:07 CST)" executed successfully
+2024-10-18 14:34:08,868 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:44:08 CST)" (scheduled at 2024-10-18 14:34:08.865464+08:00)
+2024-10-18 14:34:08,868 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:44:08 CST)" (scheduled at 2024-10-18 14:34:08.865464+08:00)
+2024-10-18 14:34:08,872 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:34:08,872 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:34:08,872 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:44:08 CST)" executed successfully
+2024-10-18 14:34:08,872 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:44:08 CST)" executed successfully
+2024-10-18 14:34:24,513 - INFO - 127.0.0.1 - - [18/Oct/2024 14:34:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:34:24,513 - INFO - 127.0.0.1 - - [18/Oct/2024 14:34:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:35:24,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:35:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:35:24,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:35:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:36:24,510 - INFO - 127.0.0.1 - - [18/Oct/2024 14:36:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:36:24,510 - INFO - 127.0.0.1 - - [18/Oct/2024 14:36:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:37:24,512 - INFO - 127.0.0.1 - - [18/Oct/2024 14:37:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:37:24,512 - INFO - 127.0.0.1 - - [18/Oct/2024 14:37:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:38:24,689 - INFO - 127.0.0.1 - - [18/Oct/2024 14:38:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:38:24,689 - INFO - 127.0.0.1 - - [18/Oct/2024 14:38:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:39:24,501 - INFO - 127.0.0.1 - - [18/Oct/2024 14:39:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:39:24,501 - INFO - 127.0.0.1 - - [18/Oct/2024 14:39:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:40:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:40:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:40:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:40:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:41:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:41:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:41:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:41:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:42:24,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:42:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:42:24,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:42:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:43:24,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:43:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:43:24,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:43:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:44:07,213 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:54:07 CST)" (scheduled at 2024-10-18 14:44:07.206831+08:00)
+2024-10-18 14:44:07,213 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:54:07 CST)" (scheduled at 2024-10-18 14:44:07.206831+08:00)
+2024-10-18 14:44:07,217 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:44:07,217 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:44:07,217 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:54:07 CST)" executed successfully
+2024-10-18 14:44:07,217 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:54:07 CST)" executed successfully
+2024-10-18 14:44:08,875 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:54:08 CST)" (scheduled at 2024-10-18 14:44:08.865464+08:00)
+2024-10-18 14:44:08,875 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:54:08 CST)" (scheduled at 2024-10-18 14:44:08.865464+08:00)
+2024-10-18 14:44:08,879 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:44:08,879 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:44:08,879 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:54:08 CST)" executed successfully
+2024-10-18 14:44:08,879 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 14:54:08 CST)" executed successfully
+2024-10-18 14:44:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:44:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:44:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:44:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:45:24,504 - INFO - 127.0.0.1 - - [18/Oct/2024 14:45:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:45:24,504 - INFO - 127.0.0.1 - - [18/Oct/2024 14:45:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:46:24,514 - INFO - 127.0.0.1 - - [18/Oct/2024 14:46:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:46:24,514 - INFO - 127.0.0.1 - - [18/Oct/2024 14:46:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:47:24,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:47:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:47:24,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:47:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:48:24,499 - INFO - 127.0.0.1 - - [18/Oct/2024 14:48:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:48:24,499 - INFO - 127.0.0.1 - - [18/Oct/2024 14:48:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:49:24,500 - INFO - 127.0.0.1 - - [18/Oct/2024 14:49:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:49:24,500 - INFO - 127.0.0.1 - - [18/Oct/2024 14:49:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:50:24,510 - INFO - 127.0.0.1 - - [18/Oct/2024 14:50:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:50:24,510 - INFO - 127.0.0.1 - - [18/Oct/2024 14:50:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:51:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:51:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:51:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:51:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:52:24,509 - INFO - 127.0.0.1 - - [18/Oct/2024 14:52:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:52:24,509 - INFO - 127.0.0.1 - - [18/Oct/2024 14:52:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:53:24,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:53:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:53:24,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:53:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:54:07,210 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:04:07 CST)" (scheduled at 2024-10-18 14:54:07.206831+08:00)
+2024-10-18 14:54:07,210 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:04:07 CST)" (scheduled at 2024-10-18 14:54:07.206831+08:00)
+2024-10-18 14:54:07,213 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:54:07,213 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:54:07,213 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:04:07 CST)" executed successfully
+2024-10-18 14:54:07,213 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:04:07 CST)" executed successfully
+2024-10-18 14:54:08,876 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:04:08 CST)" (scheduled at 2024-10-18 14:54:08.865464+08:00)
+2024-10-18 14:54:08,876 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:04:08 CST)" (scheduled at 2024-10-18 14:54:08.865464+08:00)
+2024-10-18 14:54:08,879 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:54:08,879 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 14:54:08,879 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:04:08 CST)" executed successfully
+2024-10-18 14:54:08,879 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:04:08 CST)" executed successfully
+2024-10-18 14:54:24,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:54:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:54:24,505 - INFO - 127.0.0.1 - - [18/Oct/2024 14:54:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:55:24,511 - INFO - 127.0.0.1 - - [18/Oct/2024 14:55:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:55:24,511 - INFO - 127.0.0.1 - - [18/Oct/2024 14:55:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:56:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:56:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:56:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 14:56:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:57:24,511 - INFO - 127.0.0.1 - - [18/Oct/2024 14:57:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:57:24,511 - INFO - 127.0.0.1 - - [18/Oct/2024 14:57:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:58:59,963 - INFO - 127.0.0.1 - - [18/Oct/2024 14:58:59] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:58:59,963 - INFO - 127.0.0.1 - - [18/Oct/2024 14:58:59] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:59:06,519 - INFO - 127.0.0.1 - - [18/Oct/2024 14:59:06] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:59:06,519 - INFO - 127.0.0.1 - - [18/Oct/2024 14:59:06] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:59:16,504 - INFO - 127.0.0.1 - - [18/Oct/2024 14:59:16] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:59:16,504 - INFO - 127.0.0.1 - - [18/Oct/2024 14:59:16] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:59:26,498 - INFO - 127.0.0.1 - - [18/Oct/2024 14:59:26] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:59:26,498 - INFO - 127.0.0.1 - - [18/Oct/2024 14:59:26] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:59:36,512 - INFO - 127.0.0.1 - - [18/Oct/2024 14:59:36] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:59:36,512 - INFO - 127.0.0.1 - - [18/Oct/2024 14:59:36] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:59:46,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:59:46] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:59:46,508 - INFO - 127.0.0.1 - - [18/Oct/2024 14:59:46] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:59:56,510 - INFO - 127.0.0.1 - - [18/Oct/2024 14:59:56] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 14:59:56,510 - INFO - 127.0.0.1 - - [18/Oct/2024 14:59:56] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:23:28,313 - INFO - 127.0.0.1 - - [18/Oct/2024 15:23:28] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:23:28,313 - INFO - 127.0.0.1 - - [18/Oct/2024 15:23:28] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:24:24,500 - INFO - 127.0.0.1 - - [18/Oct/2024 15:24:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:24:24,500 - INFO - 127.0.0.1 - - [18/Oct/2024 15:24:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:25:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 15:25:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:25:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 15:25:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:26:24,508 - INFO - 127.0.0.1 - - [18/Oct/2024 15:26:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:26:24,508 - INFO - 127.0.0.1 - - [18/Oct/2024 15:26:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:27:24,512 - INFO - 127.0.0.1 - - [18/Oct/2024 15:27:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:27:24,512 - INFO - 127.0.0.1 - - [18/Oct/2024 15:27:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:27:29,348 - WARNING - Run time of job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:34:07 CST)" was missed by 0:03:22.140405
+2024-10-18 15:27:29,348 - WARNING - Run time of job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:34:07 CST)" was missed by 0:03:22.140405
+2024-10-18 15:27:31,406 - WARNING - Run time of job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:34:08 CST)" was missed by 0:03:22.541105
+2024-10-18 15:27:31,406 - WARNING - Run time of job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:34:08 CST)" was missed by 0:03:22.541105
+2024-10-18 15:28:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 15:28:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:28:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 15:28:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:29:24,497 - INFO - 127.0.0.1 - - [18/Oct/2024 15:29:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:29:24,497 - INFO - 127.0.0.1 - - [18/Oct/2024 15:29:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:30:24,504 - INFO - 127.0.0.1 - - [18/Oct/2024 15:30:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:30:24,504 - INFO - 127.0.0.1 - - [18/Oct/2024 15:30:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:31:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 15:31:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:31:24,507 - INFO - 127.0.0.1 - - [18/Oct/2024 15:31:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:32:24,501 - INFO - 127.0.0.1 - - [18/Oct/2024 15:32:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:32:24,501 - INFO - 127.0.0.1 - - [18/Oct/2024 15:32:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:33:24,511 - INFO - 127.0.0.1 - - [18/Oct/2024 15:33:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:33:24,511 - INFO - 127.0.0.1 - - [18/Oct/2024 15:33:24] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:34:07,210 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:44:07 CST)" (scheduled at 2024-10-18 15:34:07.206831+08:00)
+2024-10-18 15:34:07,210 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:44:07 CST)" (scheduled at 2024-10-18 15:34:07.206831+08:00)
+2024-10-18 15:34:07,212 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 15:34:07,212 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 15:34:07,212 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:44:07 CST)" executed successfully
+2024-10-18 15:34:07,212 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:44:07 CST)" executed successfully
+2024-10-18 15:34:08,878 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:44:08 CST)" (scheduled at 2024-10-18 15:34:08.865464+08:00)
+2024-10-18 15:34:08,878 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:44:08 CST)" (scheduled at 2024-10-18 15:34:08.865464+08:00)
+2024-10-18 15:34:08,880 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 15:34:08,880 - INFO - Deleted 0 expired tokenTmp entries.
+2024-10-18 15:34:08,881 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:44:08 CST)" executed successfully
+2024-10-18 15:34:08,881 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-10-18 15:44:08 CST)" executed successfully
+2024-10-18 15:34:10,467 - INFO - 127.0.0.1 - - [18/Oct/2024 15:34:10] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-10-18 15:34:10,467 - INFO - 127.0.0.1 - - [18/Oct/2024 15:34:10] "[31m[1mPOST /api/dashboard/stats HTTP/1.1[0m" 401 -
+2024-11-07 15:26:30,967 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:30,967 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:30,967 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:30,967 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:30,967 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:30,967 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:30,967 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:30,967 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:30,970 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:26:30,970 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:26:30,970 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:26:30,970 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:26:30,970 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:26:30,970 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:26:30,970 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:26:30,970 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:26:30,970 - INFO - Scheduler started
+2024-11-07 15:26:30,970 - INFO - Scheduler started
+2024-11-07 15:26:31,004 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.107.26.48:5000
+2024-11-07 15:26:31,004 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.107.26.48:5000
+2024-11-07 15:26:31,004 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 15:26:31,004 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 15:26:31,006 - INFO -  * Restarting with stat
+2024-11-07 15:26:31,006 - INFO -  * Restarting with stat
+2024-11-07 15:26:31,700 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:31,700 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:31,701 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:31,701 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:31,701 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:31,701 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:31,701 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:31,701 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:26:31,703 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:26:31,703 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:26:31,703 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:26:31,703 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:26:31,703 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:26:31,703 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:26:31,703 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:26:31,703 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:26:31,703 - INFO - Scheduler started
+2024-11-07 15:26:31,703 - INFO - Scheduler started
+2024-11-07 15:26:31,707 - WARNING -  * Debugger is active!
+2024-11-07 15:26:31,707 - WARNING -  * Debugger is active!
+2024-11-07 15:26:31,712 - INFO -  * Debugger PIN: 126-837-255
+2024-11-07 15:26:31,712 - INFO -  * Debugger PIN: 126-837-255
+2024-11-07 15:28:44,077 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,077 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,079 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,079 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,079 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,079 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,079 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,079 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,080 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:28:44,080 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:28:44,080 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:28:44,080 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:28:44,080 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:28:44,080 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:28:44,081 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:28:44,081 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:28:44,081 - INFO - Scheduler started
+2024-11-07 15:28:44,081 - INFO - Scheduler started
+2024-11-07 15:28:44,097 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.107.26.48:5000
+2024-11-07 15:28:44,097 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.107.26.48:5000
+2024-11-07 15:28:44,097 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 15:28:44,097 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 15:28:44,098 - INFO -  * Restarting with stat
+2024-11-07 15:28:44,098 - INFO -  * Restarting with stat
+2024-11-07 15:28:44,788 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,788 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,788 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,788 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,788 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,788 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,788 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,788 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:28:44,790 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:28:44,790 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:28:44,790 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:28:44,790 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:28:44,790 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:28:44,790 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:28:44,790 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:28:44,790 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:28:44,790 - INFO - Scheduler started
+2024-11-07 15:28:44,790 - INFO - Scheduler started
+2024-11-07 15:28:44,796 - WARNING -  * Debugger is active!
+2024-11-07 15:28:44,796 - WARNING -  * Debugger is active!
+2024-11-07 15:28:44,798 - INFO -  * Debugger PIN: 126-837-255
+2024-11-07 15:28:44,798 - INFO -  * Debugger PIN: 126-837-255
+2024-11-07 15:29:14,264 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:14,264 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:14,264 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:14,264 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:14,264 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:14,264 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:14,264 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:14,264 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:14,266 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:29:14,266 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:29:14,266 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:29:14,266 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:29:14,266 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:29:14,266 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:29:14,266 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:29:14,266 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:29:14,266 - INFO - Scheduler started
+2024-11-07 15:29:14,266 - INFO - Scheduler started
+2024-11-07 15:29:14,282 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.107.26.48:5000
+2024-11-07 15:29:14,282 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.107.26.48:5000
+2024-11-07 15:29:14,282 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 15:29:14,282 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 15:29:14,284 - INFO -  * Restarting with stat
+2024-11-07 15:29:14,284 - INFO -  * Restarting with stat
+2024-11-07 15:29:15,008 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:15,008 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:15,008 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:15,008 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:15,008 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:15,008 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:15,008 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:15,008 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:29:15,009 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:29:15,009 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:29:15,009 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:29:15,009 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:29:15,009 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:29:15,009 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:29:15,009 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:29:15,009 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:29:15,009 - INFO - Scheduler started
+2024-11-07 15:29:15,009 - INFO - Scheduler started
+2024-11-07 15:29:15,013 - WARNING -  * Debugger is active!
+2024-11-07 15:29:15,013 - WARNING -  * Debugger is active!
+2024-11-07 15:29:15,015 - INFO -  * Debugger PIN: 126-837-255
+2024-11-07 15:29:15,015 - INFO -  * Debugger PIN: 126-837-255
+2024-11-07 15:29:24,276 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-07 15:29:24 CST)" (scheduled at 2024-11-07 15:29:24.264982+08:00)
+2024-11-07 15:29:24,276 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:24 CST)" (scheduled at 2024-11-07 15:29:24.264982+08:00)
+2024-11-07 15:29:25,047 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-07 15:29:25 CST)" (scheduled at 2024-11-07 15:29:25.008652+08:00)
+2024-11-07 15:29:25,047 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-07 15:29:25 CST)" (scheduled at 2024-11-07 15:29:25.008652+08:00)
+2024-11-07 15:29:25,146 - ERROR - Backup command failed with exit status 1
+2024-11-07 15:29:25,146 - ERROR - Backup command failed with exit status 1
+2024-11-07 15:29:25,147 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:25 CST)" executed successfully
+2024-11-07 15:29:25,147 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:25 CST)" executed successfully
+2024-11-07 15:29:26,674 - INFO - Database backup completed successfully.
+2024-11-07 15:29:26,674 - INFO - Database backup completed successfully.
+2024-11-07 15:29:26,675 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:24 CST)" executed successfully
+2024-11-07 15:29:26,675 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:24 CST)" executed successfully
+2024-11-07 15:29:54,266 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:54 CST)" (scheduled at 2024-11-07 15:29:54.264982+08:00)
+2024-11-07 15:29:54,266 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:54 CST)" (scheduled at 2024-11-07 15:29:54.264982+08:00)
+2024-11-07 15:29:54,267 - INFO - Database file size: 8865 bytes
+2024-11-07 15:29:54,267 - INFO - Database file size: 8865 bytes
+2024-11-07 15:29:54,269 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:54 CST)" executed successfully
+2024-11-07 15:29:54,269 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:54 CST)" executed successfully
+2024-11-07 15:29:55,013 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:55 CST)" (scheduled at 2024-11-07 15:29:55.008652+08:00)
+2024-11-07 15:29:55,013 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:55 CST)" (scheduled at 2024-11-07 15:29:55.008652+08:00)
+2024-11-07 15:29:55,015 - INFO - Database file size: 8865 bytes
+2024-11-07 15:29:55,015 - INFO - Database file size: 8865 bytes
+2024-11-07 15:29:55,015 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:55 CST)" executed successfully
+2024-11-07 15:29:55,015 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:29:55 CST)" executed successfully
+2024-11-07 15:35:47,110 - INFO - 127.0.0.1 - - [07/Nov/2024 15:35:47] "GET /api/Project-creation?token=g2!4ubt%23mn!kyocbzh**%23?6p6@*x3j&project_name=project0 HTTP/1.1" 200 -
+2024-11-07 15:35:47,110 - INFO - 127.0.0.1 - - [07/Nov/2024 15:35:47] "GET /api/Project-creation?token=g2!4ubt%23mn!kyocbzh**%23?6p6@*x3j&project_name=project0 HTTP/1.1" 200 -
+2024-11-07 15:39:30,040 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,040 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,040 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,040 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,041 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,041 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,041 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,041 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,043 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:39:30,043 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:39:30,043 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:39:30,043 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:39:30,043 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:39:30,043 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:39:30,043 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:39:30,043 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:39:30,043 - INFO - Scheduler started
+2024-11-07 15:39:30,043 - INFO - Scheduler started
+2024-11-07 15:39:30,062 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.107.26.48:5000
+2024-11-07 15:39:30,062 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.107.26.48:5000
+2024-11-07 15:39:30,062 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 15:39:30,062 - INFO - [33mPress CTRL+C to quit[0m
+2024-11-07 15:39:30,064 - INFO -  * Restarting with stat
+2024-11-07 15:39:30,064 - INFO -  * Restarting with stat
+2024-11-07 15:39:30,719 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,719 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,720 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,720 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,720 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,720 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,720 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,720 - INFO - Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2024-11-07 15:39:30,721 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:39:30,721 - INFO - Added job "delete_expired_tokenTmps" to job store "default"
+2024-11-07 15:39:30,722 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:39:30,722 - INFO - Added job "backup_database" to job store "default"
+2024-11-07 15:39:30,722 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:39:30,722 - INFO - Added job "check_db_size" to job store "default"
+2024-11-07 15:39:30,722 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:39:30,722 - INFO - Added job "delete_unactivated_users" to job store "default"
+2024-11-07 15:39:30,722 - INFO - Scheduler started
+2024-11-07 15:39:30,722 - INFO - Scheduler started
+2024-11-07 15:39:30,728 - WARNING -  * Debugger is active!
+2024-11-07 15:39:30,728 - WARNING -  * Debugger is active!
+2024-11-07 15:39:30,730 - INFO -  * Debugger PIN: 126-837-255
+2024-11-07 15:39:30,730 - INFO -  * Debugger PIN: 126-837-255
+2024-11-07 15:39:40,044 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-07 15:39:40 CST)" (scheduled at 2024-11-07 15:39:40.040606+08:00)
+2024-11-07 15:39:40,044 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:39:40 CST)" (scheduled at 2024-11-07 15:39:40.040606+08:00)
+2024-11-07 15:39:40,196 - INFO - Database backup completed successfully.
+2024-11-07 15:39:40,196 - INFO - Database backup completed successfully.
+2024-11-07 15:39:40,197 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:39:40 CST)" executed successfully
+2024-11-07 15:39:40,197 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:39:40 CST)" executed successfully
+2024-11-07 15:39:40,728 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-07 15:39:40 CST)" (scheduled at 2024-11-07 15:39:40.720536+08:00)
+2024-11-07 15:39:40,728 - INFO - Running job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-07 15:39:40 CST)" (scheduled at 2024-11-07 15:39:40.720536+08:00)
+2024-11-07 15:39:40,875 - INFO - Database backup completed successfully.
+2024-11-07 15:39:40,875 - INFO - Database backup completed successfully.
+2024-11-07 15:39:40,875 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:39:40 CST)" executed successfully
+2024-11-07 15:39:40,875 - INFO - Job "backup_database (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:39:40 CST)" executed successfully
+2024-11-07 15:40:10,054 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:40:10 CST)" (scheduled at 2024-11-07 15:40:10.041989+08:00)
+2024-11-07 15:40:10,054 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:40:10 CST)" (scheduled at 2024-11-07 15:40:10.041989+08:00)
+2024-11-07 15:40:10,057 - INFO - Database file size: 8865 bytes
+2024-11-07 15:40:10,057 - INFO - Database file size: 8865 bytes
+2024-11-07 15:40:10,057 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:40:10 CST)" executed successfully
+2024-11-07 15:40:10,057 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:40:10 CST)" executed successfully
+2024-11-07 15:40:10,723 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:40:10 CST)" (scheduled at 2024-11-07 15:40:10.720536+08:00)
+2024-11-07 15:40:10,723 - INFO - Running job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:40:10 CST)" (scheduled at 2024-11-07 15:40:10.720536+08:00)
+2024-11-07 15:40:10,725 - INFO - Database file size: 8865 bytes
+2024-11-07 15:40:10,725 - INFO - Database file size: 8865 bytes
+2024-11-07 15:40:10,726 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:40:10 CST)" executed successfully
+2024-11-07 15:40:10,726 - INFO - Job "check_db_size (trigger: interval[1 day, 0:00:00], next run at: 2024-11-08 15:40:10 CST)" executed successfully
+2024-11-07 15:40:29,013 - INFO - 127.0.0.1 - - [07/Nov/2024 15:40:29] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:40:29,013 - INFO - 127.0.0.1 - - [07/Nov/2024 15:40:29] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:40:29,041 - INFO - 127.0.0.1 - - [07/Nov/2024 15:40:29] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:40:29,041 - INFO - 127.0.0.1 - - [07/Nov/2024 15:40:29] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:43:33,593 - INFO - 127.0.0.1 - - [07/Nov/2024 15:43:33] "OPTIONS /login HTTP/1.1" 200 -
+2024-11-07 15:43:33,593 - INFO - 127.0.0.1 - - [07/Nov/2024 15:43:33] "OPTIONS /login HTTP/1.1" 200 -
+2024-11-07 15:43:33,599 - INFO - 127.0.0.1 - - [07/Nov/2024 15:43:33] "POST /login HTTP/1.1" 200 -
+2024-11-07 15:43:33,599 - INFO - 127.0.0.1 - - [07/Nov/2024 15:43:33] "POST /login HTTP/1.1" 200 -
+2024-11-07 15:43:48,171 - INFO - 127.0.0.1 - - [07/Nov/2024 15:43:48] "OPTIONS /login HTTP/1.1" 200 -
+2024-11-07 15:43:48,171 - INFO - 127.0.0.1 - - [07/Nov/2024 15:43:48] "OPTIONS /login HTTP/1.1" 200 -
+2024-11-07 15:43:48,368 - INFO - 127.0.0.1 - - [07/Nov/2024 15:43:48] "POST /login HTTP/1.1" 200 -
+2024-11-07 15:43:48,368 - INFO - 127.0.0.1 - - [07/Nov/2024 15:43:48] "POST /login HTTP/1.1" 200 -
+2024-11-07 15:44:14,713 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:14] "OPTIONS /login HTTP/1.1" 200 -
+2024-11-07 15:44:14,713 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:14] "OPTIONS /login HTTP/1.1" 200 -
+2024-11-07 15:44:14,918 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:14] "POST /login HTTP/1.1" 200 -
+2024-11-07 15:44:14,918 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:14] "POST /login HTTP/1.1" 200 -
+2024-11-07 15:44:14,945 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:14] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:44:14,945 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:14] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:44:14,972 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:14] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:44:14,972 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:14] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:44:43,379 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:43] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:44:43,379 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:43] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:44:43,397 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:43] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:44:43,397 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:43] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:44:56,633 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:56] "OPTIONS /login HTTP/1.1" 200 -
+2024-11-07 15:44:56,633 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:56] "OPTIONS /login HTTP/1.1" 200 -
+2024-11-07 15:44:56,836 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:56] "POST /login HTTP/1.1" 200 -
+2024-11-07 15:44:56,836 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:56] "POST /login HTTP/1.1" 200 -
+2024-11-07 15:44:56,859 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:56] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:44:56,859 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:56] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:44:56,873 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:56] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:44:56,873 - INFO - 127.0.0.1 - - [07/Nov/2024 15:44:56] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:46:50,953 - INFO - 127.0.0.1 - - [07/Nov/2024 15:46:50] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:46:50,953 - INFO - 127.0.0.1 - - [07/Nov/2024 15:46:50] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:46:50,966 - INFO - 127.0.0.1 - - [07/Nov/2024 15:46:50] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:46:50,966 - INFO - 127.0.0.1 - - [07/Nov/2024 15:46:50] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:46:52,390 - INFO - 127.0.0.1 - - [07/Nov/2024 15:46:52] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:46:52,390 - INFO - 127.0.0.1 - - [07/Nov/2024 15:46:52] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:48:08,304 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:08] "[31m[1mGET / HTTP/1.1[0m" 405 -
+2024-11-07 15:48:08,304 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:08] "[31m[1mGET / HTTP/1.1[0m" 405 -
+2024-11-07 15:48:08,364 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:08] "GET /favicon.ico HTTP/1.1" 200 -
+2024-11-07 15:48:08,364 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:08] "GET /favicon.ico HTTP/1.1" 200 -
+2024-11-07 15:48:20,630 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:20] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:48:20,630 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:20] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:48:20,646 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:20] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:48:20,646 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:20] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:48:36,927 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:36] "OPTIONS /register HTTP/1.1" 200 -
+2024-11-07 15:48:36,927 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:36] "OPTIONS /register HTTP/1.1" 200 -
+2024-11-07 15:48:36,931 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:36] "POST /register HTTP/1.1" 200 -
+2024-11-07 15:48:36,931 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:36] "POST /register HTTP/1.1" 200 -
+2024-11-07 15:48:42,377 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:42] "OPTIONS /register HTTP/1.1" 200 -
+2024-11-07 15:48:42,377 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:42] "OPTIONS /register HTTP/1.1" 200 -
+2024-11-07 15:48:42,383 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:42] "POST /register HTTP/1.1" 200 -
+2024-11-07 15:48:42,383 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:42] "POST /register HTTP/1.1" 200 -
+2024-11-07 15:48:56,953 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:56] "OPTIONS /register HTTP/1.1" 200 -
+2024-11-07 15:48:56,953 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:56] "OPTIONS /register HTTP/1.1" 200 -
+2024-11-07 15:48:58,177 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:58] "POST /register HTTP/1.1" 200 -
+2024-11-07 15:48:58,177 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:58] "POST /register HTTP/1.1" 200 -
+2024-11-07 15:48:58,201 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:58] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:48:58,201 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:58] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:48:58,204 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:58] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:48:58,204 - INFO - 127.0.0.1 - - [07/Nov/2024 15:48:58] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:49:30,056 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-11-07 15:59:30 CST)" (scheduled at 2024-11-07 15:49:30.040606+08:00)
+2024-11-07 15:49:30,056 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-11-07 15:59:30 CST)" (scheduled at 2024-11-07 15:49:30.040606+08:00)
+2024-11-07 15:49:30,074 - INFO - Deleted 0 expired tokenTmp entries.
+2024-11-07 15:49:30,074 - INFO - Deleted 0 expired tokenTmp entries.
+2024-11-07 15:49:30,074 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-11-07 15:59:30 CST)" executed successfully
+2024-11-07 15:49:30,074 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-11-07 15:59:30 CST)" executed successfully
+2024-11-07 15:49:30,727 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-11-07 15:59:30 CST)" (scheduled at 2024-11-07 15:49:30.719540+08:00)
+2024-11-07 15:49:30,727 - INFO - Running job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-11-07 15:59:30 CST)" (scheduled at 2024-11-07 15:49:30.719540+08:00)
+2024-11-07 15:49:30,733 - INFO - Deleted 0 expired tokenTmp entries.
+2024-11-07 15:49:30,733 - INFO - Deleted 0 expired tokenTmp entries.
+2024-11-07 15:49:30,733 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-11-07 15:59:30 CST)" executed successfully
+2024-11-07 15:49:30,733 - INFO - Job "delete_expired_tokenTmps (trigger: interval[0:10:00], next run at: 2024-11-07 15:59:30 CST)" executed successfully
+2024-11-07 15:49:51,096 - INFO - 127.0.0.1 - - [07/Nov/2024 15:49:51] "GET /activate-account/tcmdo0o7cl378xv3jy91ek4p8i1w8i HTTP/1.1" 200 -
+2024-11-07 15:49:51,096 - INFO - 127.0.0.1 - - [07/Nov/2024 15:49:51] "GET /activate-account/tcmdo0o7cl378xv3jy91ek4p8i1w8i HTTP/1.1" 200 -
+2024-11-07 15:49:51,303 - INFO - 127.0.0.1 - - [07/Nov/2024 15:49:51] "GET /favicon.ico HTTP/1.1" 200 -
+2024-11-07 15:49:51,303 - INFO - 127.0.0.1 - - [07/Nov/2024 15:49:51] "GET /favicon.ico HTTP/1.1" 200 -
+2024-11-07 15:50:57,965 - INFO - 127.0.0.1 - - [07/Nov/2024 15:50:57] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:50:57,965 - INFO - 127.0.0.1 - - [07/Nov/2024 15:50:57] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:50:57,968 - INFO - 127.0.0.1 - - [07/Nov/2024 15:50:57] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:50:57,968 - INFO - 127.0.0.1 - - [07/Nov/2024 15:50:57] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:51:07,610 - INFO - 127.0.0.1 - - [07/Nov/2024 15:51:07] "OPTIONS /login HTTP/1.1" 200 -
+2024-11-07 15:51:07,610 - INFO - 127.0.0.1 - - [07/Nov/2024 15:51:07] "OPTIONS /login HTTP/1.1" 200 -
+2024-11-07 15:51:07,613 - INFO - 127.0.0.1 - - [07/Nov/2024 15:51:07] "POST /login HTTP/1.1" 200 -
+2024-11-07 15:51:07,613 - INFO - 127.0.0.1 - - [07/Nov/2024 15:51:07] "POST /login HTTP/1.1" 200 -
+2024-11-07 15:51:13,710 - INFO - 127.0.0.1 - - [07/Nov/2024 15:51:13] "OPTIONS /login HTTP/1.1" 200 -
+2024-11-07 15:51:13,710 - INFO - 127.0.0.1 - - [07/Nov/2024 15:51:13] "OPTIONS /login HTTP/1.1" 200 -
+2024-11-07 15:51:13,914 - INFO - 127.0.0.1 - - [07/Nov/2024 15:51:13] "POST /login HTTP/1.1" 200 -
+2024-11-07 15:51:13,914 - INFO - 127.0.0.1 - - [07/Nov/2024 15:51:13] "POST /login HTTP/1.1" 200 -
+2024-11-07 15:51:13,933 - INFO - 127.0.0.1 - - [07/Nov/2024 15:51:13] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:51:13,933 - INFO - 127.0.0.1 - - [07/Nov/2024 15:51:13] "OPTIONS /profile HTTP/1.1" 200 -
+2024-11-07 15:51:13,943 - INFO - 127.0.0.1 - - [07/Nov/2024 15:51:13] "POST /profile HTTP/1.1" 200 -
+2024-11-07 15:51:13,943 - INFO - 127.0.0.1 - - [07/Nov/2024 15:51:13] "POST /profile HTTP/1.1" 200 -
