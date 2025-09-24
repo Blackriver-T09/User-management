@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{{name}}的个人页面</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eee;
+            color: #333;
+        }
+        .profile-container {
+            width: 80%;
+            max-width: 960px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .profile-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .profile-header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .profile-header div {
+            flex-grow: 1;
+        }
+        .profile-header h1 {
+            margin: 0;
+        }
+        .profile-header p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="{{ url_for('static', filename='images/profile picture.jpg') }}" alt="头像加载失败">
+            <div>
+                <h1>姓名：{{name}}</h1>
+                <p>职业 | 地点</p>
+                <p>社交媒体链接可以放这里</p>
+            </div>
+        </div>
+        <div>
+            <h2>个人简介</h2>
+            <p>这里是{{name}}的个人简介，你真是个天才。</p>
+        </div>
+        <div class="gallery">
+            <h2>艺术作品展示</h2>
+            <img src="{{ url_for('static', filename='images/picture1.jpg') }}" alt="图片1加载失败">
+            <img src="{{ url_for('static', filename='images/picture2.jpg') }}" alt="图片2加载失败">
+            <!-- 更多作品可以继续添加 -->
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>MOOL的主页</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #333;
+            color: white;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MOOL的主页</h1>
+        <p>欢迎来到我的赛博世界</p>
+    </header>
+    <section>
+        <h2>关于我</h2>
+        <p>这里是MOOL的简介,一个中二病安全学习者</p>
+    </section>
+    <section class="gallery">
+        <h2>艺术画廊</h2>
+        <p>这里展示一些图片</p>
+        <img src="{{ url_for('static', filename='images/picture1.jpg') }}" alt="图片1加载失败">
+        <img src="{{ url_for('static', filename='images/picture2.jpg') }}" alt="图片2加载失败">
+        <p>这一行用于测试输入变量：{{value_1}}</p>
+    </section>
+    <footer>
+        <p>联系方式: 电子邮件@example.com | 电话: 123-456-7890</p>
+    </footer>
+</body>
+</html>
+
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .stat-container {
+            margin-top: 10px;
+            padding: 10px;
+            width: 90%;
+            max-width: 600px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .stat-container:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: scale(1.03);
+        }
+        .stat {
+            font-size: 18px;
+            padding: 5px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .stat:last-child {
+            border-bottom: none;
+        }
+        .backup-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .backup-button:hover {
+            background-color: #2980b9;
+        }
+        .backup-message {
+            margin-top: 10px;
+            color: #27ae60;
+            font-size: 14px;
+        }
+        .backup-error {
+            color: #c0392b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <div class="stat-container" id="user_count">Total Users: Loading...</div>
+    <div class="stat-container" id="project_count">Total Projects: Loading...</div>
+    <div class="stat-container" id="task_count">Total Tasks: Loading...</div>
+    <div class="stat-container" id="calculating_tasks">Calculating Tasks: Loading...</div>
+    <div class="stat-container" id="queued_tasks">Queued Tasks: Loading...</div>
+    <div class="stat-container" id="completed_tasks">Completed Tasks: Loading...</div>
+
+    <!-- 手动备份按钮 -->
+    <button class="backup-button" id="manual_backup_button">Manual Backup</button>
+    <div class="backup-message" id="backup_message"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        const token = "{{ token }}"; // Pass the token to JavaScript
+
+        function fetchData() {
+            $.ajax({
+                url: "/api/dashboard/stats",
+                type: "POST",
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function(data) {
+                    $('#user_count').text('Total Users: ' + data.user_count);
+                    $('#project_count').text('Total Projects: ' + data.project_count);
+                    $('#task_count').text('Total Tasks: ' + data.task_count);
+                    $('#calculating_tasks').text('Calculating Tasks: ' + data.calculating_tasks);
+                    $('#queued_tasks').text('Queued Tasks: ' + data.queued_tasks);
+                    $('#completed_tasks').text('Completed Tasks: ' + data.completed_tasks);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error fetching data: " + error);
+                }
+            });
+        }
+
+        // 手动备份逻辑
+        function manualBackup() {
+            $('#backup_message').text('Processing backup...').removeClass('backup-error');
+            $.ajax({
+                url: "/api/manual-backup",
+                type: "POST",
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function(data) {
+                    if (data.result) {
+                        $('#backup_message').text(data.message).removeClass('backup-error');
+                    } else {
+                        $('#backup_message').text(data.message).addClass('backup-error');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $('#backup_message').text('Failed to perform backup: ' + error).addClass('backup-error');
+                }
+            });
+        }
+
+        // 点击手动备份按钮
+        $('#manual_backup_button').on('click', manualBackup);
+
+        // Update every 10 seconds
+        setInterval(fetchData, 10000);
+        fetchData(); // Initial fetch
+    </script>
+</body>
+</html>
